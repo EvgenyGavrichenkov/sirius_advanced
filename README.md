@@ -1,1 +1,2 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/ for how to compile this example.
+Здесь содержатся конспекты для курса "Анализ данных в социальных науках с помощью языка R" в Сириусе.
+Сам сайт с конспектами находится здесь: https://pozdniakov.github.io/sirius_advanced/
