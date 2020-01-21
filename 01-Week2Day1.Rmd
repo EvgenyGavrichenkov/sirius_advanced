@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Неделя 2, День 1 {#d1}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
