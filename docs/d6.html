@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 4 Неделя 2, День 6 | Сириус. Анализ данных в R. Вторая неделя.</title>
+  <title>Chapter 6 Неделя 2, День 6 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
   <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 4 Неделя 2, День 6 | Сириус. Анализ данных в R. Вторая неделя." />
+  <meta property="og:title" content="Chapter 6 Неделя 2, День 6 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Неделя 2, День 6 | Сириус. Анализ данных в R. Вторая неделя." />
+  <meta name="twitter:title" content="Chapter 6 Неделя 2, День 6 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   
   <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
   
@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="d2.html">
+<link rel="prev" href="d4.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,6 +48,25 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
+<script src="libs/edgebundleR-0.0.2/packages.js"></script>
+<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
 
 
 <style type="text/css">
@@ -106,13 +125,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>1</b> Неделя 2, День 1</a><ul>
 <li class="chapter" data-level="1.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>1.1</b> Warmup exercise</a></li>
-<li class="chapter" data-level="1.2" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>1.2</b> Формула</a></li>
-<li class="chapter" data-level="1.3" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.3</b> Простая линейная регрессия</a><ul>
-<li class="chapter" data-level="1.3.1" data-path="d1.html"><a href="d1.html#---"><i class="fa fa-check"></i><b>1.3.1</b> Интерпретация вывода линейной регрессии</a></li>
-<li class="chapter" data-level="1.3.2" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>1.3.2</b> Допущения линейной регрессии</a></li>
-<li class="chapter" data-level="1.3.3" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>1.3.3</b> Влияние выбросов на линейную модель</a></li>
+<li class="chapter" data-level="1.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>1.2.1</b> Формула</a></li>
+<li class="chapter" data-level="1.2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2.2</b> Функция lm()</a></li>
+<li class="chapter" data-level="1.2.3" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>1.2.3</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.4" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>1.2.4</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.5" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>1.2.5</b> Влияние выбросов на линейную модель</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>1.4</b> Множественная линейная регрессия</a></li>
+<li class="chapter" data-level="1.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>1.3</b> Множественная линейная регрессия</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 2</a><ul>
 <li class="chapter" data-level="2.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>2.1</b> Дисперсионный анализ (ANOVA)</a><ul>
@@ -128,29 +148,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>2.1.10</b> Заключение</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="d2.html"><a href="d2.html#d2"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 3</a><ul>
-<li class="chapter" data-level="3.1" data-path="d2.html"><a href="d2.html#text"><i class="fa fa-check"></i><b>3.1</b> Введение в работу с текстом</a></li>
-<li class="chapter" data-level="3.2" data-path="d2.html"><a href="d2.html#text_base"><i class="fa fa-check"></i><b>3.2</b> Базовые операции с текстом</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="d2.html"><a href="d2.html#text_c"><i class="fa fa-check"></i><b>3.2.1</b> Соединение и разъединение строк</a></li>
-<li class="chapter" data-level="3.2.2" data-path="d2.html"><a href="d2.html#text_len"><i class="fa fa-check"></i><b>3.2.2</b> Подсчет длины строк</a></li>
-<li class="chapter" data-level="3.2.3" data-path="d2.html"><a href="d2.html#text_cut"><i class="fa fa-check"></i><b>3.2.3</b> Выделение подстрок и обрезание строк</a></li>
-<li class="chapter" data-level="3.2.4" data-path="d2.html"><a href="d2.html#text_to"><i class="fa fa-check"></i><b>3.2.4</b> Изменение регистра</a></li>
-<li class="chapter" data-level="3.2.5" data-path="d2.html"><a href="d2.html#text_rand"><i class="fa fa-check"></i><b>3.2.5</b> Случайные последовательности</a></li>
-<li class="chapter" data-level="3.2.6" data-path="d2.html"><a href="d2.html#text_sort"><i class="fa fa-check"></i><b>3.2.6</b> Сортировка</a></li>
+<li class="chapter" data-level="3" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 2, продолжение</a><ul>
+<li class="chapter" data-level="3.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>3.1</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>3.1.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.1.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>3.1.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.1.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>3.1.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.1.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>3.1.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.1.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>3.1.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>3.1.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.1.7" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>3.1.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.1.8" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>3.1.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.1.9" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>3.1.9</b> Вставлять HTML</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="d2.html"><a href="d2.html#regexp"><i class="fa fa-check"></i><b>3.3</b> Поиск паттернов и регулярные выражения</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="d2.html"><a href="d2.html#grep"><i class="fa fa-check"></i><b>3.3.1</b> grep(), gsub()</a></li>
-<li class="chapter" data-level="3.3.2" data-path="d2.html"><a href="d2.html#reg"><i class="fa fa-check"></i><b>3.3.2</b> Регулярные выражения</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="d2.html"><a href="d2.html#text_next"><i class="fa fa-check"></i><b>3.4</b> А что дальше?</a></li>
-<li class="chapter" data-level="3.5" data-path="d2.html"><a href="d2.html#fuzzy"><i class="fa fa-check"></i><b>3.5</b> Fuzzy matching</a></li>
+<li class="chapter" data-level="4" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Соединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 6</a><ul>
-<li class="chapter" data-level="4.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>4.1</b> Стиль кода</a></li>
-<li class="chapter" data-level="4.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>4.2</b> Вопроизводимость исследований</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>4.2.1</b> Спорные исследовательские практики</a></li>
-<li class="chapter" data-level="4.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>4.2.2</b> Вопроизводимые исследования в R</a></li>
-<li class="chapter" data-level="4.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>4.2.3</b> Статистическая мощность</a></li>
+<li class="chapter" data-level="4.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>4.4</b> А что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>5.1</b> Многомерные методы анализа данных</a></li>
+<li class="chapter" data-level="5.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>5.2</b> Хитмап корреляций</a></li>
+<li class="chapter" data-level="5.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>5.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>5.3.1</b> Количество извлекаемых компонент</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>5.4</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -165,7 +208,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Сириус. Анализ данных в R. Вторая неделя.</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя</a>
           </h1>
         </div>
 
@@ -174,9 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="d6" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Неделя 2, День 6</h1>
+<h1><span class="header-section-number">Chapter 6</span> Неделя 2, День 6</h1>
 <div id="style" class="section level2">
-<h2><span class="header-section-number">4.1</span> Стиль кода</h2>
+<h2><span class="header-section-number">6.1</span> Стиль кода</h2>
 <p>После того, как мы научились делать всякие сложные вещи в R, нужно снова вернуться к тому, что иногда кажется несколько занудным и неинтересным: к стилю написания кода и “воркфлоу”. После того, как путем проб и ошибок нужные результаты посчитаны, а подходящий график нарисован, очень хочется все закрыть и поскорее послать туда, куда это нужно было послать еще неделю назад. При сумбурном образе жизни современного ученого мало кому нравится идея о том, что после написания работающего кода нужно выдохнуть и все перепроверить, переписать код (если что-то можно сделать лучше), закомментировать сложные куски кода. Тем не менее, это не займет много времени, а в дальнейшем много раз окупится, когда придется возвращаться к коду или в нем окажется ошибка (а такое, как Вы уже могли догадаться, бывает часто).</p>
 <p>Есть некоторые обязательные правила, без которых у Вас ничего не будет работать. Например, нельзя использовать пробелы в названии переменных, переменные не могут начинаться с цифр и т.д. Есть менее строгие правила, которые связаны с тем, что нарушение таковых может в специфических случаях привести к ошибкам. Но даже если Вы знаете, в каких именно случаях и что может пойти не так и почему, уверены, что Вас это не коснется, то все равно игра не стоит свеч. Например, можно создать переменные с именем <code>T</code> и <code>F</code>, но делать этого не стоит, потому что это перепишет стандартные значения <code>T</code> и <code>F</code> (<code>TRUE</code> и <code>FALSE</code>). И если хотя где-то в коде Вы используете <code>T</code> вместо <code>TRUE</code>, то ничего не будет работать, придется потратить очень много времени, чтобы понять, в чем была ошибка. По этой же причине, кстати говоря, лучше не писать сокращать <code>TRUE</code> до <code>T</code>, а <code>FALSE</code> до <code>F</code>.</p>
 <p>Есть же правила, которые не связаны с тем, что они могут привести к ошибкам, а только с тем, что такой код становится проще читать. Особенно хорошо, если все придерживаются более-менее одного стиля, но, увы, такого в R нет: Вы уже могли заметить, что разные пакеты предлагают свой стиль, немного отличающийся от других.</p>
@@ -215,9 +258,9 @@ some_number &lt;-<span class="st"> </span><span class="dv">2</span> <span class=
 ## [1] &quot;10 is even&quot;</code></pre>
 </div>
 <div id="repr" class="section level2">
-<h2><span class="header-section-number">4.2</span> Вопроизводимость исследований</h2>
+<h2><span class="header-section-number">6.2</span> Вопроизводимость исследований</h2>
 <div id="quest" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Спорные исследовательские практики</h3>
+<h3><span class="header-section-number">6.2.1</span> Спорные исследовательские практики</h3>
 <p>Если Вы откроете какой-нибудь более-менее классический учебник по психологии, то увидите там много результатов исследований, которые в дальнейшем не удалось воспроизвести. Эта проблема накрыла академическое психологическое сообщество относительно недавно и стала, пожалуй, самой обсуждаемой темой среди ученых-психологов. Действительно, о чем еще говорить, если половина фактов твоей науки попросту неверна? <del>Об историческом смысле методологического кризиса, конечно же.</del> Получается, у теорий нет никакого подтверждения, а в плане знаний о психологических фактах мы находимся примерно там же, где и психологи, которые закупали метрономы и тахистоскопы почти полтора века назад.</p>
 <p>Оказалось, что то, как устроена академическая наука, способствует публикации ложноположительных результатов. Если теоретическая гипотеза подтверждается, то это дает ученому больше плюшек, чем если гипотеза не подтверждается. Да и сами ученые как-то неосознанно хотят оказаться правыми. Ну а перепроверка предыдущих достижений в психологии оказалась не в почете: всем хочется быть первопроходцами и открывать новые неожиданные феномены, а не скрупулезно перепроверять чужие открытия. Все это привело психологию к тому, что в ней (да и не только в ней) закрепилось какое-то количество спорных исследовательских практик (questionable research practices). Спорные практики на то и спорные, что не все они такие уж плохие, многие ученые даже считают, что в них нет ничего плохого. В отличие, например, от фальсификации данных - это, очевидно, совсем плохо.</p>
 <p>Вот некоторые распространенные спорные исследовательские практики:</p>
@@ -240,7 +283,7 @@ some_number &lt;-<span class="st"> </span><span class="dv">2</span> <span class=
 </ol>
 </div>
 <div id="repr_r" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Вопроизводимые исследования в R</h3>
+<h3><span class="header-section-number">6.2.2</span> Вопроизводимые исследования в R</h3>
 <p>Очевидно, что перечисленных практик стоит избегать. Однако недостаточно просто сказать “ребята, давайте вы не будете пытаться во что бы то ни стало искать неожиданные результаты и публиковать их”. Поэтому сейчас предлагаются потенциальные решения пробоемы воспроизводимости исследований, которые постепенно набирают все большую популярность. Самое распространенное решение - это использование пререгистраций. Все просто: исследователь планирует исследование, какую выборку он хочет собрать, как будет обрабатывать данные, какие результаты он будет принимать как соответствующие гипотезе, а какие - нет. Получается что-то вроде научной статьи без результатов и их обсуждения, хотя можно и в более простом виде все представить: главное, есть доказательство, что исследование вы планировали провести именно так, а не подменяли все на ходу для красивых выводов. Другой способ добиться большей воспроизводимости результатов (и защиты от фальсификации) - это увеличение прозрачности в публикации данных и методов анализа. Существуют ученые (к счастью, такое встречается все реже), которые будут раздражаться, если их попросить дать вам данные. Мол, ну как же так, я их столько собирал, это же мои данные, а вот вы украдете у меня их и сделаете что-нибудь на них, опубликуете свою статью. Нет уж, мол, сами собирайте свои данные. Я терпел, и вы терпите. Очевидно, что наука - не забивание гвоздей, а ценность научной работы не обязательно пропорциональна количеству задействованных испытуемых. Собранные данные в некоторых случаях можно использовать в других исследованиях, а если все могут посмотреть исходные данные и проверить анализ, то это вообще круто и может защитить от ошибок.</p>
 <p>Конечно, не все готовы к таким разворотам в исследовательской практике. Но лучше быть готовым, потому что в какой-то момент может оказаться, что новые практики станут обязательными. И тут R будет весьма кстати: можно выкладывать данные c RMarkdown документом, который будет сразу собирать из этого статью и графики. Данные со скриптами можно выкладывать на <a href="https://github.com">GitHub</a> - это удобно для коллективной работы над проектом. Другой вариант - выкладывать данные и скрипты для анализа на сайте <a href="osf.io" class="uri">osf.io</a>. Это сайт специально сделанный как платформа для публикации данных исследований и скриптов для них.</p>
 <p><strong>Самостоятельное задание</strong>:</p>
@@ -249,7 +292,7 @@ some_number &lt;-<span class="st"> </span><span class="dv">2</span> <span class=
 </ol>
 </div>
 <div id="power" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Статистическая мощность</h3>
+<h3><span class="header-section-number">6.2.3</span> Статистическая мощность</h3>
 <p>Чтобы избежать <em>optional stopping</em>, нужно определять размер выборки заранее. Как это сделать? Наиболее корректный способ предполагает использование анализа статистической мощности (statistical power analysis). Для этого понадобится пакет <code>pwr</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;pwr&quot;</span>)</code></pre></div>
 <p>Этот пакет предоставляет семейство функций для расчета мощности, размера эффекта, уровня значимости или нужного размера выборки для разных статистических тестов.</p>
@@ -296,38 +339,48 @@ some_number &lt;-<span class="st"> </span><span class="dv">2</span> <span class=
 <p>394 испытуемых в каждой группе!</p>
 <p>Можно проверить такие расчеты самостоятельно с помощью симуляции данных.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">t.test</span>(<span class="kw">rnorm</span>(<span class="dv">394</span>, <span class="dv">100</span>, <span class="dv">15</span>), <span class="kw">rnorm</span>(<span class="dv">394</span>, <span class="dv">103</span>, <span class="dv">15</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.803</code></pre>
+<pre><code>## [1] 0.8</code></pre>
 <p>Действительно, если много раз делать случайные выборки из двух нормальных распределений с средними, отличающимися на 0.2 стандартных отклонения, то примерно в 80% случаев вы получите статистически значимые различия!</p>
 <p><strong>Самостоятельное задание</strong>:</p>
 <ol style="list-style-type: decimal">
 <li>Представьте, что эффекта нет - две выборки взяты из нормального распределения. Посчитайте, как часто <code>t.test()</code> будет выдавать ложноположительный результат при альфа = .05.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">t.test</span>(<span class="kw">rnorm</span>(<span class="dv">15</span>), <span class="kw">rnorm</span>(<span class="dv">15</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.0493</code></pre>
+<pre><code>## [1] 0.0473</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Будет ли это зависеть от размера выборки?</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">t.test</span>(<span class="kw">rnorm</span>(<span class="dv">150</span>), <span class="kw">rnorm</span>(<span class="dv">150</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.0448</code></pre>
+<pre><code>## [1] 0.0508</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">t.test</span>(<span class="kw">rnorm</span>(<span class="dv">1500</span>), <span class="kw">rnorm</span>(<span class="dv">1500</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.049</code></pre>
+<pre><code>## [1] 0.0495</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Представьте, что мы работает не с данными нормального распределения, а с <code>rlnorm()</code>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">t.test</span>(<span class="kw">rlnorm</span>(<span class="dv">15</span>), <span class="kw">rlnorm</span>(<span class="dv">15</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.0336</code></pre>
+<pre><code>## [1] 0.0328</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">replicate</span>(<span class="dv">10000</span>, <span class="kw">t.test</span>(<span class="kw">rlnorm</span>(<span class="dv">150</span>), <span class="kw">rlnorm</span>(<span class="dv">150</span>))<span class="op">$</span>p.value <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.05</span>))</code></pre></div>
-<pre><code>## [1] 0.0476</code></pre>
+<pre><code>## [1] 0.0468</code></pre>
 
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="d2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -373,6 +426,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

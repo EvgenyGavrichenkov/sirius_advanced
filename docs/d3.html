@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 4 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 4 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  
+  <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+<meta name="author" content="Иван Поздняков">
+
+
+<meta name="date" content="2020-01-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="d2-rmd.html">
+<link rel="next" href="d4.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
+<script src="libs/edgebundleR-0.0.2/packages.js"></script>
+<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>1</b> Неделя 2, День 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>1.1</b> Warmup exercise</a></li>
+<li class="chapter" data-level="1.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>1.2.1</b> Формула</a></li>
+<li class="chapter" data-level="1.2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2.2</b> Функция lm()</a></li>
+<li class="chapter" data-level="1.2.3" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>1.2.3</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.4" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>1.2.4</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.5" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>1.2.5</b> Влияние выбросов на линейную модель</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>1.3</b> Множественная линейная регрессия</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>2.1</b> Дисперсионный анализ (ANOVA)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="d2.html"><a href="d2.html#aov"><i class="fa fa-check"></i><b>2.1.1</b> Функция aov()</a></li>
+<li class="chapter" data-level="2.1.2" data-path="d2.html"><a href="d2.html#anova_nhst"><i class="fa fa-check"></i><b>2.1.2</b> Тестирование значимости нулевой гипотезы в ANOVA.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>2.1.3</b> Post-hoc тесты</a></li>
+<li class="chapter" data-level="2.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>2.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
+<li class="chapter" data-level="2.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>2.1.5</b> Dummy coding</a></li>
+<li class="chapter" data-level="2.1.6" data-path="d2.html"><a href="d2.html#aov_a"><i class="fa fa-check"></i><b>2.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="2.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>2.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
+<li class="chapter" data-level="2.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>2.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
+<li class="chapter" data-level="2.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>2.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
+<li class="chapter" data-level="2.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>2.1.10</b> Заключение</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 2, продолжение</a><ul>
+<li class="chapter" data-level="3.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>3.1</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>3.1.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.1.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>3.1.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.1.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>3.1.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.1.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>3.1.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.1.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>3.1.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>3.1.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.1.7" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>3.1.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.1.8" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>3.1.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.1.9" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>3.1.9</b> Вставлять HTML</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Соединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>4.4</b> А что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>5.1</b> Многомерные методы анализа данных</a></li>
+<li class="chapter" data-level="5.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>5.2</b> Хитмап корреляций</a></li>
+<li class="chapter" data-level="5.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>5.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>5.3.1</b> Количество извлекаемых компонент</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>5.4</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d3" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Неделя 2, День 3</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)</code></pre></div>
+<div id="text" class="section level2">
+<h2><span class="header-section-number">4.1</span> Введение в работу с текстом</h2>
+<p>Работа с текстом - это отдельная и сложная задача. И у R все необходимые инструменты для этого!</p>
+<p>Всю работу со строками (и текстом в целом) можно условно поделить на три уровня:</p>
+<ol style="list-style-type: decimal">
+<li>Базовые операции (до регулярных выражений)</li>
+<li>Регулярные выражения</li>
+<li>Natural language processing</li>
+</ol>
+<p>Мы начнем с базовых операций. В R есть много функций для работы со строками. В принципе, их достаточно для того, чтобы делать весьма сложные вещи, но как и часто это бывает с R, есть дополнительные пакеты, которые не столько расширяют функционал, сколько делают нашу жизнь удобнее.</p>
+<p>Основных таких пакета два: <code>stringi</code> и <code>stringr</code>. Давайте сразу их установим:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;stringi&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringi)
+<span class="kw">library</span>(stringr)</code></pre></div>
+<p><code>stringi</code> - это базовый пакет, который имеет очень широкий функционал. Функции из этого пакета начинаются на <code>stri_</code>. <code>stringr</code> - это пакет, который является “оберткой” пакета <code>stringi</code>. Функции пакета <code>stringr</code> начинаются на <code>str_</code>. <code>stringr</code> - более “минималистичный”: в нем меньше функций, чем в <code>stringi</code>. А еще <code>stringr</code> - это часть <code>tidyverse</code>, но этот пакет вполне можно использовать и без <code>tidyverse</code>, например, работая в <code>data.table</code>.</p>
+<p>Тем не менее, для более-менее продвинутой работы с текстом придется выучить специальный язык - “регулярные выражения” (regular expressions или просто regex). Регулярные выражения реализованы на многих языках, в том числе в R. Но мы пока обойдемся наиболее простыми функциями, которые покроют большую часть того, что нам нужно уметь делать при работе с текстом.</p>
+<p>Ну а после освоения базовых возможностей и регулярных выражений можно кидаться в естественную обработку языка и делать всякие топик моделлинги и прочие сентимент анализы. Впрочем, можно туда запрыгивать сразу, но обладая базовым инструментарием работы со строковыми данными, все эти штуки делать будет гораздо проще и эффективнее. Итак, поехали.</p>
+</div>
+<div id="text_base" class="section level2">
+<h2><span class="header-section-number">4.2</span> Базовые операции с текстом</h2>
+<p>Строковые данные (<code>character</code>) - один из базовых типов данных в R.</p>
+<p>Для того, чтобы создать строковую переменную нужно использовать кавычки. Можно одинарные:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;Всем привет!&#39;</span></code></pre></div>
+<pre><code>## [1] &quot;Всем привет!&quot;</code></pre>
+<p>Можно двойные:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;Всем привет!&quot;</span></code></pre></div>
+<pre><code>## [1] &quot;Всем привет!&quot;</code></pre>
+<p>Разницы никакой! Главное использовать один вид кавычек для одного значения вектора. И еще: если использовать один вид кавычек для задания значения переменной, то другой вид кавычек можно использовать “внутри”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;Всем &#39;привет&#39;!&quot;</span></code></pre></div>
+<pre><code>## [1] &quot;Всем &#39;привет&#39;!&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&#39;Всем &quot;привет&quot;!&#39;</span></code></pre></div>
+<pre><code>## [1] &quot;Всем \&quot;привет\&quot;!&quot;</code></pre>
+<p>Пустую строку можно сделать с помощью функции <code>character()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">1</span>)</code></pre></div>
+<pre><code>## [1] &quot;&quot;</code></pre>
+<p>А вот это уже похоже на пассивную агрессию:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;С тобой все в порядке?&quot;</span></code></pre></div>
+<pre><code>## [1] &quot;С тобой все в порядке?&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">5</span>)</code></pre></div>
+<pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
+<p>Конечно, можно превращать другие переменные в строки:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## [1] &quot;TRUE&quot;</code></pre>
+<div id="text_c" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Соединение и разъединение строк</h3>
+<p>Как соединить строки? Очевидным способом будет попробовать функцию <code>c()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Всем&quot;   &quot;Привет&quot;</code></pre>
+<p>И вроде бы это то, что нужно, но если посмотрите внимательно, то увидите, что оба слова выделены в кавычки. Короче говоря, мы просто соединили два значения в вектор (ну или два вектора длиной один в вектор длиной два).</p>
+<p>Для того, чтобы соединить строковые значения, есть функция <code>paste()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Всем Привет&quot;</code></pre>
+<p>Вот это то, что нужно!</p>
+<p>У функции <code>paste()</code> есть параметр <code>sep =</code> - разделитель, который по умолчанию является пробелом - <code>sep = &quot; &quot;</code>, но его можно поменять на любой другой, например:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;хэй!&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Всемхэй!Привет&quot;</code></pre>
+<p>Обычно, правда, нам не нужно придумывать такие ухищренные разделители, а нужно, чтобы его вообще не было:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;ВсемПривет&quot;</code></pre>
+<p>Есть функция <code>paste0()</code>, которая является оберткой над обычным <code>paste()</code>, но уже с <code>sep = &quot;&quot;</code> по умолчанию:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">paste0</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;ВсемПривет&quot;</code></pre>
+<p>Теперь попробуем создать простой <code>data.table</code> с буквами. Буквы латиницы зашиты в R как константы:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">let &lt;-<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">small =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>], <span class="dt">big =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])
+let</code></pre></div>
+<pre><code>##     small big
+##  1:     a   A
+##  2:     b   B
+##  3:     c   C
+##  4:     d   D
+##  5:     e   E
+##  6:     f   F
+##  7:     g   G
+##  8:     h   H
+##  9:     i   I
+## 10:     j   J</code></pre>
+<p>Давайте теперь попробуем создать колонку <code>both</code>, где объединим обе колонки с помощью какого-нибудь разделителя:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">let[, both <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">paste</span>(small, big, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>)]
+let</code></pre></div>
+<pre><code>##     small big both
+##  1:     a   A  a_A
+##  2:     b   B  b_B
+##  3:     c   C  c_C
+##  4:     d   D  d_D
+##  5:     e   E  e_E
+##  6:     f   F  f_F
+##  7:     g   G  g_G
+##  8:     h   H  h_H
+##  9:     i   I  i_I
+## 10:     j   J  j_J</code></pre>
+<p>Ага! Если немного присмотреться, то можно заметить, что функция <code>paste()</code> “склеивает” несколько векторов и выдает на выходе вектор такой же длины. А вот чтобы соединить значения одного вектора в одно значение, нужно воспользоваться параметром <code>collapse =</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">let[, <span class="kw">paste</span>(small, big, <span class="dt">sep =</span> <span class="st">&quot;+&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot; -&gt; &quot;</span>)]</code></pre></div>
+<pre><code>## [1] &quot;a+A -&gt; b+B -&gt; c+C -&gt; d+D -&gt; e+E -&gt; f+F -&gt; g+G -&gt; h+H -&gt; i+I -&gt; j+J&quot;</code></pre>
+<p>Есть и более продвинутый способ соединения строк, который происходит еще из C и очень популярен в Python. Для этого есть функция <code>sprintf()</code>. Вот пример того, как это работает:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;Добро пожаловать в %s, на дворе %i год&quot;</span>, <span class="st">&quot;СИРИУС&quot;</span>, <span class="kw">year</span>(<span class="kw">Sys.Date</span>()))</code></pre></div>
+<pre><code>## [1] &quot;Добро пожаловать в СИРИУС, на дворе 2020 год&quot;</code></pre>
+<p>Это может быть удобно, если, например, Вы хотите в большую строчку вставить какую-то информацию из переменных.</p>
+<p>Ну и наконец, самый продвинутый способ соединять строчки - это пакет <code>glue</code>. О да, для того, чтобы делать простые вещи очень просто нужно осваивать целый пакет! Но не беспокойтесь, у этого пакета очень интуитивно понятный синтаксис, который удобнее (на мой взгляд), чем <code>sprintf()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;glue&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(glue)
+let[, <span class="kw">glue</span>(<span class="st">&quot;{1:.N} буква латинского алфавита: {let$big}(заглавная) - {let$small}(строчная)&quot;</span>)]</code></pre></div>
+<pre><code>## 1 буква латинского алфавита: A(заглавная) - a(строчная)
+## 2 буква латинского алфавита: B(заглавная) - b(строчная)
+## 3 буква латинского алфавита: C(заглавная) - c(строчная)
+## 4 буква латинского алфавита: D(заглавная) - d(строчная)
+## 5 буква латинского алфавита: E(заглавная) - e(строчная)
+## 6 буква латинского алфавита: F(заглавная) - f(строчная)
+## 7 буква латинского алфавита: G(заглавная) - g(строчная)
+## 8 буква латинского алфавита: H(заглавная) - h(строчная)
+## 9 буква латинского алфавита: I(заглавная) - i(строчная)
+## 10 буква латинского алфавита: J(заглавная) - j(строчная)</code></pre>
+<p>Теперь осталось научиться разъединять строковые значения. Для этого в пакете <code>data.table</code> есть функция <code>tstrsplit()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">let[, <span class="kw">tstrsplit</span>(both, <span class="st">&quot;_&quot;</span>)]</code></pre></div>
+<pre><code>##     V1 V2
+##  1:  a  A
+##  2:  b  B
+##  3:  c  C
+##  4:  d  D
+##  5:  e  E
+##  6:  f  F
+##  7:  g  G
+##  8:  h  H
+##  9:  i  I
+## 10:  j  J</code></pre>
+</div>
+<div id="text_len" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Подсчет длины строк</h3>
+<p>Чтобы посчитать количество знаков, можно воспользоваться функцией <code>nchar()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nchar</span>(<span class="kw">c</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;привет&quot;</span>))</code></pre></div>
+<pre><code>## [1] 4 6</code></pre>
+<p>В качестве самостоятельного задания загрузите датасет со всеми текстами песен Дэвида Боуи, взятых с сайта [Genius.com]:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/bowie2.csv&quot;</span>)
+b</code></pre></div>
+<pre><code>##      song_id                                song_name
+##   1: 4193889                                     1917
+##   2:  338950                                     1984
+##   3: 1181295                                1984/Dodo
+##   4: 4131335                         1984 (Live 1974)
+##   5: 4178509                          1984 (Live &#39;74)
+##  ---                                                 
+## 657: 4178274               Ziggy Stardust (Live 1972)
+## 658: 4133052               Ziggy Stardust (Live 1973)
+## 659: 4131908               Ziggy Stardust (Live 1978)
+## 660: 2002305       Ziggy Stardust (Live &#39;73) [Stereo]
+## 661: 4128663 Ziggy Stardust (Live, Glastonbury, 2000)
+##                                                                 song_lyrics_url
+##   1:                                 https://genius.com/David-bowie-1917-lyrics
+##   2:                                 https://genius.com/David-bowie-1984-lyrics
+##   3:                            https://genius.com/David-bowie-1984-dodo-lyrics
+##   4:                       https://genius.com/David-bowie-1984-live-1974-lyrics
+##   5:                         https://genius.com/David-bowie-1984-live-74-lyrics
+##  ---                                                                           
+## 657:             https://genius.com/David-bowie-ziggy-stardust-live-1972-lyrics
+## 658:             https://genius.com/David-bowie-ziggy-stardust-live-1973-lyrics
+## 659:             https://genius.com/David-bowie-ziggy-stardust-live-1978-lyrics
+## 660:        https://genius.com/David-bowie-ziggy-stardust-live-73-stereo-lyrics
+## 661: https://genius.com/David-bowie-ziggy-stardust-live-glastonbury-2000-lyrics
+##      annotation_count artist_id artist_name
+##   1:                1      9534 David Bowie
+##   2:               11      9534 David Bowie
+##   3:                6      9534 David Bowie
+##   4:                0      9534 David Bowie
+##   5:                0      9534 David Bowie
+##  ---                                       
+## 657:                0      9534 David Bowie
+## 658:                0      9534 David Bowie
+## 659:                0      9534 David Bowie
+## 660:                1      9534 David Bowie
+## 661:                0      9534 David Bowie
+##                                  artist_url
+##   1: https://genius.com/artists/David-bowie
+##   2: https://genius.com/artists/David-bowie
+##   3: https://genius.com/artists/David-bowie
+##   4: https://genius.com/artists/David-bowie
+##   5: https://genius.com/artists/David-bowie
+##  ---                                       
+## 657: https://genius.com/artists/David-bowie
+## 658: https://genius.com/artists/David-bowie
+## 659: https://genius.com/artists/David-bowie
+## 660: https://genius.com/artists/David-bowie
+## 661: https://genius.com/artists/David-bowie
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    lyrics
+##   1:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+##   2:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Someday they won&#39;t let you, now you must agree The times they are a-telling and the changing isn&#39;t free You&#39;ve read it in the tea leaves, and the tracks are on TV Beware the savage jaw of 1984 They&#39;ll split your pretty cranium, and fill it full of air And tell that you&#39;re eighty, but brother, you won&#39;t care You&#39;ll be shooting up on anything, tomorrow&#39;s neverthere Beware the savage jaw of 1984 Come see, come see, remember me? We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (who could ask for more) 1984 (who could ask for mor-or-or-or-ore) (Mor-or-or-or-ore) I&#39;m looking for a vehicle, I&#39;m looking for a ride I&#39;m looking for a party, I&#39;m looking for a side I&#39;m looking for the treason that I knew in &#39;65 Beware the savage jaw of 1984 Come see, come see, remember me? We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (who could ask for more) 1984 (who could ask for mor-or-or-or-ore) (Mor-or-or-or-ore) 1984
+##   3: Someday they won&#39;t let you, now you must agree The times they are a-telling, and the changing isn&#39;t free You&#39;ve read it in the tea leaves, the tracks are on tv Beware the savage jaw Of 1984 They&#39;ll break your pretty cranium, and fill it full of air And tell you that you&#39;re eighty, but lover you won&#39;t care You&#39;ll be shooting up this huge world, like tomorrow&#39;s wasn&#39;t there Beware the savage jaw Of 1984 (come see, come see, remember me? ) We played out an all night movie role You said it would last, but I guess we&#39;ve grown In 1984 (who could ask for more) 1984 (who could ask for more) Now we can talk in confidence Did you guess that we&#39;ve been done wrong Lies jumped the queue to be first in line Such a shameless design He thinks he&#39;s well screened from the man at the top It&#39;s a shame that his children disagree They cooly decide to sell him down the line Daddy&#39;s brainwashing time He&#39;s a do do, no no didn&#39;t hear it from me He&#39;s a do do, no no didn&#39;t hear it from me She doesn&#39;t recall her blessed childhood out of yore When a unit was a figure not a she When lovers chose each other seems the perk&#39;s are due Another memo to screw She&#39;s a do do, no no didn&#39;t hear it from me She&#39;s a do do, no no didn&#39;t hear it from me Can you wipe your nose my child without them slotting in your file a photograph Will you sleep in fear tonight wake to find the scorching light of neighbour jim Come to, turn you in But the do do, no no, didn&#39;t hear it from me Another do do, no no, didn&#39;t hear it from me Another do do, no no, didn&#39;t hear it from me Another do do, no no, didn&#39;t hear from me Come see, come see, remember me? We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (who could ask for more) 1984 (who could ask for mor-or-or-or-ore) (mor-or-or-or-ore) 198 4 1984 1984 (mor-or-or-or-ore) 1984 1984 (mor-or-or-or-ore) 1984 1984 (mor-or-or-or-ore)
+##   4:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Someday they won&#39;t let you So now you must agree The times they are a-telling And the changing isn&#39;t free You&#39;ve read it in the tea leaves, and the tracks are on TV Beware the savage jaw of 1984 They&#39;ll split your pretty cranium, and fill it full of air And tell that you&#39;re eighty, but brother, you won&#39;t care You&#39;ll be shooting up on anything, tomorrow&#39;s never there Beware the savage jaw Of 1984 (Come see, come see, remember me?) We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (Who could ask for more?) 1984 (Who could ask for mor-or-or-or-ore?) (Mor-or-or-or-ore) I&#39;m looking for a vehicle, I&#39;m looking for a ride I&#39;m looking for a party, I&#39;m looking for a side I&#39;m looking for the reason that I knew in &#39;65 Beware the savage jaw of 1984 (Come see, come see, remember me?) We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (Who could ask for more?) 1984 (Who could ask for mor-or-or-or-ore?) (Mor-or-or-or-ore) 1984 (Who could ask for more?) 1984 (Who could ask for more?) 1984 (Who could ask for more?)
+##   5:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           Someday they won&#39;t let you So now you must agree The times they are a-telling And the changing isn&#39;t free You&#39;ve read it in the tea leaves, and the tracks are on TV Beware the savage jaw of 1984 They&#39;ll split your pretty cranium, and fill it full of air And tell that you&#39;re eighty, but brother, you won&#39;t care You&#39;ll be shooting up on anything, tomorrow&#39;s neverthere Beware the savage jaw of 1984 Come see, come see, remember me? We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (Who could ask for more?) 1984 (Who could ask for...) (Mor-or-or-or-ore) I&#39;m looking for a vehicle, I&#39;m looking for a ride I&#39;m looking for a party, I&#39;m looking for a side I&#39;m looking for the reason that I knew in &#39;65 Beware the savage jaw of 1984 Come see, come see, remember me? We played out an all night movie role You said it would last, but I guess we enrolled In 1984 (Who could ask for more?) 1984 (Who could ask for mor-or-or-or-ore?) (Mor-or-or-or-ore) 1984 (Who could ask for mor-or-or-or-ore?) 1984 (Who could ask for mor-or-or-or-ore?) 1984 (Who could ask for mor-or-or-or-ore?) 1984 (Who could ask for more?)
+##  ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+## 657:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Ooh yeah Uh! Now Ziggy played guitar Jamming good with Weird and Gilly And The Spiders from Mars And he played it left hand But he made it too far Became the special man Then we were Ziggy&#39;s Band Now Ziggy really sang Screwed up eyes and screwed down hairdo Like some cat from Japan Oh he could kill ’em by smiling He could leave &#39;em to hang He came on so loaded man Well hung, snow white tan So where were the spiders While the fly tried to break our balls? Just the beer light to guide us So we bitched about his fans And should we crush his sweet hands? Ziggy played for time Jiving us that we were Voodoo The kids was just crass He was the nazz With God-given ass He took it all too far But boy could he play guitar Making love with his ego Ziggy sucked up into his mind, ah Like a leper messiah When the kids had killed a man I had to break up the band Oh yeah Now Ziggy played guitar
+## 658:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Oh yeah Ah Now Ziggy played guitar Jamming good with Weird and Gilly And The Spiders from Mars Well he played it left hand But made it too far Became the special man Then we were Ziggy&#39;s Band Ziggy really sang Screwed up eyes and screwed down hairdo Like some cat from Japan Oh he could lick &#39;em by smiling He could leave &#39;em to hang Well he came on so loaded man Well hung, snow white tan So where were the spiders While the fly tried to break our balls? Just the beer light to guide us So we bitched about his fans And should we crush his sweet hands? Oh yeah! Ziggy played for time Jiving us that we were Voodoo The kids was just crass He was the nazz With God-given ass But he took it all too far But boy could he play guitar Making love with his ego (Oh, yeah) Ziggy sucked up into his mind (Ah) Like a leper messiah When the kids had killed a man I had to break up the band Oh yeah Oooh Ohh-hoo-hoo Now Ziggy played guitar
+## 659:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Oh yeah Ziggy played guitar Jamming good with Weird and Gilly And The Spiders from Mars He played it left hand But made it too far Became the special man Then we were Ziggy&#39;s Band Ziggy really sang Screwed up eyes and screwed down hairdo Like some cat from Japan Oh he could lick &#39;em by smiling He could leave &#39;em to hang He came on so loaded man Well hung, snow white tan So where were the spiders While the fly tried to break our balls? Just the beer light to guide us So we bitched about his fans And should we crush his sweet hands? Oh yeah Ziggy played for time Jiving us that we were Voodoo The kids was just crass He was the naz With God-given ass Well he took it all too far But boy could he play guitar Making love with his ego Ziggy sucked up into his mind Like some leper messiah When the kids had killed a man I had to break up the band Oh yeah Oh-ooh-hoo And Ziggy played guitar
+## 660:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Oh Oh, yeah Ziggy played guitar Jamming good with Weird and Gilly And the Spiders from Mars He played it left hand But made it too far Became the special man Then we were Ziggy&#39;s band Ziggy really sang Screwed-up eyes and screwed-down hairdo Like some cat from Japan He could lick &#39;em by smiling He could leave &#39;em to hang They came on so loaded, man Well-hung and snow-white tan So where were the spiders While the fly tried to break our balls? Just the beer light to guide us So we bitched about his fans And should we crush his sweet hands? Oh Ziggy played for time Jiving us that we were voodoo The kids were just crass He was the nazz With God-given ass He took it all too far But, boy, could he play guitar Making love with his ego Ziggy sucked up into his mind, ah Like a leper messiah When the kids had killed the man I had to break up the band Oh, yeah Ooh Ziggy played guitar
+## 661:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               Oh yeah Now Ziggy played guitar Jamming good with Weird and Gilly And the Spiders from Mars He played it left hand But he made it too far Became the special man Then we were Ziggy&#39;s Band Ziggy really sang Screwed up eyes and screwed down hairdo Like some cat from Japan He could kill &#39;em by smiling He could leave &#39;em to hang Came on so loaded man Well hung, snow white tan So where were the spiders While the fly tried to break our balls? Just the beer light to guide us So we bitched about his fans And should we crush his sweet hands? Oh yeah Oh Ziggy played for time Jiving us that we were Voodoo The kids was just crass He was the naz With God-given ass He took it all too far But boy could he play guitar Making love with his ego Ziggy sucked up into his mind Like a leper messiah When the kids had killed a man I had to break up the band Oh yeah Oooh Oh hohoo Ziggy played guitar</code></pre>
+<p>Текст песен находится в колонке <code>lyrics</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, n_letters <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">nchar</span>(lyrics)]
+b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
+<pre><code>##    song_id
+## 1: 3407882
+##                                                                                                       song_name
+## 1: The diary of Nathan Adler or the art-ritual murder of Baby Grace Blue: A non-linear Gothic Drama Hyper-cycle
+##                                                                                                                                         song_lyrics_url
+## 1: https://genius.com/David-bowie-the-diary-of-nathan-adler-or-the-art-ritual-murder-of-baby-grace-blue-a-non-linear-gothic-drama-hyper-cycle-annotated
+##    annotation_count artist_id artist_name
+## 1:                0      9534 David Bowie
+##                                artist_url
+## 1: https://genius.com/artists/David-bowie
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   lyrics
+## 1: It was precisely 5.47am on the morning of Friday 31 of December 1999 that a dark spirited pluralist began the dissection of 14-year-old &quot;&quot;Baby Grace Blue&quot;&quot;. The arms of the victim were pin-cushioned with 16 hypodermic needles, pumping in four major preservatives, colouring agents, memory information transport fluids and some kind of green stuff. From the last and 17th, all blood and liquid was extracted. The stomach areas was carefully flapped open and the intestines removed, disentangled and re-knitted as it were, into a small net or web and hung between the pillars of the murder-location, the grand damp doorway of Oxford Town Museum of Modern Parts, New Jersey. The Limbs of Baby were then served from the torso. Each limb was implanted with a small, highly sophisticated, binary code translator which in turn was connected to small speakers attached to far ends of each limb. The self-contained mini amplifiers were then activated, amplifying the decoded memory  info-transport substances, revealing themselves as little clue haiku&#39;s, small verses detailing memories of other brutal acts, well documented by the ROMbloids. The limbs and their components were then hung upon the splayed web, slug-like prey of some unimaginable creature. The torso, by means of its bottom-most orifice, had been placed on a small support fastened to a marble base. It was shown to warring degrees of success depending upon where one stood from behind the web but in front of the Museum door itself, acting as both signifier and guardian to the act. It was definitely murder - but was it art? All this was to be the lead-up to the most provocative event in the whole sequence of serial-events that had started around November of that same year, plunging me into the most portentous chaos-abyss that a quiet lone hacker like myself could comprehend. My name is Nathan Adler, or Detective Professor Adler in my circuit. I&#39;m attached to the division of Art-Crime Inc., the recently instigated corporation funded by an endowment from the Arts Protectorate of London, it being felt that the investigation of art-crimes was in itself inseparable from other forms of expression and therefore worthy of support from this significant body. Nicolas Serota himself had deemed us, the small-fry of the division, worthy of an exhibit at last year&#39;s Biennale in Venice, three rooms of evidence and comparative study work which conclusively proved that the cow in Mark Tansey&#39;s &quot;&quot;The Innocent Bye Test&quot;&quot; could not differentiate between Paulus Potter&#39;s &quot;&quot;The Young Bull&quot;&quot; of 1647 (exactly 300 years before I was born, incidentally) and one of Monet&#39;s  grain stack paintings of the 1890&#39;s. The traditional art press deemed this extrapolation &quot;&quot;bullshit&quot;&quot; and removed itself to study the more formal ideas contained in Damien Hirst&#39;s &quot;&quot;Sheep In A Box&quot;&quot;. Art&#39;s a farmyard. It&#39;s my job to pick thru&#39; the manure heap looking for peppercorns. friday, december 31, 1999, 10.15 am As in any crime, my first position is to pursue the motive-gag. The recent spate, thru&#39; &#39;98-&#39;99, of concept-muggings pretty much had me pulling breath for an art-murder. It was a crime whose time was now. The precedents were all there. It had probably its beginnings in the &#39;70s with the Viennese castrationists and the blood-rituals of Nitsch. Public revulsion put the lid on that episode, but you can&#39;t keep a good down. Spurred on by Chris Burden&#39;s having himself shot by his collaborator in a gallery, tied up in a bag, thrown on a highway and then crucified upon the top of a Volkswagen, stories circulated thru&#39; the nasty-neon of N.Y. night that a young Korean artist was the self-declared patient of wee-hours surgery in cut and run operations at not-so-secret locations in the city. If you found out about it, you could go and watch this guy having bits and pieces removed under anaesthetic. A finger-joint one night, a limb another. By the dawning of the &#39;80s, rumour had it that he was down to a torso and one arm. He&#39;d asked to be left in a cave in the Catskills, fed every so often by his acolytes. He didn&#39;t do much after that. I guess he read a lot. Maybe wrote a whole bunch. I suppose you can never tell what an artist will do once he&#39;s peaked. Round this same time, Bowie the singer remarked on a copula goons who frequented the Berlin bars wearing full surgery regalia; caps, aprons, rubber gloves and masks. The cutting edge. Then came Damien Hirst with the Shark-Cow-Sheep thing. No humans, palatable ritual for the world-wide public. The acceptable face of gore. Meanwhile in the US, 1994, I was in town on the night of the Athey sacrifactions. thursday,  october 27,  1994 122 east village, manhattan Ron Athey,  performance artist not for the squeamish - former heroin addict-HIV positive, pushes what looks like a knitting needle repeatedly into his forehead,  a crown of blood, must hurt like hell. Stream red dribble-dribble. No screams. Face moves in pain. Carried upstage and scrubbed down in his own blood. The water. Now dresses in nice suit and tie. Now in black T-shirt and jean, carving, with a disposable scalpel, patterns, into the back of Darryl Carlton, a black man. Bloody blotted paper towels then hung on a washing line suspended over the heads of the audience Blood-prints from life. An extremely limited edition. When it was first performed back in March. &quot;&quot;Four Scenes In A Harsh Life&quot;&quot; exploited controversy shrapnel throughout the National Endowment For the Arts. &quot;&quot;We have taken every precaution with our disposal systems,&quot;&quot; an Athey spokesperson said. &quot;&quot;The towels containing the blood are immediately deposited in hazardous-waste bags. Each evening, the material will be driven to a hospital for final disposal&quot;&quot;. Athey says he is dealing with issues of self-loathing, suffering, healing and redemption. friday, december 31,  1999,  10.30 am museum of modern parts I&#39;m drinking up the Oxford Town, New Jersey fume. Salty and acid. Maybe I can get a handle on this thing back in Soho at the bureau. It used to be Rothko&#39;s studio, now the playground for all us Art-Crime folk, AC&#39; or &quot;&quot;the daubers&quot;&quot; as we&#39;re dubbed. Rothko himself, in a dark-deep-drunk one night, carefully removed his clothes, folded them up neatly, placing them upon a chair, lay upon the floor in a crucified position and after several attempts, found the soft blue pump of wrists and checked out. He&#39;d held the razor blades between wads of tissue paper so that he wouldn&#39;t cut his fingers. Deep thinker. Always was. 11.00 am &quot;&quot;dauber&quot;&quot;  hq,  soho The only names the Data bank can associate with Baby Grace are Leon Blank, Ramona A. Stone and Algeria Touchshriek. The rundowns are brief but not to the point: Ramona A. Stone: Female. Caucasian. Mid-40s. Assertive maintenance interest-drug dealer and Tyrannical Futurist. No convictions. Contacts: Leon Blank, Baby Grace Blue, Algeria Touchshriek. Leon Blank: Male. Mixed race. 22 years. Outsider Three convictions for petty theft, appropriation and plagiaries without license. Contacts: Baby Grace Blue, Algeria Touchshriek. Algeria Touchshriek: Male. Caucasian. 78 years. Owner of small establishment on Rail Yard, Oxford town, N.J. Deals in art-drugs and DNA prints. Fence for all apparitions of any medium. Harmless, lonely. Small cog, no wheels. Not much to go on but R.A.Stone weighs heavy on my memory. No problem, it&#39;ll come back. Best thing to do now is feed all relevant pieces into the Mack-Verbasiser, the Metarandom programme the re-strings real life facts as improbable virtual-fact. I may get a lead or two from that. 11.15 am Jesus Who. I hate typing. Anyhow, we&#39;ve got some real interesting solvents from Mack-random. How about this! Verbasiser download, first block: No convictions of assertive saints believed Caucasian way-out tyrannical evoked no images described Christian saints questions no female described christian tyrannical questions R.A.Stone christian machine believed no work is caucasian assertive saints assertive believed female  convictions martyrs and tyrannical are evoked Female described the fabric machine Slashing way out saints and martyrs and thrown downstairs Now the swirl begins. Now the image stack backs up and takes centre stage. Ramona A. Stone. I remember this thickness, this treacly liquid thought. But wait, I&#39;m ahead of myself. june 15, 1977 kreutzburg,  berlin It&#39;s two in the morning. I can&#39;t sleep for the screaming of some poor ostracized Turkish immigrant screaming his guts out from over the street. His hawking shriek sounds semi-stifled like he&#39;s got a pillow over his mouth. But the desperation comes through the spongy rubber like a knife. It cuts the breeze and bangs my eardrums. I take a walk past the fabric machine, turn left onto a street with no name, The caucasian suicide centre, naked and grimy, silhouetted by fungus yellow street lamps female slashing way-out saints for a dollar a time thrown downstairs if you can&#39;t take any more. Pure joy of retreat into death, led by the shepherdess. Anti mixed-race posters pasted upon their alter of pop-death icons party people. A zero with no name looks dull-eyed to Ms. Stone, the drone that says &quot;&quot;in the future, everything was up to itself&quot;&quot;. Yes. I remember Ramona. She set herself up as the no-future priestess of the Caucasian Suicide Temple, vomiting out her doctrine of death-as-eternal- party into the empty vessels of Berlin youth. The top floor rooms were the gateways to giving up to the holy ghost. She must have overseen more than 30 or 40 check-outs before the local squad twigged what was going down. october 28, 1994 New Yorker Magazine, advanced copy, celebrating fashion. It&#39;s a first of its kind since Tina Brown took over as editor. One look is all it took. It took the look and wrote a new book on what sophistaplites would take and bake. Guy Bourdin featured heavily in this new eDISHion. Since the advent of AIDS and the new morality, and, of course, his death, his dark sexy fatal style had fallen out of Vogue. An uncompromising photographer, he had found a twisty avenue through desire and death. A white female leg sticking gloomily out of a bath of black liquid enamel. Two glued up babes covered in tiny pearls. The glue prevented their skins from breathing and they pass out. &quot;&quot;Oh it would be beautiful.&quot;&quot; he is to have said. &quot;&quot;to photograph them dead in bed.&quot;&quot; He was a French Guy. Ha had known Man Ray. Loved Lewis Carroll. His first gig was doing hats for Vogue. He&#39;d place dead flies or bees on the faces of the models, or, female head wears hat crushed between three skinned calves heads, tongues lolling. Well, it was the &#39;50s, that was it was. The tight-collor &#39;50s seen through unspeakable hostility. He wanted but he couldn&#39;t paint. So he threw globs of revengeful hatred at his mobile subjects. He would systematically pull the phone cord out of the wall. He was never to be disturbed. Disturbed. Never. Everything and everyone died around him. One shoot focusing upon a women lying in bed was said to be a reconstruction of his estranged wife&#39;s death. Another picture has a women in a phone booth making some frantic call. Her hand is pressed whitely against the glass. Behind her and outside are two female bodies partially covered by the autumn leaves. His dream, so he told his friends, was to do shoots in the morgue, with the stiffs as mannequins, I don&#39;t know. I just read this stuff. Now his spirit was being resurrected. We&#39;re mystified by blood. It&#39;s our enemy now. We don&#39;t understand it. Can&#39;t live with it. Can&#39;t , well... y&#39;know? friday, december 31, 1999, 11.30 am After Surgery and investment in a bullet-proof mask, Ramona turned up in London, Canada as owner of a string of body-parts jewellery stores. Lamb penis necklaces, goat-scrotum purses, nipple earrings, that sort of thing. The word on the street, however, suggested that it was not in the best of interests to become one of her clients as occasionally, a customer would step into her shop and not come out again. The whistle blew after a much-loved and highly respected celebrity, known for being known, failed to show for a gallery-hanging of her mirrors. Other celebrities, equally known for being known, some only to each other, thought it was the most profound exhibit in years and couldn&#39;t take their eyes off the works. All the pieces sold within an hour, many for record prices. When the critic for Date magazine asked for an interview with the celebrity-artist, the gallery owner recalled that he hadn&#39;t seen her since earlier that day. She&#39;d mentioned that she would be going shopping for a diamond-encrusted umbilical cord as a celebratory thing to announce her pregnancy. She would be back in an hour. Just a quick stop at the &quot;&quot;Gallstone&quot;&quot;. 1986. That pregnancy would have produced a being that would be around 14 years of age. If it was still alive. To be continued...?
+##    n_letters
+## 1:     12837</code></pre>
+<p>Это какой-то речетатив Боуи, который еще и очень непросто найти.</p>
+<p>Какова средняя длина песен Боуи?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, <span class="kw">mean</span>(n_letters)]</code></pre></div>
+<pre><code>## [1] 1115.231</code></pre>
+</div>
+<div id="text_cut" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Выделение подстрок и обрезание строк</h3>
+<p>Еще одна полезная функция - <code>substr()</code>, она позволяет “вырезать” из <code>character</code> кусок от “сих” (<code>start =</code>) и до “сих” (<code>stop =</code>)</p>
+<p>Выглядит это так:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">substr</span>(<span class="st">&quot;Не режь меня!&quot;</span>, <span class="dv">4</span>, <span class="dv">7</span>) <span class="co">#вырезаем от 4 знака до 7</span></code></pre></div>
+<pre><code>## [1] &quot;режь&quot;</code></pre>
+<p>Более продвинутый способ “обрезать” значения есть в пакете <code>stringr</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, song_name_trunc <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">str_trunc</span>(song_name, <span class="dt">width =</span> <span class="dv">15</span>)]
+<span class="kw">head</span>(b[, song_name_trunc], <span class="dv">10</span>)</code></pre></div>
+<pre><code>##  [1] &quot;1917&quot;            &quot;1984&quot;            &quot;1984/Dodo&quot;      
+##  [4] &quot;1984 (Live 1...&quot; &quot;1984 (Live &#39;74)&quot; &quot;5.15 The Ang...&quot;
+##  [7] &quot;&#39;87 and Cry&quot;     &quot;&#39;87 and Cry,...&quot; &quot;Abdulmajid&quot;     
+## [10] &quot;A Better Future&quot;</code></pre>
+<p>В аргументе <code>width =</code> вы ставите максимально допустимую длину значения в векторе. Если значение длиннее, то конец отрезается, а вместо него присобачивается то, что задано в параметре <code>ellipsis =</code> (по умолчанию там стоит многоточие). Отрезается ровно столько, сколько нужно, чтобы начало и <code>ellipsis =</code> вместе были не больше чем <code>width =</code>. Эта функция очень удобна при создании графиков: очень неприятно, когда все не помещается из-за одного очень длинного названия.</p>
+<p>Функция <code>str_pad()</code> позволяет добавить нужное количество пробелов (или других знаков):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, song_name_pad <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">str_pad</span>(song_name, <span class="dv">20</span>)]
+<span class="kw">head</span>(b[, song_name_pad], <span class="dv">10</span>)</code></pre></div>
+<pre><code>##  [1] &quot;                1917&quot;      &quot;                1984&quot;     
+##  [3] &quot;           1984/Dodo&quot;      &quot;    1984 (Live 1974)&quot;     
+##  [5] &quot;     1984 (Live &#39;74)&quot;      &quot;5.15 The Angels Have Gone&quot;
+##  [7] &quot;         &#39;87 and Cry&quot;      &quot;   &#39;87 and Cry, 2018&quot;     
+##  [9] &quot;          Abdulmajid&quot;      &quot;     A Better Future&quot;</code></pre>
+<p>Функция <code>str_trim()</code> делает обратную (и на практике более полезную вещь) - удаляет лишние пробелы слева и/или справа:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, song_name_trimmed <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">str_trim</span>(song_name_pad)]</code></pre></div>
+<p>Функция <code>str_squish()</code> делает еще круче: она еще и удаляет повторяющиеся пробелы внутри.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_squish</span>(<span class="st">&quot; Привет,   всем&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Привет, всем&quot;</code></pre>
+</div>
+<div id="text_to" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Изменение регистра</h3>
+<p>Чтобы перевести маленькие буквы в большие, нужно воспользоваться функцией <code>toupper()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">toupper</span>(<span class="st">&quot;В чащах юга жил бы цитрус? Да, но фальшивый экземпляръ!&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;В ЧАЩАХ ЮГА ЖИЛ БЫ ЦИТРУС? ДА, НО ФАЛЬШИВЫЙ ЭКЗЕМПЛЯРЪ!&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tolower</span>(<span class="st">&quot;Съешь ещё этих мягких французских булок, да выпей же чаю&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;съешь ещё этих мягких французских булок, да выпей же чаю&quot;</code></pre>
+<p>Ну а чтобы сделать первую букву каждого слова заглавной - <code>str_to_title()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_to_title</span>(<span class="st">&quot;Съешь ещё этих мягких французских булок, да выпей же чаю&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;Съешь Ещё Этих Мягких Французских Булок, Да Выпей Же Чаю&quot;</code></pre>
+</div>
+<div id="text_rand" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> Случайные последовательности</h3>
+<p>Можно сделать случайные последовательности символов с помощью <code>stri_rand_strings()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+<span class="kw">stri_rand_strings</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">9</span>)</code></pre></div>
+<pre><code>## [1] &quot;uwHpd&quot;     &quot;Wj8ehS&quot;    &quot;ivFSwy7&quot;   &quot;TYu8zw5V&quot;  &quot;OuRpjoOg0&quot;</code></pre>
+<p>Можно задавать символы, допустимые для генерации таких “псевдослов” с помощью параметра <code>pattern =</code>. Например, если хотим использовать только строчные буквы латиницы, нужно использовать паттерн <code>&quot;[a-z]&quot;</code>. Так паттерны задаются в регулярных выражениях, к которым мы вернемся позже.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stri_rand_strings</span>(<span class="dt">n =</span> <span class="dv">5</span>, <span class="dt">length =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">9</span>, <span class="dt">pattern =</span> <span class="st">&quot;[a-z]&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;vafxp&quot;     &quot;jlazly&quot;    &quot;xqzqijk&quot;   &quot;ubtregnr&quot;  &quot;ztowehvsg&quot;</code></pre>
+<blockquote>
+<p>Строго говоря, это не то, что принято называть “псевдословами”. Под псевдословами подразумеваются такие последовательности, которые звучат как настоящие слова, но не имеют смысла. Например, “ошмаска” или “утурник”</p>
+</blockquote>
+<p>Ну а функция <code>stri_rand_shuffle()</code> принимает на вход строчку и возвращает ее же, но уже с перемешанными знаками.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stri_rand_shuffle</span>(<span class="st">&quot;съешь ещё этих мягких французских булок, да выпей же чаю&quot;</span>)</code></pre></div>
+<pre><code>## [1] &quot;еёхз денх лку пкщх квтсчреу йыьэоиаюжия, а шъгифаб  смце&quot;</code></pre>
+</div>
+<div id="text_sort" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> Сортировка</h3>
+<p>Чтобы сортировать слова в алфавитном порядке, можно воспользоваться generic функцией <code>sort()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sort</span>(<span class="kw">unlist</span>(<span class="kw">tstrsplit</span>(<span class="st">&quot;съешь ещё этих мягких французских булок, да выпей же чаю&quot;</span>, <span class="dt">split =</span> <span class="st">&quot; &quot;</span>)))</code></pre></div>
+<pre><code>##  [1] &quot;булок,&quot;      &quot;выпей&quot;       &quot;да&quot;          &quot;ещё&quot;         &quot;же&quot;         
+##  [6] &quot;мягких&quot;      &quot;съешь&quot;       &quot;французских&quot; &quot;чаю&quot;         &quot;этих&quot;</code></pre>
+<blockquote>
+<p>generic функция в R - это функция, которая по-разному работает для разных объектов (использует соответствующий данному классу метод). Когда функция получает объект, она первым делом смотрит, что это за класс, а потом действует исходя из класса объекта. Примеры это функции <code>print()</code>, <code>summary()</code> и <code>plot()</code> - они работают почти на любых объектах, но на всех выдают что-то свое.</p>
+</blockquote>
+<p><strong>Самостоятельное задание:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Создайте <code>data.table</code> <code>mon</code> следующего вида:</li>
+</ol>
+<pre><code>##      n     Month
+##  1:  1   January
+##  2:  2  February
+##  3:  3     March
+##  4:  4     April
+##  5:  5       May
+##  6:  6      June
+##  7:  7      July
+##  8:  8    August
+##  9:  9 September
+## 10: 10   October
+## 11: 11  November
+## 12: 12  December</code></pre>
+<blockquote>
+<p>Названия месяцов - это еще одна константа, зашитая в R! Она называется <code>month.name</code>.</p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Создайте колонку <code>info</code> следующего вида: “January is the 1 month” … “December is the 12 month”</li>
+</ol>
+<pre><code>##  [1] &quot;January is the 1 month&quot;   &quot;February is the 2 month&quot; 
+##  [3] &quot;March is the 3 month&quot;     &quot;April is the 4 month&quot;    
+##  [5] &quot;May is the 5 month&quot;       &quot;June is the 6 month&quot;     
+##  [7] &quot;July is the 7 month&quot;      &quot;August is the 8 month&quot;   
+##  [9] &quot;September is the 9 month&quot; &quot;October is the 10 month&quot; 
+## [11] &quot;November is the 11 month&quot; &quot;December is the 12 month&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Сократите длину каждого месяца так, чтобы она была не больше 6 символов:</li>
+</ol>
+<pre><code>##  [1] &quot;Jan...&quot; &quot;Feb...&quot; &quot;March&quot;  &quot;April&quot;  &quot;May&quot;    &quot;June&quot;   &quot;July&quot;  
+##  [8] &quot;August&quot; &quot;Sep...&quot; &quot;Oct...&quot; &quot;Nov...&quot; &quot;Dec...&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Создайте в <code>mon</code> колонку <code>month</code>, где все эти месяца будут записаны с маленькой буквы.</li>
+</ol>
+<pre><code>##      n     Month     month
+##  1:  1   January   january
+##  2:  2  February  february
+##  3:  3     March     march
+##  4:  4     April     april
+##  5:  5       May       may
+##  6:  6      June      june
+##  7:  7      July      july
+##  8:  8    August    august
+##  9:  9 September september
+## 10: 10   October   october
+## 11: 11  November  november
+## 12: 12  December  december</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Создайте колонку <code>month_anagram</code>, в котором будут анаграммы названия каждого месяца (т.е. в данном случае - перемешанные) из колонки <code>month</code></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>) <span class="co">#запустите, чтобы у нас одинаковые рандомизации получились</span></code></pre></div>
+<pre><code>##      n     Month     month month_anagram
+##  1:  1   January   january       yjuarna
+##  2:  2  February  february      aefrbyur
+##  3:  3     March     march         arhmc
+##  4:  4     April     april         arilp
+##  5:  5       May       may           mya
+##  6:  6      June      june          eujn
+##  7:  7      July      july          uylj
+##  8:  8    August    august        tsaugu
+##  9:  9 September september     seperembt
+## 10: 10   October   october       orbcote
+## 11: 11  November  november      rbmvonee
+## 12: 12  December  december      bdemerec</code></pre>
+<p>*5. Ну а теперь сложное задание - создайте функцию <code>is_anagram()</code>, которая проверяет, что два слова являются анаграммами.</p>
+<blockquote>
+<p>Подсказка: если в <code>tstrsplit()</code> использовать <code>split = &quot;&quot;</code>, то это разделит строку пол отдельным знакам.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_anagram</span>(<span class="st">&quot;спаниель&quot;</span>, <span class="st">&quot;апельсин&quot;</span>)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_anagram</span>(<span class="st">&quot;скол&quot;</span>, <span class="st">&quot;клок&quot;</span>)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Затем эту функцию нужно применить на колонки <code>month</code> и <code>month_anagram</code>. Скорее всего, придется либо векторизовать функцию, либо применить <code>mapply()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, <span class="kw">mapply</span>(is_anagram,month, month_anagram)]</code></pre></div>
+<pre><code>##   january  february     march     april       may      june      july 
+##      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE 
+##    august september   october  november  december 
+##      TRUE      TRUE      TRUE      TRUE      TRUE</code></pre>
+</div>
+</div>
+<div id="regexp" class="section level2">
+<h2><span class="header-section-number">4.3</span> Поиск паттернов и регулярные выражения</h2>
+<p>Очень большая часть работы с текстом - это поиск паттернов. В самом элементарном виде - простых последовательностей.</p>
+<div id="grep" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> grep(), gsub()</h3>
+<p>Для этого в R есть очень много функций. Пожалуй, самая распространенная из них - функция <code>grep()</code>. Она выдает индексы значений вектора, в которых находится подходящая подстрока:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, <span class="kw">grep</span>(<span class="st">&quot;ber&quot;</span>, month)]</code></pre></div>
+<pre><code>## [1]  9 10 11 12</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[ <span class="kw">grep</span>(<span class="st">&quot;ber&quot;</span>, month),] <span class="co">#Следите за запятой!</span></code></pre></div>
+<pre><code>##     n     Month     month month_anagram
+## 1:  9 September september     seperembt
+## 2: 10   October   october       orbcote
+## 3: 11  November  november      rbmvonee
+## 4: 12  December  december      bdemerec</code></pre>
+<p>Можно возвращать и сами значения с помощью параметра <code>value = TRUE</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, <span class="kw">grep</span>(<span class="st">&quot;ber&quot;</span>, month, <span class="dt">value =</span> <span class="ot">TRUE</span>)]</code></pre></div>
+<pre><code>## [1] &quot;september&quot; &quot;october&quot;   &quot;november&quot;  &quot;december&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, <span class="kw">grep</span>(<span class="st">&quot;ber&quot;</span>, month, <span class="dt">value =</span> <span class="ot">TRUE</span>, <span class="dt">invert =</span> <span class="ot">TRUE</span>)] <span class="co">#все остальные</span></code></pre></div>
+<pre><code>## [1] &quot;january&quot;  &quot;february&quot; &quot;march&quot;    &quot;april&quot;    &quot;may&quot;      &quot;june&quot;    
+## [7] &quot;july&quot;     &quot;august&quot;</code></pre>
+<p>Ну а функция <code>gsub()</code> заменяет найденный паттерн на новый. Давайте сделаем год более веселым:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, month_fun <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;ber&quot;</span>, <span class="st">&quot;berfest&quot;</span>, month)]</code></pre></div>
+<p>Заметьте, первым параметром функции <code>grep()</code> идет <code>pattern =</code>, а не данные (вектор). Это довольно нетипичное поведение для R. Это “заимствованное” слово для R - изначально <code>grep()</code> появилась в UNIX очень давно и означала <em>«search <strong>g</strong>lobally for lines matching the <strong>r</strong>egular <strong>e</strong>xpression, and <strong>p</strong>rint them»</em>. Вот и настала пора поразбираться с регулярными выражениями.</p>
+<blockquote>
+<p>Функции <code>grep()</code> и <code>gsub()</code> могут использовать “избегая” регулярных выражений, для этого нужно задать параметр <code>fixed = TRUE</code>. Я очень рекомендую это делать, если Вы еще не освоились с регулярными выражениями, иначе результат этих функций будет казаться непредсказуемым.</p>
+</blockquote>
+</div>
+<div id="reg" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Регулярные выражения</h3>
+<p>Регулярные выражения - это целый язык, который позволяет найти любой сложный паттерн в тексте. В основе всей сложной работы с текстом обычно лежат “регулярки”. Поэтому стоит ознакомиться хотя бы с их основами.</p>
+<blockquote>
+<p>Регулярные выражения реализованы в очень многих языках программирования, не только в R, так что это довольно универсальный навык.</p>
+</blockquote>
+<div class="figure">
+<img src="images/reg.png" alt="reg.png" />
+<p class="caption">reg.png</p>
+</div>
+<p>Учить их лучше всего интерактивно: очень удобно смотреть, что в тексте находится по введенному паттерну. В качестве примера я могу посоветовать ресурс <a href="https://regexone.com">regexone</a>. Потренироваться можно на [кроссворде] (<a href="https://regexcrossword.com/challenges/beginner/puzzles/1" class="uri">https://regexcrossword.com/challenges/beginner/puzzles/1</a>). Пакет <code>stringr</code> тоже предоставляет удобный инструмент: функции <code>str_view()</code> (показывает первый найденный паттерн) и <code>str_view_all()</code> (показывает все найденные паттерны). Первый аргумент в них - вектор с данными, второй - паттерн регулярных выражений. Если Все введено верно, то во вкладке Viewer окна RStudio появится данный вектор с выделенными паттернами.</p>
+<p>Если нужно найти простую последовательность, то здесь все так же, как и обычно. Очень похоже на то, что Вы делаете, если нажимаете <code>Ctrl + F</code> и пытаетесь найти в тексте какое-то ключевое слово:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Саня&quot;</span>, <span class="st">&quot;Ваня&quot;</span>, <span class="st">&quot;Даня&quot;</span>, <span class="st">&quot;Женя&quot;</span>, <span class="st">&quot;Аня&quot;</span>, <span class="st">&quot;Андрей&quot;</span>, <span class="st">&quot;Леша&quot;</span>, <span class="st">&quot;Лера&quot;</span>, <span class="st">&quot;Витя&quot;</span>, <span class="st">&quot;Валера&quot;</span>)
+<span class="kw">str_view_all</span>(names, <span class="st">&quot;аня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-c48554d759eb0f249fcf" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c48554d759eb0f249fcf">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Заметьте, “Аня” осталась за бортом, потому что регулярные выражения case-sensitive. Скажем, мы хотим найти написанные как с большой, так и маленькой буквы паттерны “аня”. Здесь придут на помощь наборы - возможные варианты букв, которые мы ожидаем увидеть на нужном месте:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[аА]ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-8e97323264de78060220" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8e97323264de78060220">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Ура, мы поймали Аню!</p>
+<p>Наборы можно задавать в целом диапазоне. Например, чтобы задать все буквы кириллицы, нужно задать такой диапазон: <code>[а-яА-ЯёЁ]</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-4694e14a753da19414be" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4694e14a753da19414be">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Теперь мы поймали еще и Женю.</p>
+<p>Символ <code>^</code> (внутри набора) означает, что мы ожидаем увидеть любые символы, кроме тех, что в наборе. Попробуйте догадаться, какие имена мы поймаем следующими паттернами: <code>&quot;[^а-яА-ЯёЁ]ня&quot;</code>, <code>&quot;[^а]ня&quot;</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-f591540f5e17875b6306" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f591540f5e17875b6306">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а]ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-4bce23c263ce97fda101" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4bce23c263ce97fda101">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Иногда нужно найти один из двух паттернов - то есть реализовать что-то вроде логического ИЛИ. В регулярных выражениях тоже такое есть. Более того, для этого нужен тот же оператор, что и в R - <code>|</code>. Например, мы хотим найти все имена, заканчивающиеся на “ня” и начинающиеся на “Ле”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;Ле|ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-ca050dddeec6bd8c1aa6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ca050dddeec6bd8c1aa6">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Если бы паттерн включал бы в себя еще и варианты с маленькой буквы “л”, то мы бы поймали еще и Валеру:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[лЛ]е|ня&quot;</span>)</code></pre></div>
+<div id="htmlwidget-1a64d2ed5ca5d07b33a8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1a64d2ed5ca5d07b33a8">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Ва<span class='match'>ле<\/span>ра<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Чтобы этого избежать, мы можем задать, что <code>&quot;[лЛ]е&quot;</code> должно быть в начале строки (с помощью знака <code>&quot;^&quot;</code>), а <code>&quot;ня&quot;</code> - в конце.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^[лЛ]е|ня$&quot;</span>)</code></pre></div>
+<div id="htmlwidget-38e241c9799d14a46cfc" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-38e241c9799d14a46cfc">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Что если мы хотим найти точку? Давайте попробуем использовать ее в регулярном выражении:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;При 534вет.&quot;, &quot;</span>всем<span class="st">&quot;)</span>
+<span class="st">str_view_all(hello, &quot;</span>.<span class="st">&quot;)</span></code></pre></div>
+<div id="htmlwidget-928363c405a86738fa65" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-928363c405a86738fa65">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span><span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Что-то не то. Дело в том, что точка (как и уже знакомые нам некоторые другие символы - <code>[]|^$</code>) - это спецсимволы, которые имеют специальную функцию в регулярных выражениях. Конкретно точка означает “любой знак”. Но если нам нужно найти в тексте именно точку или другой спецсимвол, то его нужно <em>экранировать</em> с помощью специального паттерна “\” (вне R это “&quot;):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>)</code></pre></div>
+<div id="htmlwidget-f6ed3a53f5f2f1aa2194" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f6ed3a53f5f2f1aa2194">{"x":{"html":"<ul>\n  <li>При 534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Для наиболее распространенных последовательностей есть специальные символы. С ними все наоборот, чтобы их использовать, нужно их экранировать. Например, <code>\\w</code> выдаст все цифробуквенные (alphanumeric) знаки:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">w&quot;</span>)</code></pre></div>
+<div id="htmlwidget-aa67e317a1ca4819c27e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aa67e317a1ca4819c27e">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span>.<\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>А <code>\\W</code> - все кроме цифробуквенных знаков</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">W&quot;</span>)</code></pre></div>
+<div id="htmlwidget-c4b2179400244d89142e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c4b2179400244d89142e">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><code>\\d</code> - только цифры:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>)</code></pre></div>
+<div id="htmlwidget-b892f1eaf126d768f3e7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b892f1eaf126d768f3e7">{"x":{"html":"<ul>\n  <li>При <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span>вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><code>\\D</code> - кроме цифр:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s&quot;</span>)</code></pre></div>
+<div id="htmlwidget-7a5443bb61b950e58934" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7a5443bb61b950e58934">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><code>\\s</code> - только пробелы:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">S&quot;</span>)</code></pre></div>
+<div id="htmlwidget-d44b137068e7575c8bf5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d44b137068e7575c8bf5">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><code>\\S</code> - все кроме пробелов:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">D&quot;</span>)</code></pre></div>
+<div id="htmlwidget-f8bdd53a344e724915d6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8bdd53a344e724915d6">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span>534<span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Следующий этап наращивания нашей мощи инструментария регулярных выражений - количество паттернов.</p>
+<p>В общем виде оно задается с помощью фигурных скобочек:</p>
+<ul>
+<li>{n}: ровно n</li>
+<li>{n,}: n или больше</li>
+<li>{,m}: не больше m</li>
+<li>{n,m}: между n и m</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">long &lt;-<span class="st"> &quot;1888 - самый длинный год, записанный в римских цифрах: MDCCCLXXXVIII&quot;</span>
+<span class="kw">str_view_all</span>(long, <span class="st">&quot;C{3}&quot;</span>)</code></pre></div>
+<div id="htmlwidget-79d92c390b633e798be8" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-79d92c390b633e798be8">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;X{1,}&quot;</span>)</code></pre></div>
+<div id="htmlwidget-7086f030186dbb2e5e2d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7086f030186dbb2e5e2d">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;н{1,2}&quot;</span>)</code></pre></div>
+<div id="htmlwidget-bafc45f59f3114042e94" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bafc45f59f3114042e94">{"x":{"html":"<ul>\n  <li>1888 - самый дли<span class='match'>нн<\/span>ый год, записа<span class='match'>нн<\/span>ый в римских цифрах: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Для самых распространенных вариантов количества искомых паттернов есть сокращения:</p>
+<ul>
+<li>? = 0 или 1</li>
+<li><ul>
+<li>= 1 или больше</li>
+</ul></li>
+<li><ul>
+<li>= 0 или больше</li>
+</ul></li>
+</ul>
+<p>Например, чтобы вытащить все последовательности, начинающиеся на “Л” и заканчивающиеся на “а” (включая Ла), нужно записать так:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Л.*а$&quot;</span>)</code></pre></div>
+<div id="htmlwidget-9f447155aaffbc68a7a2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9f447155aaffbc68a7a2">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Ну а что бы вытащить все последовательности, где стоит или не стоит какой-то символ, то записать нужно так:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Ле.?а$&quot;</span>)</code></pre></div>
+<div id="htmlwidget-e662ba37a46e7a00a41a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e662ba37a46e7a00a41a">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><strong>Самостоятельное задание:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Найдите время в формате “04:30”, “06:59”</li>
+</ol>
+<p>Проверьте на векторе <code>times</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>)</code></pre></div>
+<div id="htmlwidget-91bc02698ecfc8f671d6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-91bc02698ecfc8f671d6">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ol start="2" style="list-style-type: decimal">
+<li>Найдите время в формате “04:30”, “06:59”, игнорируя “невозможное” время, например, “19:84”</li>
+</ol>
+<p>Проверьте на векторе <code>times</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>)</code></pre></div>
+<div id="htmlwidget-45d6ac6922b347ad02f5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-45d6ac6922b347ad02f5">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<ol start="3" style="list-style-type: decimal">
+<li>Найдите время, которое может быть в других форматах: “4:20”, “20-10”, но не “20г21” или “2019”</li>
+</ol>
+<p>Проверьте на векторе <code>times</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>, <span class="st">&quot;20-10&quot;</span>, <span class="st">&quot;4:20&quot;</span>, <span class="st">&quot;20r21&quot;</span>, <span class="st">&quot;2019&quot;</span>)</code></pre></div>
+<div id="htmlwidget-493566970cc4864b3d53" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-493566970cc4864b3d53">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n  <li><span class='match'>20-10<\/span><\/li>\n  <li>4:20<\/li>\n  <li>20r21<\/li>\n  <li>2019<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="text_next" class="section level2">
+<h2><span class="header-section-number">4.4</span> А что дальше?</h2>
+<p>Регулярные выражения - это супермощный инструмент. Однако он довольно непростой, да и выглядит совершенно монструозно. Хэдли Уикхэм приводит следующий пример реально используемого кода для поиска в тексте электронных почт:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:(?:(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t]
+)<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span><span class="st">&quot;(?:[^</span><span class="ch">\&quot;\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>
+\r\n)?[ \t])<span class="op">*</span><span class="er">)</span>(?<span class="op">:</span>\.(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(</span>
+<span class="st">?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span>
+<span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-\0</span>
+<span class="st">31]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\</span>
+<span class="st">](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>
+(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>
+(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">|</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z</span>
+<span class="st">|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)
+?[ \t])<span class="op">*</span>)<span class="op">*</span>\<span class="op">&lt;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span><span class="er">@</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:\</span>
+<span class="st">r</span><span class="ch">\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[</span>
+<span class="st"> </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)
+?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t]
+)<span class="op">*</span>))<span class="op">*</span>(?<span class="op">:</span>,<span class="op">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[</span>
+<span class="st"> </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*</span>
+<span class="st">)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t]
+)<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>)
+<span class="op">*</span><span class="er">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span><span class="er">)</span>?(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+</span>
+<span class="st">|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r
+\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>\.(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span>
+<span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span>
+<span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span>
+<span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](</span>
+<span class="st">?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?
+<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?
+<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>\<span class="op">&gt;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)<span class="op">|</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?</span>
+<span class="st">:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?</span>
+<span class="st">[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)<span class="op">*</span><span class="er">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span>
+<span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span>
+<span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>\.(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;</span>
+<span class="er">@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>
+(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t]
+)<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\
+<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?</span>
+<span class="st">:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[
+\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">|</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span>
+<span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(</span>
+<span class="st">?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)<span class="op">*</span>\<span class="op">&lt;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span><span class="er">@</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;
+<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([</span>
+<span class="st">^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>
+.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\
+]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>(?<span class="op">:</span>,<span class="op">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\</span>
+<span class="st">[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]\</span>
+<span class="st">r</span><span class="ch">\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] 
+\<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]
+<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>)<span class="op">*</span><span class="er">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)?(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] \0</span>
+<span class="st">00-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span>
+<span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>\.(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,
+;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?
+<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>
+(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.</span>
+<span class="st">\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[</span>
+<span class="st">^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]
+]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>\<span class="op">&gt;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>,\s<span class="op">*</span>(
+?<span class="op">:</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\
+<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>\.(?<span class="op">:</span>(
+?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[</span>
+<span class="st">\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t
+])<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span>
+<span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?</span>
+<span class="st">:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>
+\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span><span class="er">|</span>(?<span class="op">:</span>
+[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\</span>
+<span class="st">]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)<span class="op">*</span>\<span class="op">&lt;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)
+?[ \t])<span class="op">*</span>(?<span class="op">:</span><span class="er">@</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>
+()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)</span>
+<span class="st">?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;</span>
+<span class="st">@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>(?<span class="op">:</span>,<span class="op">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[
+ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,
+;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]</span>
+<span class="st">)*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span>
+<span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>)<span class="op">*</span><span class="er">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)?
+(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.</span>
+<span class="st">\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>)(?<span class="op">:</span>\.(?<span class="op">:</span>(?<span class="op">:</span>
+\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])+|\Z|(?=[\[</span>
+<span class="st">&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|&quot;</span>(?<span class="op">:</span>[<span class="op">^</span>\<span class="st">&quot;</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])
+<span class="op">*</span>))<span class="op">*</span><span class="er">@</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>(?<span class="op">:</span>[<span class="op">^</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\] </span><span class="ch">\000</span><span class="st">-</span><span class="ch">\031</span><span class="st">]+(?:(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])</span>
+<span class="st">+|\Z|(?=[\[&quot;</span>()<span class="op">&lt;</span><span class="er">&gt;@</span>,;<span class="op">:</span>\\<span class="st">&quot;.\[\]]))|\[([^\[\]</span><span class="ch">\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.)*\](?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*)(?:\</span>
+<span class="st">.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z
+<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>\<span class="op">&gt;</span>(?<span class="op">:</span>(
+?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>)?;\s<span class="op">*</span>)<span class="st">&quot;</span></code></pre></div>
+<p>Обычно работа с текстовыми данными сводится к нескольким отдельным операциям. Например, нужно вытащить из HTML-файла все теги или наоборот избавиться от них. Для этого, конечно, есть специальные пакеты, например, <code>rvest</code>. Сделать <em>токенизацию</em>, то есть разбить текст на токены - значимые единицы текста (обычно слова) - пакет <code>tidytext</code>. Обычно затем нужно перевести эти слова в неопределенную форму (лемматизация) или отбросить окончания (стеммизация) - см. пакет <code>SnowballC</code>.</p>
+<p>Есть удобные инструменты, которые все это делают сразу. Например, пакет <code>udpipe</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;udpipe&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(udpipe)</code></pre></div>
+<p>Для примера возьмем одну песню Дэвида Боуи:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heroes &lt;-<span class="st"> </span>b[<span class="kw">grep</span>(<span class="st">&quot;Heroes&quot;</span>,song_name)[<span class="dv">1</span>],lyrics]
+tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, <span class="st">&quot;english&quot;</span>)
+<span class="kw">head</span>(tok_heroes)</code></pre></div>
+<pre><code>##   doc_id paragraph_id sentence_id          sentence start end term_id
+## 1   doc1            1           1 I, I will be king     1   1       1
+## 2   doc1            1           1 I, I will be king     2   2       2
+## 3   doc1            1           1 I, I will be king     4   4       3
+## 4   doc1            1           1 I, I will be king     6   9       4
+## 5   doc1            1           1 I, I will be king    11  12       5
+## 6   doc1            1           1 I, I will be king    14  17       6
+##   token_id token lemma  upos xpos
+## 1        1     I     I  PRON  PRP
+## 2        2     ,     , PUNCT    ,
+## 3        3     I     I  PRON  PRP
+## 4        4  will  will   AUX   MD
+## 5        5    be    be   AUX   VB
+## 6        6  king  king  NOUN   NN
+##                                        feats head_token_id dep_rel deps
+## 1 Case=Nom|Number=Sing|Person=1|PronType=Prs             6   nsubj &lt;NA&gt;
+## 2                                       &lt;NA&gt;             6   punct &lt;NA&gt;
+## 3 Case=Nom|Number=Sing|Person=1|PronType=Prs             6   nsubj &lt;NA&gt;
+## 4                               VerbForm=Fin             6     aux &lt;NA&gt;
+## 5                               VerbForm=Inf             6     cop &lt;NA&gt;
+## 6                                Number=Sing             0    root &lt;NA&gt;
+##            misc
+## 1 SpaceAfter=No
+## 2          &lt;NA&gt;
+## 3          &lt;NA&gt;
+## 4          &lt;NA&gt;
+## 5          &lt;NA&gt;
+## 6          &lt;NA&gt;</code></pre>
+<p>В результате мы имеем очень длинный датафрейм, каждая строчка которого - это слово или знак препинания. Выглядит не очень симпатично (на первый взгляд), но с этим очень удобно работать. Например, с помощью функции <code>merge()</code> можно присоединить к словам сентимент-словарь и сделать сентимент анализ песен Дэвида Боуи. Можно посчитать частотность слов в его песнях. Или же исследовать их сочетание - и сделать топик моделлинг. Освоив базовый инструментарий работы с текстом, перед Вами открывается увлекательный мир анализа естественного языка!</p>
+</div>
+<div id="fuzzy" class="section level2">
+<h2><span class="header-section-number">4.5</span> Fuzzy matching</h2>
+<p>Часто бывает, что два <code>character</code> значения совпадают не полностью. Например, в одном случае слово написано в единственном числе, а в другом - во множественном. Или того хуже - в одном случае слово написано с ошибкой. Такие ситуации особенно часто возникают при соединении несколько баз вместе или же когда данные вводятся вручную. Например, представим, что мы опросили людей, кто их любимый актер. Но вот незадача: некоторые написали имя любимого актера с ошибкой!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">actors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Benedict Cumberbatch&quot;</span>, <span class="st">&quot;Bandersnatch Cummerbund&quot;</span>, <span class="st">&quot;Bendenswitch Cumbersquash&quot;</span>, <span class="st">&quot;Bennendim Cumbendatch&quot;</span>, <span class="st">&quot;Bendandsnap Cucumbersnatch&quot;</span>, <span class="st">&quot;Kevin Smith&quot;</span>, <span class="st">&quot;Emma Stone&quot;</span>, <span class="st">&quot;Martin Freeman&quot;</span>)</code></pre></div>
+<p>В этой ситуации нам поможет fuzzy matching - примерное (approximate) сопоставление с паттерном. Как же измеряется эта “примерная похожесть”? О, как и всегда в таких случаях, за этим стоит целая наука. Самая распространенный способ посчитать похожесть, точнее, непохожесть - это расстояние Левенштайна. Это количество операций, которые нужно сделать, чтобы получить из одной строки другую. Вот список допустимых операций:</p>
+<ul>
+<li>вставка ab → aNb</li>
+<li>удаление aOb → ab</li>
+<li>замена символа aOb → aNb</li>
+<li>перестановка символов ab → ba</li>
+</ul>
+<p>Для работы с расстояниями есть встроенная в R функция <code>agrepl()</code>. Однако она дает довольно ограниченные возможности, поэтому мы воспользуемся пакетом <code>stringdist</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;stringdist&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringdist)</code></pre></div>
+<p>Можно посчитать расстояние Левенштайна с помощью функции <code>stringdist()</code>, можно преобразовать расстояния в меры близости с помощью функции <code>stringsim()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stringdist</span>(<span class="st">&quot;Benedict Cumberbatch&quot;</span>, actors)</code></pre></div>
+<pre><code>## [1]  0 13 11  6 11 14 18 16</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">stringsim</span>(<span class="st">&quot;Benedict Cumberbatch&quot;</span>, actors)</code></pre></div>
+<pre><code>## [1] 1.0000000 0.4347826 0.5600000 0.7142857 0.5769231 0.3000000 0.1000000
+## [8] 0.2000000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">actors[<span class="kw">stringsim</span>(<span class="st">&quot;Benedict Cumberbatch&quot;</span>, actors)<span class="op">&gt;</span><span class="fl">0.4</span>]</code></pre></div>
+<pre><code>## [1] &quot;Benedict Cumberbatch&quot;       &quot;Bandersnatch Cummerbund&quot;   
+## [3] &quot;Bendenswitch Cumbersquash&quot;  &quot;Bennendim Cumbendatch&quot;     
+## [5] &quot;Bendandsnap Cucumbersnatch&quot;</code></pre>
+<p><strong>Самостоятельное задание:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Найдите в скольки процентах песен Боуи использует слово “star” (в том числе и как часть слова).</li>
+</ol>
+<pre><code>## [1] 16.94402</code></pre>
+<p>Ого, как много! 2. А теперь найдите все упоминания “star”, в том числе и как часть слова, в песнях Боуи. Посчитайте частоту встречаемости каждого из них.</p>
+<pre><code>## 
+## blackstar  filmstar  gangstar   popstar  pornstar      star  stardust 
+##        19         1         3         1         1        97         5 
+##     stare    stared    stares   starman  starring     stars     start 
+##        30         4         5         5         2        65        18 
+##   started  starting    starts    starve  starving superstar 
+##        10         1         2         3         3         4</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Найдите все варианты песни <code>&quot;Space Oddity&quot;</code> по данной версии с помощью fuzzy matching:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">space &lt;-<span class="st"> </span>b[<span class="kw">grep</span>(<span class="st">&quot;Space Oddity&quot;</span>, song_name)[<span class="dv">1</span>], lyrics]</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<pre><code>##    song_id
+## 1:  112817
+## 2: 4664522
+## 3: 4216423
+## 4: 4216422
+## 5: 4178279
+## 6: 4133059
+## 7: 4178522
+##                                                                     song_name
+## 1:                                                               Space Oddity
+## 2: Space Oddity (Clareville Grove Demo) [2019 Remaster] (Ft. John Hutchinson)
+## 3:                                   Space Oddity (demo - alternative lyrics)
+## 4:                                                Space Oddity (demo excerpt)
+## 5:                                                   Space Oddity (Live 1972)
+## 6:                                                   Space Oddity (Live 1973)
+## 7:                                                    Space Oddity (Live &#39;74)
+##                                                                           song_lyrics_url
+## 1:                                     https://genius.com/David-bowie-space-oddity-lyrics
+## 2: https://genius.com/David-bowie-space-oddity-clareville-grove-demo-2019-remaster-lyrics
+## 3:             https://genius.com/David-bowie-space-oddity-demo-alternative-lyrics-lyrics
+## 4:                        https://genius.com/David-bowie-space-oddity-demo-excerpt-lyrics
+## 5:                           https://genius.com/David-bowie-space-oddity-live-1972-lyrics
+## 6:                           https://genius.com/David-bowie-space-oddity-live-1973-lyrics
+## 7:                             https://genius.com/David-bowie-space-oddity-live-74-lyrics
+##    annotation_count artist_id artist_name
+## 1:               25      9534 David Bowie
+## 2:                0      9534 David Bowie
+## 3:                0      9534 David Bowie
+## 4:                0      9534 David Bowie
+## 5:                0      9534 David Bowie
+## 6:                0      9534 David Bowie
+## 7:                0      9534 David Bowie
+##                                artist_url
+## 1: https://genius.com/artists/David-bowie
+## 2: https://genius.com/artists/David-bowie
+## 3: https://genius.com/artists/David-bowie
+## 4: https://genius.com/artists/David-bowie
+## 5: https://genius.com/artists/David-bowie
+## 6: https://genius.com/artists/David-bowie
+## 7: https://genius.com/artists/David-bowie
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      lyrics
+## 1:                                                                                                                                Ground Control to Major Tom Ground Control to Major Tom Take your protein pills and put your helmet on (Ten) Ground Control (Nine) to Major Tom (Eight, seven) (Six) Commencing (Five) countdown, engines on (Four, three, two) Check ignition (One) and may God&#39;s love (Lift off) be with you This is Ground Control to Major Tom You&#39;ve really made the grade And the papers want to know whose shirt you wear Now it&#39;s time to leave the capsule if you dare This is Major Tom to Ground Control I&#39;m stepping through the door And I&#39;m floating in a most peculiar way And the stars look very different today For here am I sitting in a tin can Far above the world Planet Earth is blue And there&#39;s nothing I can do Though I&#39;m past 100,000 miles I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Ground Control to Major Tom Your circuit&#39;s dead, there&#39;s something wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you Here am I floating &#39;round my tin can Far above the moon Planet Earth is blue And there&#39;s nothing I can do
+## 2:                                                                                                                                Ground Control to Major Tom Ground Control to Major Tom Take your protein pills And put your helmet on (Ten) Ground Control (Nine) to Major Tom (Eight) (Seven, six) Commencing (Five) countdown Engines on (Four, three, two) Check ignition (One) And may God&#39;s love (Blast off) be with you This is Ground Control to Major Tom You&#39;ve really made the grade And the papers want to know whose shirt you wear Now it&#39;s time to leave the capsule if you dare This is Major Tom to Ground Control I&#39;m stepping through the door And I&#39;m floating in a most peculiar way And the stars look very different today For here am I sitting in a tin can Far above the world Planet Earth is blue And there&#39;s nothing I can do Though I&#39;m past 100,000 miles I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Ground Control to Major Tom Your circuit&#39;s dead, there&#39;s something wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you Here am I floating &#39;round my tin can Far above the moon Planet Earth is blue And there&#39;s nothing I can do
+## 3:                                                                                                                                                                          John Hutchinson: Nice, nice David Bowie: Didn’t sound nice to me. Let’s remember to do that. Ok, Hutch (Begins playing) DB: Ope, hun. Yeah? JH: What a single! DB: We’re recording, now. Wait, Christie, don’t talk Ground Control to Major Tom Ground Control to Major Tom Take your protein pills And put your helmet on (10) Ground Control (Nine) to Major Tom (Eight) (Seven, six) Commencing (Five) countdown Engines on (Four, three, two) Check ignition (One) And may God&#39;s love (Blast off) be with you This is Major Tom to Ground Control I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Though I&#39;m passed 100,000 miles I&#39;m feeling very still And I think my spaceship know what I must do And I think my life on earth is never trough Ground Control to Major Tom You&#39;re off your course, direction&#39;s wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you heee... ...eeere am I sitting in a tin can Far above the Moon The planet Earth is blue And there&#39;s nothing I can do…
+## 4:                                                                                                                                                                                                                                                                                                                                                                                                     This is Major Tom to Ground Control, I’m stepping through the door And I’m floating in the most peculiar way Can I please get back inside now, if I may? For here am I floating ‘round my tin can Far above the world Planet earth is blue, and there’s nothing I can do This is Major Tom to Ground Control, I’m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much, she knows Though I’m past one hundred thousand miles, I’m feeling very still And I think my spaceship knows what i must do And I think my life on earth is nearly through Ground Control to Major Tom, you’re off your course Direction’s wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you- Here am I sitting in a tin can Far above the moon Planet earth is blue and there’s nothing I can do Do, do do do
+## 5: Ground Control to Major Tom Ground Control to Major Tom Take your protein pills And put your helmet on (10) Ground Control (9) to Major Tom (8) (7, 6) Commencing (5) countdown Engines on (4, 3, 2) Check ignition (1) And may God&#39;s love (Liftoff) be with you Ahhh... This is Ground Control to Major Tom You’ve really made the grade And the papers want to know whose shirt you wear Now it&#39;s time to leave the capsule if you dare This is Major Tom to Ground Control I&#39;m stepping through the door And I’m floating in a most peculiar way And the stars look very different today For here am I sitting in a tin can Far above the world Planet Earth is blue And there&#39;s nothing I can do Though I&#39;m past one hundred thousand miles I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Ground Control to Major Tom Your circuit&#39;s dead, there&#39;s something wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you- Here am I floating &#39;round my tin can Far above the moon Planet Earth is blue And there&#39;s nothing I can do Ohhh Duh-duh-duh-duh-duh-duh-duh-duh-duh-duh Cha-cha-cha-cha-cha-cha-cha-cha-cha-cha Cha-cha-cha-cha-cha-cha-cha-cha-cha-cha Thank You
+## 6:                                                                                                                                                                                 Ground Control to Major Tom Ground Control to Major Tom Take your protein pills And put your helmet on Ground Control to Major Tom Commencing countdown Engines on Check ignition And may God&#39;s love be with you This is Ground Control to Major Tom You’ve really made the grade And the papers want to know who&#39;s shirt you wear Now it&#39;s time to leave the capsule if you dare This is Major Tom to Ground Control I’m stepping through the door And I&#39;m floating in a most peculiar way Now the stars look very different today For here am I sitting in my tin can Far above the world Planet Earth is blue And there&#39;s nothing I can do Though I&#39;m past one hundred thousand miles I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Ground Control to Major Tom Your circuit&#39;s dead, there&#39;s something wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you Here am I floating &#39;round my tin can Far above the moon Planet Earth is blue And there’s nothing I can do Shhh... Shh...
+## 7:                                                                                                                                                                                                 Ground Control to Major Tom Ground Control to Major Tom Take your protein pills And put your helmet on Ground Control to Major Tom Commencing countdown Engines on Check ignition And may God&#39;s love be with you This is Ground Control to Major Tom You&#39;ve really made the grade And the papers want to know whose shirt you wear Now it&#39;s time to leave the capsule if you dare This is Major Tom to Ground Control I&#39;m stepping through the door And I&#39;m floating in a most peculiar way And the stars look very different today For here am I sitting in a tin can Far above the world Planet Earth is blue And there&#39;s nothing I can do Though I&#39;m past one hundred thousand miles I&#39;m feeling very still And I think my spaceship knows which way to go Tell my wife I love her very much She knows Ground Control to Major Tom Your circuit&#39;s dead, there&#39;s something wrong Can you hear me, Major Tom? Can you hear me, Major Tom? Can you hear me, Major Tom? Can you Here am I floating &#39;round my tin can Far above the moon Planet Earth is blue And there&#39;s nothing I can do
+##    n_letters song_name_trunc
+## 1:      1113    Space Oddity
+## 2:      1113 Space Oddity...
+## 3:      1071 Space Oddity...
+## 4:       852 Space Oddity...
+## 5:      1240 Space Oddity...
+## 6:      1064 Space Oddity...
+## 7:      1048 Space Oddity...
+##                                                                 song_name_pad
+## 1:                                                               Space Oddity
+## 2: Space Oddity (Clareville Grove Demo) [2019 Remaster] (Ft. John Hutchinson)
+## 3:                                   Space Oddity (demo - alternative lyrics)
+## 4:                                                Space Oddity (demo excerpt)
+## 5:                                                   Space Oddity (Live 1972)
+## 6:                                                   Space Oddity (Live 1973)
+## 7:                                                    Space Oddity (Live &#39;74)
+##                                                             song_name_trimmed
+## 1:                                                               Space Oddity
+## 2: Space Oddity (Clareville Grove Demo) [2019 Remaster] (Ft. John Hutchinson)
+## 3:                                   Space Oddity (demo - alternative lyrics)
+## 4:                                                Space Oddity (demo excerpt)
+## 5:                                                   Space Oddity (Live 1972)
+## 6:                                                   Space Oddity (Live 1973)
+## 7:                                                    Space Oddity (Live &#39;74)
+##          sim
+## 1: 1.0000000
+## 2: 0.9874214
+## 3: 0.4294699
+## 4: 0.4618149
+## 5: 0.8282258
+## 6: 0.8867925
+## 7: 0.9092543</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="d2-rmd.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["sirius_advanced.pdf", "sirius_advanced.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
