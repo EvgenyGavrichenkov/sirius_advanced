@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 3 Неделя 2, День 2, продолжение | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 3 Неделя 2, День 2, продолжение | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Неделя 2, День 2, продолжение | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  
+  <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+<meta name="author" content="Иван Поздняков">
+
+
+<meta name="date" content="2020-01-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="d2.html">
+<link rel="next" href="d2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>1</b> Неделя 2, День 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>1.1</b> Warmup exercise</a></li>
+<li class="chapter" data-level="1.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>1.2.1</b> Формула</a></li>
+<li class="chapter" data-level="1.2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.2.2</b> Функция lm()</a></li>
+<li class="chapter" data-level="1.2.3" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>1.2.3</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.4" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>1.2.4</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="1.2.5" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>1.2.5</b> Влияние выбросов на линейную модель</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>1.3</b> Множественная линейная регрессия</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>2.1</b> Дисперсионный анализ (ANOVA)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="d2.html"><a href="d2.html#aov"><i class="fa fa-check"></i><b>2.1.1</b> Функция aov()</a></li>
+<li class="chapter" data-level="2.1.2" data-path="d2.html"><a href="d2.html#anova_nhst"><i class="fa fa-check"></i><b>2.1.2</b> Тестирование значимости нулевой гипотезы в ANOVA.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>2.1.3</b> Post-hoc тесты</a></li>
+<li class="chapter" data-level="2.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>2.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
+<li class="chapter" data-level="2.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>2.1.5</b> Dummy coding</a></li>
+<li class="chapter" data-level="2.1.6" data-path="d2.html"><a href="d2.html#aov_a"><i class="fa fa-check"></i><b>2.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="2.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>2.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
+<li class="chapter" data-level="2.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>2.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
+<li class="chapter" data-level="2.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>2.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
+<li class="chapter" data-level="2.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>2.1.10</b> Заключение</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 2, продолжение</a><ul>
+<li class="chapter" data-level="3.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>3.1</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>3.1.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.1.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>3.1.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.1.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>3.1.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.1.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>3.1.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.1.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>3.1.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>3.1.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.1.7" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>3.1.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.1.8" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>3.1.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.1.9" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>3.1.9</b> Вставлять HTML</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="d2.html"><a href="d2.html#d2"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d2.html"><a href="d2.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d2.html"><a href="d2.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d2.html"><a href="d2.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Соединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d2.html"><a href="d2.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d2.html"><a href="d2.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d2.html"><a href="d2.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d2.html"><a href="d2.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d2.html"><a href="d2.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="d2.html"><a href="d2.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d2.html"><a href="d2.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d2.html"><a href="d2.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d2.html"><a href="d2.html#text_next"><i class="fa fa-check"></i><b>4.4</b> А что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d2.html"><a href="d2.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="5.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>5.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="5.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>5.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>5.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="5.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>5.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="5.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>5.2.3</b> Статистическая мощность</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d2_rmd" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Неделя 2, День 2, продолжение</h1>
+<div id="rmd" class="section level2">
+<h2><span class="header-section-number">3.1</span> RMarkdown</h2>
+<pre><code>![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)</code></pre>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png" alt="Если картинка не загрузилась, будет этот текст" />
+<p class="caption">Если картинка не загрузилась, будет этот текст</p>
+</div>
+<p>Вот так делать заголовки:</p>
+<pre><code># R Markdown
+
+## Что такое RMarkdown
+
+## Чанки с кодом </code></pre>
+<p>Это чанк с кодом. Он отделяется ``` с обоих сторон и {r}. Это означает, что внутри находится код на R, который должен быть выполнен:</p>
+<p>``` {r}<br />
+2+2<br />
+```</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div id="chunk" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Настройки чанка</h3>
+<p>У чанка с кодом есть набор настроек. Самый важные из них такие:</p>
+<ul>
+<li><p><em>echo</em>: будет ли показан сам код</p></li>
+<li><p><em>message</em> и <em>warning</em>: будут ли показаны сообщения и предупреждения, всплывающие во время исполнения кода</p></li>
+<li><p><em>eval</em>: будет ли испольняться код внутри чанка</p></li>
+</ul>
+</div>
+<div id="chunks" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Настройка нескольких чанков</h3>
+<p>Все эти настройки можно настроить как для отдельных чанков, так и для все чанков сразу:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="python" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Чанки с Python!</h3>
+<p>Вместо {r} нужно написать {python}</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="st">&#39;hello, python !&#39;</span>
+<span class="bu">print</span> (x.split(<span class="st">&quot; &quot;</span>))</code></pre></div>
+<pre><code>## [&#39;hello,&#39;, &#39;python&#39;, &#39;!&#39;]</code></pre>
+</div>
+<div id="inline" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Код вне чанков (inline code)</h3>
+<p>Число пи равно ` r pi `:</p>
+<p><code>Число пи равно 3.1415927</code></p>
+</div>
+<div id="md" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Синтаксис Markdown (без R)</h3>
+<div id="md_high" class="section level4">
+<h4><span class="header-section-number">3.1.5.1</span> Выделение текста</h4>
+<pre><code>*Курсив* 
+_Тоже курсив_
+**Полужирный**
+__Тоже полужирный__</code></pre>
+<p><em>Курсив</em> <em>Тоже курсив</em> <strong>Полужирный</strong> <strong>Тоже полужирный</strong></p>
+</div>
+<div id="headers" class="section level4">
+<h4><span class="header-section-number">3.1.5.2</span> Заголовки разных уровней</h4>
+<pre><code>## Заголовки разных уровней
+
+### Мне заголовок
+
+#### И моему сыну тоже
+
+##### И моему!
+
+###### OK, boomer
+</code></pre>
+</div>
+<div id="md_lists" class="section level4">
+<h4><span class="header-section-number">3.1.5.3</span> Списки</h4>
+<ul>
+<li><p>Первый вариант списка выглядит так:</p></li>
+<li>Можно и с подсписком</li>
+<li><p>Почему бы и нет?</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Кому нужен порядок</li>
+<li>Тот списки номерует</li>
+</ol>
+</div>
+<div id="md_cite" class="section level4">
+<h4><span class="header-section-number">3.1.5.4</span> Цитаты</h4>
+<p>Цитата:</p>
+<blockquote>
+<p>Я устал<br />
+Который год во мне живет нарвал</p>
+</blockquote>
+</div>
+</div>
+<div id="rmd_tables" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Таблицы</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+go &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/iGLAS for R course.csv&quot;</span>)
+go[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<pre><code>##     StartDate   EndDate Status      IPAddress
+## 1:  1/15/2017 1/16/2017      0   144.139.7.52
+## 2:  1/27/2017 1/27/2017      0  31.54.151.215
+## 3:  1/24/2017 1/24/2017      0   176.62.130.7
+## 4: 01/10/2017 1/23/2017      0 86.161.181.218</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">StartDate</th>
+<th align="left">EndDate</th>
+<th align="right">Status</th>
+<th align="left">IPAddress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1/15/2017</td>
+<td align="left">1/16/2017</td>
+<td align="right">0</td>
+<td align="left">144.139.7.52</td>
+</tr>
+<tr class="even">
+<td align="left">1/27/2017</td>
+<td align="left">1/27/2017</td>
+<td align="right">0</td>
+<td align="left">31.54.151.215</td>
+</tr>
+<tr class="odd">
+<td align="left">1/24/2017</td>
+<td align="left">1/24/2017</td>
+<td align="right">0</td>
+<td align="left">176.62.130.7</td>
+</tr>
+<tr class="even">
+<td align="left">01/10/2017</td>
+<td align="left">1/23/2017</td>
+<td align="right">0</td>
+<td align="left">86.161.181.218</td>
+</tr>
+<tr class="odd">
+<td align="left">12/11/2016</td>
+<td align="left">12/11/2016</td>
+<td align="right">0</td>
+<td align="left">31.211.8.249</td>
+</tr>
+</tbody>
+</table>
+<div id="dynamic_tables" class="section level4">
+<h4><span class="header-section-number">3.1.6.1</span> Динамические таблицы</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DT)
+<span class="kw">datatable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<div id="htmlwidget-83973d9082ca98057ec6" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-83973d9082ca98057ec6">{"x":{"filter":"none","data":[["1","2","3","4","5"],["1/15/2017","1/27/2017","1/24/2017","01/10/2017","12/11/2016"],["1/16/2017","1/27/2017","1/24/2017","1/23/2017","12/11/2016"],[0,0,0,0,0],["144.139.7.52","31.54.151.215","176.62.130.7","86.161.181.218","31.211.8.249"],[100,6,67,6,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>StartDate<\/th>\n      <th>EndDate<\/th>\n      <th>Status<\/th>\n      <th>IPAddress<\/th>\n      <th>Progress<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="vis" class="section level3">
+<h3><span class="header-section-number">3.1.7</span> Визуализации</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Stat2Data)
+<span class="kw">library</span>(data.table)
+<span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
+back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)
+
+ggplot_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(back, <span class="kw">aes</span>(<span class="dt">x =</span> BodyWeight, <span class="dt">y =</span> BackpackWeight))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Sex), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">2</span>)
+ggplot_scatter</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="din_vis" class="section level3">
+<h3><span class="header-section-number">3.1.8</span> Динамические визуализации в plotly</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotly)
+<span class="kw">ggplotly</span>(ggplot_scatter)</code></pre></div>
+<div id="htmlwidget-700dd874b031ce9232f8" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-700dd874b031ce9232f8">{"x":{"data":[{"x":[125,120,180,185,130,120,135,125,145,105,125,117,205,140,165,145,120,135,165,145,140,143,145,135,130,165,140,115,128,150,150,116,145,144,130,140,125,150,140,127,150,125,125,144,105,125,130,120,175,145,115,110,130,135,128],"y":[9,10,8,4,5,2,8,12,13,6,10,14,15,5,6,10,15,9,14,17,14,8,8,13,10,15,10,5,6,5,10,21,13,17,10,9,13,10,8,12,14,5,14,25,2,8,15,10,25,24,5,10,19,13,9],"text":["Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 180<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 185<br />BackpackWeight:  4","Sex: Female<br />BodyWeight: 130<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 120<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 117<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 205<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 165<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 143<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 145<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 150<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 116<br />BackpackWeight: 21","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 127<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 175<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 24","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 110<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 19","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  9"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Female","legendgroup":"Female","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[195,155,240,170,160,170,170,175,165,170,145,270,160,150,190,145,160,155,220,170,155,190,185,175,180,220,195,125,180,180,150,160,135,170,175,150,160,168,155,210,165,195,130,140,170],"y":[8,6,5,8,21,11,11,11,5,20,11,10,18,8,25,7,11,4,13,19,8,16,5,10,11,12,35,2,6,20,14,8,14,20,16,18,18,11,13,15,14,6,11,9,15],"text":["Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 240<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 21","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 165<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 145<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 270<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 150<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 25","Sex: Male<br />BodyWeight: 145<br />BackpackWeight:  7","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  4","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 19","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 185<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 12","Sex: Male<br />BodyWeight: 195<br />BackpackWeight: 35","Sex: Male<br />BodyWeight: 125<br />BackpackWeight:  2","Sex: Male<br />BodyWeight: 180<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 160<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 135<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 168<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 210<br />BackpackWeight: 15","Sex: Male<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 130<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 15"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Male","legendgroup":"Male","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[96.75,278.25],"tickmode":"array","ticktext":["100","150","200","250"],"tickvals":[100,150,200,250],"categoryorder":"array","categoryarray":["100","150","200","250"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"BodyWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.35,36.65],"tickmode":"array","ticktext":["10","20","30"],"tickvals":[10,20,30],"categoryorder":"array","categoryarray":["10","20","30"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"BackpackWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.913385826771654},"annotations":[{"text":"Sex","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"13db223dc414f":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"13db223dc414f","visdat":{"13db223dc414f":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="html" class="section level3">
+<h3><span class="header-section-number">3.1.9</span> Вставлять HTML</h3>
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="d2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["sirius_advanced.pdf", "sirius_advanced.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

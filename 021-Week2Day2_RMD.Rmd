@@ -1,0 +1,164 @@
+# Неделя 2, День 2, продолжение {#d2_rmd}
+
+## RMarkdown {#rmd}
+
+``` 
+![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+```
+
+![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+
+
+Вот так делать заголовки:
+
+```
+# R Markdown
+
+## Что такое RMarkdown
+
+## Чанки с кодом 
+```
+
+Это чанк с кодом. Он отделяется ``` с обоих сторон и {r}. Это означает, что внутри находится код на R, который должен быть выполнен:
+
+
+\`\`\` {r}  
+2+2  
+\`\`\`
+
+```{r}
+2+2
+```
+
+
+### Настройки чанка {#chunk}
+
+У чанка с кодом есть набор настроек. Самый важные из них такие:
+
+- _echo_: будет ли показан сам код
+
+- _message_ и _warning_: будут ли показаны сообщения и предупреждения, всплывающие во время исполнения кода
+
+- _eval_:  будет ли испольняться код внутри чанка
+
+### Настройка нескольких чанков {#chunks}
+ 
+Все эти настройки можно настроить как для отдельных чанков, так и для все чанков сразу:
+
+
+```{r setup2}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+
+### Чанки с Python! {#python}
+
+Вместо {r} нужно написать {python}
+
+```{python}
+x = 'hello, python !'
+print (x.split(" "))
+```
+
+### Код вне чанков (inline code) {#inline}
+
+Число пи равно \` r pi \`:
+
+```Число пи равно `r pi` ```
+
+### Синтаксис Markdown (без R) {#md}
+
+#### Выделение текста {#md_high}
+
+```
+*Курсив* 
+_Тоже курсив_
+**Полужирный**
+__Тоже полужирный__
+```
+
+*Курсив* 
+_Тоже курсив_
+**Полужирный**
+__Тоже полужирный__
+
+#### Заголовки разных уровней {#headers}
+
+```
+## Заголовки разных уровней
+
+### Мне заголовок
+
+#### И моему сыну тоже
+
+##### И моему!
+
+###### OK, boomer
+
+```
+
+#### Списки {#md_lists}
+
+* Первый вариант списка выглядит так:  
+
+  + Можно и с подсписком
+  + Почему бы и нет?
+
+1. Кому нужен порядок
+2. Тот списки номерует
+
+#### Цитаты {#md_cite}
+
+Цитата:
+
+> Я устал  
+> Который год во мне живет нарвал
+
+### Таблицы {#rmd_tables}
+
+```{r data, message=FALSE, warning = FALSE}
+library(data.table)
+go <- fread("data/iGLAS for R course.csv")
+go[1:4,1:4]
+```
+
+
+```{r}
+library(knitr)
+kable(go[1:5,1:4])
+```
+
+#### Динамические таблицы {#dynamic_tables}
+
+```{r}
+library(DT)
+datatable(go[1:5, 1:5])
+```
+
+### Визуализации {#vis}
+
+```{r}
+library(ggplot2)
+library(Stat2Data)
+library(data.table)
+data("Backpack")
+back <- as.data.table(Backpack)
+
+ggplot_scatter <- ggplot(back, aes(x = BodyWeight, y = BackpackWeight))+
+  geom_point(aes(colour = Sex), alpha = 0.5, size = 2)
+ggplot_scatter
+```
+
+### Динамические визуализации в plotly {#din_vis}
+
+```{r}
+library(plotly)
+ggplotly(ggplot_scatter)
+```
+
+
+### Вставлять HTML {#html}
+
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
