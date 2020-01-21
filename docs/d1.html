@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Сириус. Анализ данных в R. Вторая неделя.</title>
+  <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Сириус. Анализ данных в R. Вторая неделя." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Сириус. Анализ данных в R. Вторая неделя." />
+  
+  <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  
+
+<meta name="author" content="Иван Поздняков">
+
+
+<meta name="date" content="2020-01-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="d2.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>1</b> Неделя 2, День 1</a><ul>
+<li class="chapter" data-level="1.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>1.1</b> Warmup exercise</a></li>
+<li class="chapter" data-level="1.2" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>1.2</b> Формула</a></li>
+<li class="chapter" data-level="1.3" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>1.3</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="d1.html"><a href="d1.html#---"><i class="fa fa-check"></i><b>1.3.1</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="1.3.2" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>1.3.2</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="1.3.3" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>1.3.3</b> Влияние выбросов на линейную модель</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>1.4</b> Множественная линейная регрессия</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 2</a><ul>
+<li class="chapter" data-level="2.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>2.1</b> Дисперсионный анализ (ANOVA)</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="d2.html"><a href="d2.html#aov"><i class="fa fa-check"></i><b>2.1.1</b> Функция aov()</a></li>
+<li class="chapter" data-level="2.1.2" data-path="d2.html"><a href="d2.html#anova_nhst"><i class="fa fa-check"></i><b>2.1.2</b> Тестирование значимости нулевой гипотезы в ANOVA.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>2.1.3</b> Post-hoc тесты</a></li>
+<li class="chapter" data-level="2.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>2.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
+<li class="chapter" data-level="2.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>2.1.5</b> Dummy coding</a></li>
+<li class="chapter" data-level="2.1.6" data-path="d2.html"><a href="d2.html#aov_a"><i class="fa fa-check"></i><b>2.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="2.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>2.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
+<li class="chapter" data-level="2.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>2.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
+<li class="chapter" data-level="2.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>2.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
+<li class="chapter" data-level="2.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>2.1.10</b> Заключение</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Сириус. Анализ данных в R. Вторая неделя.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Сириус. Анализ данных в R. Вторая неделя.</h1>
+<p class="author"><em>Иван Поздняков</em></p>
+<p class="date"><em>2020-01-21</em></p>
+</div>
+<div id="d1" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Неделя 2, День 1</h1>
+<div id="warm" class="section level2">
+<h2><span class="header-section-number">1.1</span> Warmup exercise</h2>
+<p>Продолжаем работать с датасетом Backpack</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Stat2Data)
+<span class="kw">library</span>(data.table)
+<span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
+back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)</code></pre></div>
+<p>Переводим фунты в килограммы:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[, BackpackWeightKG <span class="op">:</span><span class="er">=</span><span class="st"> </span>BackpackWeight <span class="op">*</span><span class="st"> </span><span class="fl">0.453592</span>]
+back[, BodyWeightKG <span class="op">:</span><span class="er">=</span><span class="st"> </span>BodyWeight <span class="op">*</span><span class="st"> </span><span class="fl">0.453592</span>]</code></pre></div>
+<p>Создаем колонку с ID:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[,id <span class="op">:</span><span class="er">=</span><span class="st"> </span>.I]</code></pre></div>
+<p>Вы уже умеете считать коэффициент корреляции Пирсона:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[,<span class="kw">cor.test</span>(BackpackWeightKG, BodyWeightKG)]</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  BackpackWeightKG and BodyWeightKG
+## t = 1.9088, df = 98, p-value = 0.05921
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.007360697  0.371918344
+## sample estimates:
+##       cor 
+## 0.1893312</code></pre>
+<p>Простая линейная регрессия - это примерно то же самое. В синтаксисе линейной регрессии уже не обойтись без формул, это такой специальный тип данных в R:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(y <span class="op">~</span><span class="st"> </span>x)</code></pre></div>
+<pre><code>## [1] &quot;formula&quot;</code></pre>
+</div>
+<div id="formula" class="section level2">
+<h2><span class="header-section-number">1.2</span> Формула</h2>
+<p>Если видите эту волнистую линию - тильду, то значит перед Вами формула.</p>
+<p>Давайте исследуем зависимость размера рюкзака от массы тела. В простой лингейной регрессии, в отличие от корреляции, есть направленность: одна переменная является как бы независимой переменной (предиктором), другая - как бы объясняемой переменной (outcome). Это может немного запутать: если одна переменная предиктор, а другая объясняется этим предиктором, то кажется, что они должны быть обязательно связаны причинно-следственной связью. Это не так: обозначения условны, более того, Вы можете поменять переменные местами и практически ничего не изменится! Короче говоря, “линейная регрессия” не дает никакой магической каузальной силы переменным.</p>
+</div>
+<div id="lm" class="section level2">
+<h2><span class="header-section-number">1.3</span> Простая линейная регрессия</h2>
+<p>Давайте посчитаем линейную регрессию функцией lm().</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG <span class="op">~</span><span class="st"> </span>BodyWeightKG, <span class="dt">data =</span> back)
+model</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back)
+## 
+## Coefficients:
+##  (Intercept)  BodyWeightKG  
+##      2.71125       0.03713</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4853 -1.7629 -0.4681  1.2893  9.8803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)   2.71125    1.37483   1.972   0.0514 .
+## BodyWeightKG  0.03713    0.01945   1.909   0.0592 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.581 on 98 degrees of freedom
+## Multiple R-squared:  0.03585,    Adjusted R-squared:  0.02601 
+## F-statistic: 3.644 on 1 and 98 DF,  p-value: 0.05921</code></pre>
+<p><code>print(model)</code> или просто <code>model</code> выводит коэфициенты линейной регрессии - это коэффициенты прямой, которая лучше всего подогнанна к данным. Как измеряется качество этой подгонки? В расстоянии точек исходных точек до прямой. По идее, расстояние до прямой нужно было бы считать просто по модулю. И так делают, хоть и очень редко. Обычно в линейной регрессии используются квадратичные расстояния точек до прямой для оценки расстояния (метод наименьших квадратов - ordinary least squares). Это дает кучу клевых математических свойств, например, возможность легко аналитически найти коэффициенты прямой линейной регрессии.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[, body <span class="op">:</span><span class="er">=</span><span class="st"> </span>BodyWeightKG]
+back[, bp <span class="op">:</span><span class="er">=</span><span class="st"> </span>BackpackWeightKG]
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(<span class="dt">data =</span> back,<span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> bp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="fl">0.03713</span>, <span class="dt">intercept =</span> <span class="fl">2.71125</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">140</span>))</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Функция <code>predict()</code> позволяет скормить модели новые данные и получить предсказания для новых значений предикторов. Попробуем поиграть с этим немного. Допустим, предскажем вес рюкзака для студента весом в 100 кг:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(model, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">BodyWeightKG =</span> <span class="dv">100</span>))</code></pre></div>
+<pre><code>##        1 
+## 6.424226</code></pre>
+<p>Мы можем даже попробовать какие-нибудь экстремальные значения для предикторов. Например, сколько будет весить рюкзак студента весом 1000 кг?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(model, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">BodyWeightKG =</span> <span class="dv">1000</span>))</code></pre></div>
+<pre><code>##        1 
+## 39.84099</code></pre>
+<p>Очевидно, что в этом не очень много смысла: студент весом 1000 кг не сможет ходить на занятия, поэтому и про вес рюкзака как-то не имеет смысл спрашивать. Это проблема экстрополяции: линейная регрессия позволяет более-менее достоверно предсказывать значения внутри диапазона значений, на которых была построена модель. Еще один “странный” пример - студент весом 0 кг.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(model, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">BodyWeightKG =</span> <span class="dv">0</span>))</code></pre></div>
+<pre><code>##        1 
+## 2.711252</code></pre>
+<p>Здесь бессмысленность происходящего еще очевиднее. Конечно, вес студента не может быть равен нулю, иначе это не студент вовсе. Однако это позволяет понять, что такое intercept модели - это значение зависимой переменой в случае, если предиктор равен нулю. А коэффициент предиктора означает, насколько килограммов увеличивается вес рюкзака при увеличении веса студента на 1 кг: на 0.0371297. Не очень много!</p>
+<div id="---" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Интерпретация вывода линейной регрессии</h3>
+<p>Давайте еще раз посмотрим на summary(model):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4853 -1.7629 -0.4681  1.2893  9.8803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)   2.71125    1.37483   1.972   0.0514 .
+## BodyWeightKG  0.03713    0.01945   1.909   0.0592 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.581 on 98 degrees of freedom
+## Multiple R-squared:  0.03585,    Adjusted R-squared:  0.02601 
+## F-statistic: 3.644 on 1 and 98 DF,  p-value: 0.05921</code></pre>
+<p>Теперь мы понимаем, что это за коэффициенты. Однако это всего лишь их оценка. Это значит, что мы допускаем, что в реальности есть некие настоящие коэффициенты линейной регрессии, а каждый раз собирая новые данные, они будут посчитаны как немного разные. Короче говоря, эти коэффициенты - те же статистики, со своим выборочным распределением и стандартными ошибками. На основе чего и высчитывается p-value для каждого коэффициента - вероятность получить такой и более отклоняющийся от нуля коэффициент при верности нулевой гипотезы - независимости зависимой переменной от предиктора.</p>
+<p>Кроме p-value, у линейной регрессии есть R<sup>2</sup> - доля объясненной дисперсии. Как ее посчитать? Для начала давайте сохраним как отдельные колонки ошибки (необъясненную часть модели) и предсказанные значения (они означают объясненную часть модели). Можно убедиться, что сумма предсказанных значений и ошибок будет равна зависимой переменной.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model<span class="op">$</span>residuals</code></pre></div>
+<pre><code>##           1           2           3           4           5           6 
+## -0.73414353 -2.36665829 -0.19634276 -2.60017214 -2.11403198 -4.48531320 
+##           7           8           9          10          11          12 
+## -1.94561444 -4.01260875 -2.63272030 -3.82507876 -1.35615307  4.11949909 
+##          13          14          15          16          17          18 
+## -0.58483844 -0.58483844  0.62663247 -0.66904721  0.74338940 -1.75808446 
+##          19          20          21          22          23          24 
+## -0.28055153 -3.22218168  3.49748956  1.66855050 -0.16379460  0.64006818 
+##          25          26          27          28          29          30 
+## -2.72260581  2.75872309 -1.60877937 -2.80113783  5.42861448 -2.76858968 
+##          31          32          33          34          35          36 
+## -0.61738660  2.07161724 -0.90256107 -1.97816260  0.86014632  2.55775740 
+##          37          38          39          40          41          42 
+##  1.28119017 -0.41642091 -3.50735614 -1.49088710 -1.52457060  0.91180693 
+##          43          44          45          46          47          48 
+## -0.36476030  1.31373832 -0.53317783 -2.38009399 -2.14544479 -2.96955537 
+##          49          50          51          52          53          54 
+## -0.51974213 -0.70159537  3.04389756 -1.69298814  4.86053625  1.34628648 
+##          55          56          57          58          59          60 
+##  0.74338940  2.57459915 -0.36476030 -3.55901675 -0.98676983  1.08022447 
+##          61          62          63          64          65          66 
+## -1.12263921 -0.70159537 -0.75325598 -1.44036183 -0.97333413  9.88032571 
+##          67          68          69          70          71          72 
+##  0.59294896  1.11277263 -3.90928753 -2.54851153 -3.02121598  3.32907202 
+##          73          74          75          76          77          78 
+##  1.11277263  1.53381647 -1.77719691  6.20333515 -3.57245246 -1.18773553 
+##          79          80          81          82          83          84 
+##  1.90319970 -0.19634276  5.68124079  5.73290140 -2.38009399 -0.02792523 
+##          85          86          87          88          89          90 
+##  3.71756770  0.91180693 -0.78466879  1.36539893  3.49748956  1.59891279 
+##          91          92          93          94          95          96 
+##  2.92714063  2.75872309 -0.55115494  0.57497186  0.55585941  0.86014632 
+##          97          98          99         100 
+## -3.27384229  0.08883170 -0.98676983  1.22952956</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back<span class="op">$</span>residuals =<span class="st"> </span><span class="kw">residuals</span>(model)
+back<span class="op">$</span>fitted =<span class="st"> </span><span class="kw">fitted</span>(model)
+
+back[, bp <span class="op">-</span><span class="st"> </span>(fitted <span class="op">+</span><span class="st"> </span>residuals)]</code></pre></div>
+<pre><code>##   [1]  0.000000e+00 -4.440892e-16  0.000000e+00  4.440892e-16  0.000000e+00
+##   [6] -4.440892e-16  0.000000e+00  0.000000e+00 -4.440892e-16  4.440892e-16
+##  [11] -4.440892e-16  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [16]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [21]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 -8.881784e-16
+##  [26]  0.000000e+00  0.000000e+00 -4.440892e-16  0.000000e+00  0.000000e+00
+##  [31]  0.000000e+00  0.000000e+00  0.000000e+00 -4.440892e-16  0.000000e+00
+##  [36]  0.000000e+00 -8.881784e-16  0.000000e+00  4.440892e-16  0.000000e+00
+##  [41]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [46]  0.000000e+00 -4.440892e-16  0.000000e+00  0.000000e+00  0.000000e+00
+##  [51]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [56]  0.000000e+00  0.000000e+00 -4.440892e-16  0.000000e+00  0.000000e+00
+##  [61]  0.000000e+00  0.000000e+00  0.000000e+00 -4.440892e-16  0.000000e+00
+##  [66]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00 -4.440892e-16
+##  [71]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  4.440892e-16
+##  [76]  0.000000e+00  4.440892e-16  0.000000e+00  0.000000e+00  0.000000e+00
+##  [81]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [86]  0.000000e+00  0.000000e+00 -8.881784e-16  0.000000e+00  0.000000e+00
+##  [91]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00
+##  [96]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</code></pre>
+<p>Соответственно, вся сумма объясненной дисперсии разделяется на объясненую и необъясненную. Полная дисперсия (total sum of squares = TSS) может быть посчитана как сумма квадратов разниц со средним. Необъясненная дисперсия - это сумма квадратов ошибок - residual sum of squares (RSS).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rss &lt;-<span class="st"> </span>back[, <span class="kw">sum</span>(residuals<span class="op">^</span><span class="dv">2</span>)]
+rss</code></pre></div>
+<pre><code>## [1] 652.7262</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tss &lt;-<span class="st"> </span>back[, <span class="kw">sum</span>((bp <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(bp))<span class="op">^</span><span class="dv">2</span>)]
+tss</code></pre></div>
+<pre><code>## [1] 676.9939</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span><span class="op">-</span><span class="st"> </span>rss<span class="op">/</span>tss</code></pre></div>
+<pre><code>## [1] 0.03584628</code></pre>
+<p>Это очень мало, мы объяснили всего 3.5846285% дисперсии. Собственно, и p-value больше, чем 0,05. При этом этот p-value тот же, что и при коэффициента корреляции Пирсона. А R<sup>2</sup> - это квадрат коэффициента корреляции Пирсона, если речь идет только об одном предикторе.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.4853 -1.7629 -0.4681  1.2893  9.8803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)   2.71125    1.37483   1.972   0.0514 .
+## BodyWeightKG  0.03713    0.01945   1.909   0.0592 .
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.581 on 98 degrees of freedom
+## Multiple R-squared:  0.03585,    Adjusted R-squared:  0.02601 
+## F-statistic: 3.644 on 1 and 98 DF,  p-value: 0.05921</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(back<span class="op">$</span>bp, back<span class="op">$</span>body)<span class="op">$</span>estimate<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>##        cor 
+## 0.03584628</code></pre>
+</div>
+<div id="lm_a" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Допущения линейной регрессии</h3>
+<p>Как и в случае с другими параметрическими методами, линейная регрессия имеет определенные допущения относительно используемых данных. Если они не соблюдаются, то все наши расчеты уровня значимости могут некорректными.</p>
+<blockquote>
+<p>Очень важно ставить вопрос о том, насколько результаты будут некорректными. Как сильно нарушения допущений будет влиять на модель? Ответ на этот вопрос может быть контринтуитивен. Например, достаточно большие отклонения от нормальности нам обычно не стражны при условии того, что выборка достаточно большая.</p>
+</blockquote>
+<p>Допущения линейной регрессии связаны с ошибками: они должны быть нормально распределены, а разброс ошибок должен не уменьшаться и не увеличиваться в зависимости от предсказанных значений. Это то, что называется гомоскедастичностью или гомогенностью (когда все хорошо) и гетероскедастичностью или гетерогенностью (когда все плохо).</p>
+<p>Если мы применим функцию plot(), то получим 4 скаттерплота:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Зависимость ошибок от предсказанных значений.</em> На что здесь смотреть? На симметричность относительно нижней и верхней части графика, на то, что разброс примерно одинаковый слева и справа.</p></li>
+<li><p><em>Q-Q plot.</em> Здесь все довольно просто: если ошибки являются выборкой из нормального распределения, то они выстраиваются в прямую линию. Если это мало похоже на прямую линию, то имеет место отклонение от нормальности.</p></li>
+<li><p><em>Scale-Location plot.</em> Этот график очень похож на график 1, только по оси у используются квадратные корни модуля ошибки. Еще один способ исследовать гетеро(гомо)скедастичность и находить выбросы.</p></li>
+<li><p><em>Residuals-Leverage plot.</em> Здесь по оси х - расстояние Кука, а по оси у - стандартизированный размер выбросов. Расстояние Кука показывает high-leverage points - точки, которые имеют экстремальные предсказанные значения, то есть очень большие или очень маленькие значения по предикторам. Для линейной регрессии такие значения имеют большее значение, чем экстремальные точки по предсказываемой переменной. Особенно сильное влияние имеют точки, которые имеют экстремальные значения и по предикторам, и по предсказываемой переменной. Одна такая точка может поменять направление регрессионной прямой! Расстояние Кука отражает уровень leverage, а стандартизированные ошибки отражают экстремальные значения по у (вернее, экстремальные отклонения от предсказанных значений). В этом графике нужно смотреть на точки с правой стороны графика, особенно если они находятся высоко или низко по оси у.</p></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(model)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-16-1.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-16-2.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-16-3.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-16-4.png" width="672" /></p>
+<p>Давайте теперь нарисуем регрессионную прямую на скаттерплоте:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> back,<span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> bp))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> model<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">intercept =</span> model<span class="op">$</span>coefficients[<span class="dv">1</span>])</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><strong>Самостоятельное задание:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>На практике как экстремальные точки часто выбирают среднее плюс минус два (или три стандартных отклонения). Напишите функцию <code>is_outlier()</code>, которая возвращает <code>TRUE</code>, если значение выходит за 2 стандартных отклонения от среднего.</p></li>
+<li><p>Затем измените функцию <code>is_outlier()</code> так, чтобы можно было бы самостоятельно вводить количество стандартных отклонений с помощью параметра <code>n =</code>. Пусть по умолчанию это будет 3. Но проверьте, ято все работает и на 2!</p></li>
+<li><p>Теперь измените функцию <code>is_outlier()</code> так, чтобы можно было выбирать функцию для меры центральности (<code>centr =</code>, по умолчанию - среднее) и функцию для меры разброса (<code>vary =</code>, по умолчанию - стандартное отклонение). Проверьте, что это работает на медиане и 3 median absolute deviation. Как Вы думаете, какой из вариантов подходит больше? Почему?</p></li>
+</ol>
+<blockquote>
+<p>О, да, в R функция тоже может быть использована в качестве аргумента функции. Впрочем, это не первый случай, когда мы с этим сталкиваемся. Другой пример - функции семейства <code>*apply()</code>. Заметьте - там тоже в качестве аргумента выступала функция (как объект), а не просто название функции как строковая переменная. В этом задании нужно сделать так же.</p>
+</blockquote>
+</div>
+<div id="outliers" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> Влияние выбросов на линейную модель</h3>
+<p>Давайте теперь попробуем посмотреть, как изменится модель, если выкинуть high leverage points (экстремальные значения по предиктору - body) и что будет, если выкинуть экстремальные значения по у. Обычная линия - регрессионная прямая для модели со всеми точками, штрихованная линия - регрессионная прямая для модели без экстремальных значений по предиктору, пунктирная линия - регрессионная прямая для модели без экстремальных значений по предсказываемой переменной.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[, body_outlier <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">is_outlier</span>(body)]
+back[, bp_outlier <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">is_outlier</span>(bp)]
+model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG <span class="op">~</span><span class="st"> </span>BodyWeightKG, <span class="dt">data =</span> back[<span class="op">!</span><span class="kw">is_outlier</span>(body),])
+<span class="kw">summary</span>(model1)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back[!is_outlier(body), 
+##     ])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.6526 -1.7471 -0.3773  1.1699  9.0854 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   0.48577    1.65749   0.293  0.77011   
+## BodyWeightKG  0.07128    0.02413   2.953  0.00397 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.548 on 94 degrees of freedom
+## Multiple R-squared:  0.08491,    Adjusted R-squared:  0.07517 
+## F-statistic: 8.722 on 1 and 94 DF,  p-value: 0.003971</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG <span class="op">~</span><span class="st"> </span>BodyWeightKG, <span class="dt">data =</span> back[<span class="op">!</span><span class="kw">is_outlier</span>(bp),])
+<span class="kw">summary</span>(model2)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = BackpackWeightKG ~ BodyWeightKG, data = back[!is_outlier(bp), 
+##     ])
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.7843 -1.4343 -0.1363  1.4296  4.9122 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   3.60560    1.13144   3.187  0.00196 **
+## BodyWeightKG  0.01915    0.01610   1.190  0.23716   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.087 on 93 degrees of freedom
+## Multiple R-squared:  0.01499,    Adjusted R-squared:  0.004402 
+## F-statistic: 1.416 on 1 and 93 DF,  p-value: 0.2372</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> back, <span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> bp, <span class="dt">colour =</span>bp_outlier, <span class="dt">shape =</span> body_outlier))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> model<span class="op">$</span>coefficients[<span class="dv">1</span>], <span class="dt">slope =</span> model<span class="op">$</span>coefficients[<span class="dv">2</span>])<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span> model1<span class="op">$</span>coefficients[<span class="dv">1</span>], 
+              <span class="dt">slope =</span> model1<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span> model2<span class="op">$</span>coefficients[<span class="dv">1</span>], 
+              <span class="dt">slope =</span> model2<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+</div>
+<div id="lm_mult" class="section level2">
+<h2><span class="header-section-number">1.4</span> Множественная линейная регрессия</h2>
+<p>В множественной линейной регрессионной регрессии у нас появляется несколько предикторов. Какая модель лучше: где есть много предикторов или где мало предикторов? С одной стороны, чем больше предикторов, тем лучше: каждый новый предиктор может объяснить чуть больше необъясненной дисперсиии. С другой стороны, если эта прибавка маленькая (а она всегда будет не меньше нуля), то, возможно, новый предиктор просто объясняет “случайный шум”. В действительности, если у нас будет достаточно много предикторов, то мы сможем объяснить любые данные! Парадоксальным образом такая модель будет давать очень плохие данные на новой выборке - это то, что в машинном обучении называют переобучением (overfitting). Идеальная модель будет включать минимум предикторов, которые лучше всего объясненяют исследуемую переменную. Это что-то вроде <a href="https://ru.wikipedia.org/wiki/Бритва_Оккама">бритвы Оккама</a> в статистике.</p>
+<p>Поэтому часто используются показатели качества модели, которые “наказывают” модель за большое количество предикторов. Например, adjusted R<sup>2</sup>:</p>
+<p><span class="math display">\[R_{adj} = 1 - (1 - R^2) \frac{n -1}{n - p - 1}\]</span></p>
+<p>Здесь <em>n</em> - это количество наблюдений, <em>p</em> - количество параметров.</p>
+<p>Итак, добавим новый предиктор - <em>Units</em>. Это количество кредитов, которые студенты взяли в четверти<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Можно предположить, что чем больше у студента набрано кредитов, тем более тяжелый у нее/него рюкзак. Давайте добавим это как второй предиктор. Для этого нужно просто записать второй предиктор в формуле через плюс.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model3 &lt;-<span class="st"> </span><span class="kw">lm</span>(bp <span class="op">~</span><span class="st"> </span>body <span class="op">+</span><span class="st"> </span>Units, <span class="dt">data =</span> back)
+<span class="kw">summary</span>(model3)</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = bp ~ body + Units, data = back)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.6221 -1.8347 -0.5023  1.2519 10.0623 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  0.28481    2.16170   0.132   0.8955  
+## body         0.04391    0.01990   2.207   0.0297 *
+## Units        0.13703    0.09456   1.449   0.1505  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.566 on 97 degrees of freedom
+## Multiple R-squared:  0.05628,    Adjusted R-squared:  0.03682 
+## F-statistic: 2.892 on 2 and 97 DF,  p-value: 0.06025</code></pre>
+<p>Множественная линейная регрессия имеет еще одно допущение: отстутсвие мультиколлинеарности. Это значит, что предикторы не должны коррелировать друг с другом.</p>
+<p>Для измерения мультколлинеарности существует variance inflation factor (VIF-фактор). Считается он просто: для предиктора <span class="math inline">\(i\)</span> считается линейная регрессия, где все остальные предикторы предсказывают предиктор <span class="math inline">\(i\)</span>.</p>
+<p>Сам VIF-фактор считается на основе полученного R<sup>2</sup> регрессии:</p>
+<p><span class="math display">\[VIF_i = \frac{1}{1 - R_i^2}\]</span></p>
+<p>Если R<sub>i</sub><sup>2</sup> большой, то и VIF<sub>i</sub> выходит большим. Это означает, что предиктор сам по себе хорошо объясняется другими предикторами. Какой VIF считать большим? Здесь нет единого мнения, но если он выше 3 и особенно если он выше 10, то с этим нужно что-то делать.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">car<span class="op">::</span><span class="kw">vif</span>(model3)</code></pre></div>
+<pre><code>##    body   Units 
+## 1.05858 1.05858</code></pre>
+<p>В нашем случае это не так. Но если бы VIF был большим для какого-либо предиктора, то можно было бы либо попробовать его выкинуть или же использовать анализ главных компонент, о котором пойдет речь в один из следующих дней.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Кредиты - это что-то вроде часов во многих зарубежных системах образования. Более “тяжелые” курсы дают больше кредитов. Студентам необходимо набрать определенное количество кредитов, чтобы закончить вуз.<a href="d1.html#fnref1">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="d2.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["sirius_advanced.pdf", "sirius_advanced.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
