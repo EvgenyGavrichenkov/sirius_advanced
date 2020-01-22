@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <title>5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
   <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:title" content="5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta name="twitter:title" content="5 Неделя 2, День 3 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   
   <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
   
@@ -25,14 +25,14 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-21">
+<meta name="date" content="2020-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="d2-rmd.html">
+<link rel="prev" href="r-markdown.html">
 <link rel="next" href="d4.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -49,24 +49,8 @@
 
 
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.6/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
 <script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/d3-4.5.0/d3.min.js"></script>
-<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
-<script src="libs/edgebundleR-0.0.2/packages.js"></script>
-<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
-<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
 
 
 <style type="text/css">
@@ -120,18 +104,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Начало работы</a></li>
 <li class="chapter" data-level="2" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 1</a><ul>
 <li class="chapter" data-level="2.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>2.1</b> Warmup exercise</a></li>
 <li class="chapter" data-level="2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2</b> Простая линейная регрессия</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>2.2.1</b> Формула</a></li>
-<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.2</b> Функция lm()</a></li>
-<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.3</b> Интерпретация вывода линейной регрессии</a></li>
-<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.4</b> Допущения линейной регрессии</a></li>
-<li class="chapter" data-level="2.2.5" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.5</b> Влияние выбросов на линейную модель</a></li>
+<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.1</b> Функция lm()</a></li>
+<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.2</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.3</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.4</b> Влияние выбросов на линейную модель</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>2.3</b> Множественная линейная регрессия</a></li>
 </ul></li>
@@ -142,30 +125,35 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>3.1.3</b> Post-hoc тесты</a></li>
 <li class="chapter" data-level="3.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>3.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
 <li class="chapter" data-level="3.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>3.1.5</b> Dummy coding</a></li>
-<li class="chapter" data-level="3.1.6" data-path="d2.html"><a href="d2.html#aov_a"><i class="fa fa-check"></i><b>3.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2.html"><a href="d2.html#aova"><i class="fa fa-check"></i><b>3.1.6</b> Допущения ANOVA</a></li>
 <li class="chapter" data-level="3.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>3.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
 <li class="chapter" data-level="3.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>3.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
 <li class="chapter" data-level="3.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>3.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
 <li class="chapter" data-level="3.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>3.1.10</b> Заключение</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 2, продолжение</a><ul>
-<li class="chapter" data-level="4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>4.1.1</b> Настройки чанка</a></li>
-<li class="chapter" data-level="4.1.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>4.1.2</b> Настройка нескольких чанков</a></li>
-<li class="chapter" data-level="4.1.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>4.1.3</b> Чанки с Python!</a></li>
-<li class="chapter" data-level="4.1.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>4.1.4</b> Код вне чанков (inline code)</a></li>
-<li class="chapter" data-level="4.1.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>4.1.5</b> Синтаксис Markdown (без R)</a></li>
-<li class="chapter" data-level="4.1.6" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>4.1.6</b> Таблицы</a></li>
-<li class="chapter" data-level="4.1.7" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>4.1.7</b> Визуализации</a></li>
-<li class="chapter" data-level="4.1.8" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>4.1.8</b> Динамические визуализации в plotly</a></li>
-<li class="chapter" data-level="4.1.9" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>4.1.9</b> Вставлять HTML</a></li>
+<li class="chapter" data-level="4" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>4</b> R Markdown</a><ul>
+<li class="chapter" data-level="4.1" data-path="r-markdown.html"><a href="r-markdown.html#rmd"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="4.2" data-path="r-markdown.html"><a href="r-markdown.html#--rmarkdown"><i class="fa fa-check"></i><b>4.2</b> Что такое RMarkdown</a></li>
+<li class="chapter" data-level="4.3" data-path="r-markdown.html"><a href="r-markdown.html#--"><i class="fa fa-check"></i><b>4.3</b> Чанки с кодом</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="r-markdown.html"><a href="r-markdown.html#chunk"><i class="fa fa-check"></i><b>4.3.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="4.3.2" data-path="r-markdown.html"><a href="r-markdown.html#chunks"><i class="fa fa-check"></i><b>4.3.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="4.3.3" data-path="r-markdown.html"><a href="r-markdown.html#python"><i class="fa fa-check"></i><b>4.3.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="4.3.4" data-path="r-markdown.html"><a href="r-markdown.html#inline"><i class="fa fa-check"></i><b>4.3.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="4.3.5" data-path="r-markdown.html"><a href="r-markdown.html#md"><i class="fa fa-check"></i><b>4.3.5</b> Синтаксис Markdown (без R)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-markdown.html"><a href="r-markdown.html#--"><i class="fa fa-check"></i><b>4.4</b> Заголовки разных уровней</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="r-markdown.html"><a href="r-markdown.html#-"><i class="fa fa-check"></i><b>4.4.1</b> Мне заголовок</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-markdown.html"><a href="r-markdown.html#rmd_tables"><i class="fa fa-check"></i><b>4.4.2</b> Таблицы</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-markdown.html"><a href="r-markdown.html#vis"><i class="fa fa-check"></i><b>4.4.3</b> Визуализации</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-markdown.html"><a href="r-markdown.html#din_vis"><i class="fa fa-check"></i><b>4.4.4</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="4.4.5" data-path="r-markdown.html"><a href="r-markdown.html#html"><i class="fa fa-check"></i><b>4.4.5</b> Вставлять HTML</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 3</a><ul>
 <li class="chapter" data-level="5.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>5.1</b> Введение в работу с текстом</a></li>
 <li class="chapter" data-level="5.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>5.2</b> Базовые операции с текстом</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>5.2.1</b> Соединение и разъединение строк</a></li>
+<li class="chapter" data-level="5.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>5.2.1</b> Объединение и разъединение строк</a></li>
 <li class="chapter" data-level="5.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>5.2.2</b> Подсчет длины строк</a></li>
 <li class="chapter" data-level="5.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>5.2.3</b> Выделение подстрок и обрезание строк</a></li>
 <li class="chapter" data-level="5.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>5.2.4</b> Изменение регистра</a></li>
@@ -176,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>5.3.1</b> grep(), gsub()</a></li>
 <li class="chapter" data-level="5.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>5.3.2</b> Регулярные выражения</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>5.4</b> А что дальше?</a></li>
+<li class="chapter" data-level="5.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>5.4</b> Анализ текста - что дальше?</a></li>
 <li class="chapter" data-level="5.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>5.5</b> Fuzzy matching</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 4</a><ul>
@@ -218,7 +206,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="d3" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Неделя 2, День 3</h1>
+<h1><span class="header-section-number">5</span> Неделя 2, День 3</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)</code></pre></div>
 <div id="text" class="section level2">
 <h2><span class="header-section-number">5.1</span> Введение в работу с текстом</h2>
@@ -229,7 +217,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Регулярные выражения</li>
 <li>Natural language processing</li>
 </ol>
-<p>Мы начнем с базовых операций. В R есть много функций для работы со строками. В принципе, их достаточно для того, чтобы делать весьма сложные вещи, но как и часто это бывает с R, есть дополнительные пакеты, которые не столько расширяют функционал, сколько делают нашу жизнь удобнее.</p>
+<p>Мы начнем с базовых операций. В R есть много функций для работы со строками. В принципе, их достаточно для того, чтобы делать весьма сложные вещи, но как это часто бывает с R, есть дополнительные пакеты, которые не только и не столько расширяют функционал, сколько делают нашу жизнь удобнее.</p>
 <p>Основных таких пакета два: <code>stringi</code> и <code>stringr</code>. Давайте сразу их установим:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;stringi&quot;</span>)
 <span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</code></pre></div>
@@ -261,14 +249,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## [1] &quot;С тобой все в порядке?&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">character</span>(<span class="dv">5</span>)</code></pre></div>
 <pre><code>## [1] &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot;</code></pre>
-<p>Конечно, можно превращать другие переменные в строки:</p>
+<p>Конечно, можно превращать другие типы данных в строки:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</code></pre></div>
 <pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.character</span>(<span class="ot">TRUE</span>)</code></pre></div>
 <pre><code>## [1] &quot;TRUE&quot;</code></pre>
 <div id="text_c" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Соединение и разъединение строк</h3>
-<p>Как соединить строки? Очевидным способом будет попробовать функцию <code>c()</code>:</p>
+<h3><span class="header-section-number">5.2.1</span> Объединение и разъединение строк</h3>
+<p>Как объединить строки? Очевидным способом будет попробовать функцию <code>c()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;Привет&quot;</span>)</code></pre></div>
 <pre><code>## [1] &quot;Всем&quot;   &quot;Привет&quot;</code></pre>
 <p>И вроде бы это то, что нужно, но если посмотрите внимательно, то увидите, что оба слова выделены в кавычки. Короче говоря, мы просто соединили два значения в вектор (ну или два вектора длиной один в вектор длиной два).</p>
@@ -316,10 +304,10 @@ let</code></pre></div>
 <p>Ага! Если немного присмотреться, то можно заметить, что функция <code>paste()</code> “склеивает” несколько векторов и выдает на выходе вектор такой же длины. А вот чтобы соединить значения одного вектора в одно значение, нужно воспользоваться параметром <code>collapse =</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">let[, <span class="kw">paste</span>(small, big, <span class="dt">sep =</span> <span class="st">&quot;+&quot;</span>, <span class="dt">collapse =</span> <span class="st">&quot; -&gt; &quot;</span>)]</code></pre></div>
 <pre><code>## [1] &quot;a+A -&gt; b+B -&gt; c+C -&gt; d+D -&gt; e+E -&gt; f+F -&gt; g+G -&gt; h+H -&gt; i+I -&gt; j+J&quot;</code></pre>
-<p>Есть и более продвинутый способ соединения строк, который происходит еще из C и очень популярен в Python. Для этого есть функция <code>sprintf()</code>. Вот пример того, как это работает:</p>
+<p>Есть и более продвинутый способ соединения строк, который происходит еще из <em>C</em> и очень популярен в <em>Python</em>. Для этого способа есть функция <code>sprintf()</code>. Вот пример того, как она работает:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sprintf</span>(<span class="st">&quot;Добро пожаловать в %s, на дворе %i год&quot;</span>, <span class="st">&quot;СИРИУС&quot;</span>, <span class="kw">year</span>(<span class="kw">Sys.Date</span>()))</code></pre></div>
 <pre><code>## [1] &quot;Добро пожаловать в СИРИУС, на дворе 2020 год&quot;</code></pre>
-<p>Это может быть удобно, если, например, Вы хотите в большую строчку вставить какую-то информацию из переменных.</p>
+<p>Это может быть удобно, если Вы хотите в большую строчку вставить какую-то информацию из переменных.</p>
 <p>Ну и наконец, самый продвинутый способ соединять строчки - это пакет <code>glue</code>. О да, для того, чтобы делать простые вещи очень просто нужно осваивать целый пакет! Но не беспокойтесь, у этого пакета очень интуитивно понятный синтаксис, который удобнее (на мой взгляд), чем <code>sprintf()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;glue&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(glue)
@@ -353,7 +341,7 @@ let[, <span class="kw">glue</span>(<span class="st">&quot;{1:.N} буква ла
 <p>Чтобы посчитать количество знаков, можно воспользоваться функцией <code>nchar()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nchar</span>(<span class="kw">c</span>(<span class="st">&quot;Всем&quot;</span>, <span class="st">&quot;привет&quot;</span>))</code></pre></div>
 <pre><code>## [1] 4 6</code></pre>
-<p>В качестве самостоятельного задания загрузите датасет со всеми текстами песен Дэвида Боуи, взятых с сайта [Genius.com]:</p>
+<p>В качестве самостоятельного задания загрузите датасет со всеми текстами песен Дэвида Боуи, взятых с сайта <a href="Genius.com" class="uri">Genius.com</a>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/bowie2.csv&quot;</span>)
 b</code></pre></div>
 <pre><code>##      song_id                                song_name
@@ -460,7 +448,7 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 ##  [5] &quot;     1984 (Live &#39;74)&quot;      &quot;5.15 The Angels Have Gone&quot;
 ##  [7] &quot;         &#39;87 and Cry&quot;      &quot;   &#39;87 and Cry, 2018&quot;     
 ##  [9] &quot;          Abdulmajid&quot;      &quot;     A Better Future&quot;</code></pre>
-<p>Функция <code>str_trim()</code> делает обратную (и на практике более полезную вещь) - удаляет лишние пробелы слева и/или справа:</p>
+<p>Функция <code>str_trim()</code> выполняет обратную задачу - удаляет лишние пробелы слева и/или справа:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b[, song_name_trimmed <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">str_trim</span>(song_name_pad)]</code></pre></div>
 <p>Функция <code>str_squish()</code> делает еще круче: она еще и удаляет повторяющиеся пробелы внутри.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_squish</span>(<span class="st">&quot; Привет,   всем&quot;</span>)</code></pre></div>
@@ -500,7 +488,7 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <pre><code>##  [1] &quot;булок,&quot;      &quot;выпей&quot;       &quot;да&quot;          &quot;ещё&quot;         &quot;же&quot;         
 ##  [6] &quot;мягких&quot;      &quot;съешь&quot;       &quot;французских&quot; &quot;чаю&quot;         &quot;этих&quot;</code></pre>
 <blockquote>
-<p>generic функция в R - это функция, которая по-разному работает для разных объектов (использует соответствующий данному классу метод). Когда функция получает объект, она первым делом смотрит, что это за класс, а потом действует исходя из класса объекта. Примеры это функции <code>print()</code>, <code>summary()</code> и <code>plot()</code> - они работают почти на любых объектах, но на всех выдают что-то свое.</p>
+<p><em>generic</em> функция в R - это функция, которая по-разному работает для разных объектов (использует соответствующий данному классу метод). Когда функция получает объект, она первым делом смотрит, что это за класс, а потом действует исходя из класса объекта. Например, функции <code>print()</code>, <code>summary()</code> и <code>plot()</code> - они работают почти на любых объектах, по-разному реагируя на объекты разных классов. Поэтому столкнувшись с объектом неизвестного класса в R, попробуйте применить эти функции.</p>
 </blockquote>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
@@ -537,7 +525,7 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <pre><code>##  [1] &quot;Jan...&quot; &quot;Feb...&quot; &quot;March&quot;  &quot;April&quot;  &quot;May&quot;    &quot;June&quot;   &quot;July&quot;  
 ##  [8] &quot;August&quot; &quot;Sep...&quot; &quot;Oct...&quot; &quot;Nov...&quot; &quot;Dec...&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Создайте в <code>mon</code> колонку <code>month</code>, где все эти месяца будут записаны с маленькой буквы.</li>
+<li>Создайте в <code>mon</code> колонку <code>month</code>, где каждый месяц будет записан с маленькой буквы.</li>
 </ol>
 <pre><code>##      n     Month     month
 ##  1:  1   January   january
@@ -553,7 +541,7 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 ## 11: 11  November  november
 ## 12: 12  December  december</code></pre>
 <ol start="4" style="list-style-type: decimal">
-<li>Создайте колонку <code>month_anagram</code>, в котором будут анаграммы названия каждого месяца (т.е. в данном случае - перемешанные) из колонки <code>month</code></li>
+<li>Создайте колонку <code>month_anagram</code>, в котором будут анаграммы названия каждого месяца (т.е. в данном случае - перемешанные) из колонки <code>month</code>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>) <span class="co">#запустите, чтобы у нас одинаковые рандомизации получились</span></code></pre></div>
 <pre><code>##      n     Month     month month_anagram
@@ -569,7 +557,9 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 ## 10: 10   October   october       orbcote
 ## 11: 11  November  november      rbmvonee
 ## 12: 12  December  december      bdemerec</code></pre>
-<p>*5. Ну а теперь сложное задание - создайте функцию <code>is_anagram()</code>, которая проверяет, что два слова являются анаграммами.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>(*) Ну а теперь сложное задание - создайте функцию <code>is_anagram()</code>, которая проверяет, что два слова являются анаграммами.</li>
+</ol>
 <blockquote>
 <p>Подсказка: если в <code>tstrsplit()</code> использовать <code>split = &quot;&quot;</code>, то это разделит строку пол отдельным знакам.</p>
 </blockquote>
@@ -577,7 +567,9 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_anagram</span>(<span class="st">&quot;скол&quot;</span>, <span class="st">&quot;клок&quot;</span>)</code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>Затем эту функцию нужно применить на колонки <code>month</code> и <code>month_anagram</code>. Скорее всего, придется либо векторизовать функцию, либо применить <code>mapply()</code>.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>(*) Затем эту функцию нужно применить на колонки <code>month</code> и <code>month_anagram</code>. Скорее всего, придется либо векторизовать функцию, либо применить <code>mapply()</code>.</li>
+</ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mon[, <span class="kw">mapply</span>(is_anagram,month, month_anagram)]</code></pre></div>
 <pre><code>##   january  february     march     april       may      june      july 
 ##      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE 
@@ -587,7 +579,7 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 </div>
 <div id="regexp" class="section level2">
 <h2><span class="header-section-number">5.3</span> Поиск паттернов и регулярные выражения</h2>
-<p>Очень большая часть работы с текстом - это поиск паттернов. В самом элементарном виде - простых последовательностей.</p>
+<p>Очень большая часть работы с текстом - это поиск паттернов. В самом простом случае - простых последовательностей.</p>
 <div id="grep" class="section level3">
 <h3><span class="header-section-number">5.3.1</span> grep(), gsub()</h3>
 <p>Для этого в R есть очень много функций. Пожалуй, самая распространенная из них - функция <code>grep()</code>. Она выдает индексы значений вектора, в которых находится подходящая подстрока:</p>
@@ -619,139 +611,135 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <p>Регулярные выражения реализованы в очень многих языках программирования, не только в R, так что это довольно универсальный навык.</p>
 </blockquote>
 <div class="figure">
-<img src="images/reg.png" alt="reg.png" />
-<p class="caption">reg.png</p>
+<img src="images/reg.png" />
+
 </div>
-<p>Учить их лучше всего интерактивно: очень удобно смотреть, что в тексте находится по введенному паттерну. В качестве примера я могу посоветовать ресурс <a href="https://regexone.com">regexone</a>. Потренироваться можно на [кроссворде] (<a href="https://regexcrossword.com/challenges/beginner/puzzles/1" class="uri">https://regexcrossword.com/challenges/beginner/puzzles/1</a>). Пакет <code>stringr</code> тоже предоставляет удобный инструмент: функции <code>str_view()</code> (показывает первый найденный паттерн) и <code>str_view_all()</code> (показывает все найденные паттерны). Первый аргумент в них - вектор с данными, второй - паттерн регулярных выражений. Если Все введено верно, то во вкладке Viewer окна RStudio появится данный вектор с выделенными паттернами.</p>
-<p>Если нужно найти простую последовательность, то здесь все так же, как и обычно. Очень похоже на то, что Вы делаете, если нажимаете <code>Ctrl + F</code> и пытаетесь найти в тексте какое-то ключевое слово:</p>
+<p>Учить их лучше всего интерактивно: очень удобно смотреть, что в тексте находится по введенному паттерну. В качестве примера я могу посоветовать ресурс <a href="https://regexone.com">regexone</a>. Потренироваться можно на <a href="https://regexcrossword.com/challenges/beginner/puzzles/1">кроссворде</a>. Пакет <code>stringr</code> тоже предоставляет удобный инструмент: функции <code>str_view()</code> (показывает первый найденный паттерн) и <code>str_view_all()</code> (показывает все найденные паттерны). Первый аргумент в них - вектор с данными, второй - паттерн регулярных выражений. Если Все введено верно, то во вкладке Viewer окна RStudio появится данный вектор с выделенными паттернами.</p>
+<p>Итак, перейдем к синтаксису “регулярок”. Если нужно найти простую последовательность, то здесь все так же, как и обычно. Очень похоже на то, что Вы делаете, если нажимаете <code>Ctrl + F</code> и пытаетесь найти в тексте какое-то ключевое слово:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Саня&quot;</span>, <span class="st">&quot;Ваня&quot;</span>, <span class="st">&quot;Даня&quot;</span>, <span class="st">&quot;Женя&quot;</span>, <span class="st">&quot;Аня&quot;</span>, <span class="st">&quot;Андрей&quot;</span>, <span class="st">&quot;Леша&quot;</span>, <span class="st">&quot;Лера&quot;</span>, <span class="st">&quot;Витя&quot;</span>, <span class="st">&quot;Валера&quot;</span>)
 <span class="kw">str_view_all</span>(names, <span class="st">&quot;аня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4bd9784d50ca09c19cab" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4bd9784d50ca09c19cab">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<p>Заметьте, “Аня” осталась за бортом, потому что регулярные выражения case-sensitive. Скажем, мы хотим найти написанные как с большой, так и маленькой буквы паттерны “аня”. Здесь придут на помощь наборы - возможные варианты букв, которые мы ожидаем увидеть на нужном месте:</p>
+<div id="htmlwidget-710585817302759401f6" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-710585817302759401f6">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Заметьте, “Аня” осталась за бортом, потому что регулярные выражения case-sensitive. Скажем, мы хотим найти паттерны “аня”, написанные как с большой, так и с маленькой буквы. Здесь придут на помощь наборы - возможные варианты букв, которые мы ожидаем увидеть на нужном месте:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[аА]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-9c17a4d580992a3bde58" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9c17a4d580992a3bde58">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-65b989270420b066e36c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-65b989270420b066e36c">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Ура, мы поймали Аню!</p>
-<p>Наборы можно задавать в целом диапазоне. Например, чтобы задать все буквы кириллицы, нужно задать такой диапазон: <code>[а-яА-ЯёЁ]</code>.</p>
+<p>Наборы можно задавать в целом диапазоне. Например, чтобы задать все буквы кириллицы, нужно задать такой диапазон: <code>[а-яА-ЯёЁ]</code> (<code>ё</code> и <code>Ë</code> находятся за пределами диапазонов <code>а-я</code> и <code>А-Я</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-d865d6804b0b15b2aa8b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d865d6804b0b15b2aa8b">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e9489c4bd308ea22dc0f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e9489c4bd308ea22dc0f">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Теперь мы поймали еще и Женю.</p>
-<p>Символ <code>^</code> (внутри набора) означает, что мы ожидаем увидеть любые символы, кроме тех, что в наборе. Попробуйте догадаться, какие имена мы поймаем следующими паттернами: <code>&quot;[^а-яА-ЯёЁ]ня&quot;</code>, <code>&quot;[^а]ня&quot;</code></p>
+<p>Символ <code>^</code> (внутри набора) означает, что мы ожидаем увидеть любые символы, кроме тех, что в наборе. Попробуйте догадаться, какие имена мы поймаем следующими паттернами: <code>&quot;[^а-яА-ЯёЁ]ня&quot;</code>, <code>&quot;[^а]ня&quot;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-2fbdac1a14bc4d33e177" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2fbdac1a14bc4d33e177">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-64dbf7ed44db75815197" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64dbf7ed44db75815197">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-960bdfa0f19a21669a6d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-960bdfa0f19a21669a6d">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7091446d67b62794e338" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7091446d67b62794e338">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Иногда нужно найти один из двух паттернов - то есть реализовать что-то вроде логического ИЛИ. В регулярных выражениях тоже такое есть. Более того, для этого нужен тот же оператор, что и в R - <code>|</code>. Например, мы хотим найти все имена, заканчивающиеся на “ня” и начинающиеся на “Ле”:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;Ле|ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-71fc6c9aa13e238f7d49" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-71fc6c9aa13e238f7d49">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-63e629915a0cb435521f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-63e629915a0cb435521f">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Если бы паттерн включал бы в себя еще и варианты с маленькой буквы “л”, то мы бы поймали еще и Валеру:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[лЛ]е|ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-524bfda611c11a028951" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-524bfda611c11a028951">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Ва<span class='match'>ле<\/span>ра<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cff53b1c506bc878547d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cff53b1c506bc878547d">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Ва<span class='match'>ле<\/span>ра<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Чтобы этого избежать, мы можем задать, что <code>&quot;[лЛ]е&quot;</code> должно быть в начале строки (с помощью знака <code>&quot;^&quot;</code>), а <code>&quot;ня&quot;</code> - в конце.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^[лЛ]е|ня$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-cf81a9d0f808395d047f" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cf81a9d0f808395d047f">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-aaf8b96f471cb6a5008c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-aaf8b96f471cb6a5008c">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Что если мы хотим найти точку? Давайте попробуем использовать ее в регулярном выражении:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;При 534вет.&quot;, &quot;</span>всем<span class="st">&quot;)</span>
 <span class="st">str_view_all(hello, &quot;</span>.<span class="st">&quot;)</span></code></pre></div>
-<div id="htmlwidget-5f28dc6acf41c70be834" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5f28dc6acf41c70be834">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span><span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<p>Что-то не то. Дело в том, что точка (как и уже знакомые нам некоторые другие символы - <code>[]|^$</code>) - это спецсимволы, которые имеют специальную функцию в регулярных выражениях. Конкретно точка означает “любой знак”. Но если нам нужно найти в тексте именно точку или другой спецсимвол, то его нужно <em>экранировать</em> с помощью специального паттерна “\” (вне R это “&quot;):</p>
+<div id="htmlwidget-cd84c8368fd92a2929f7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cd84c8368fd92a2929f7">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span><span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Что-то не то. Дело в том, что точка (как и уже знакомые нам некоторые другие символы - <code>[]|^$</code>) - это спецсимволы, которые имеют специальную функцию в регулярных выражениях. Конкретно точка означает “любой знак”. Но если нам нужно найти в тексте именно точку или другой спецсимвол, то его нужно <em>экранировать</em> с помощью специального паттерна <code>\\</code> (вне R это <code>\</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>)</code></pre></div>
-<div id="htmlwidget-8571d981830152d28bb4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8571d981830152d28bb4">{"x":{"html":"<ul>\n  <li>При 534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
-<p>Для наиболее распространенных последовательностей есть специальные символы. С ними все наоборот, чтобы их использовать, нужно их экранировать. Например, <code>\\w</code> выдаст все цифробуквенные (alphanumeric) знаки:</p>
+<div id="htmlwidget-60fab89c1872be1f50ed" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-60fab89c1872be1f50ed">{"x":{"html":"<ul>\n  <li>При 534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Для наиболее распространенных последовательностей есть специальные символы. С ними все наоборот, чтобы их использовать, нужно их экранировать. Например, <code>\\w</code> выдаст все цифробуквенные (<em>alphanumeric</em>) знаки:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">w&quot;</span>)</code></pre></div>
-<div id="htmlwidget-6ae960880507220b2502" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6ae960880507220b2502">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span>.<\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0d6e05f7ae2abda4cf70" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0d6e05f7ae2abda4cf70">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span>.<\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>А <code>\\W</code> - все кроме цифробуквенных знаков</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">W&quot;</span>)</code></pre></div>
-<div id="htmlwidget-8f871adec9b1f6d8d59e" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8f871adec9b1f6d8d59e">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fff570f11ea15ddf05d5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fff570f11ea15ddf05d5">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\d</code> - только цифры:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>)</code></pre></div>
-<div id="htmlwidget-9fde2f3ee05ccf4568cd" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9fde2f3ee05ccf4568cd">{"x":{"html":"<ul>\n  <li>При <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span>вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-255e0553fb0e21a9d6bb" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-255e0553fb0e21a9d6bb">{"x":{"html":"<ul>\n  <li>При <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span>вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\D</code> - кроме цифр:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s&quot;</span>)</code></pre></div>
-<div id="htmlwidget-88b2b61ec15bb85bf13d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-88b2b61ec15bb85bf13d">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fd0b7f9928c041379761" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fd0b7f9928c041379761">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\s</code> - только пробелы:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">S&quot;</span>)</code></pre></div>
-<div id="htmlwidget-54fe3e88bf50599ac380" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-54fe3e88bf50599ac380">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-185b6a3cbd0da17bc15e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-185b6a3cbd0da17bc15e">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\S</code> - все кроме пробелов:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">D&quot;</span>)</code></pre></div>
-<div id="htmlwidget-3c74070a0c5806d4df08" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3c74070a0c5806d4df08">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span>534<span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1f9a89b81b75248970f0" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1f9a89b81b75248970f0">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span>534<span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Следующий этап наращивания нашей мощи инструментария регулярных выражений - количество паттернов.</p>
 <p>В общем виде оно задается с помощью фигурных скобочек:</p>
 <ul>
-<li>{n}: ровно n</li>
-<li>{n,}: n или больше</li>
-<li>{,m}: не больше m</li>
-<li>{n,m}: между n и m</li>
+<li><code>{n}</code>: ровно n</li>
+<li><code>{n,}</code>: n или больше</li>
+<li><code>{,m}</code>: не больше m</li>
+<li><code>{n,m}</code>: между n и m</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">long &lt;-<span class="st"> &quot;1888 - самый длинный год, записанный в римских цифрах: MDCCCLXXXVIII&quot;</span>
 <span class="kw">str_view_all</span>(long, <span class="st">&quot;C{3}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-2b95eb8ea567dab7916b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2b95eb8ea567dab7916b">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-04224d0d9b7960e4e2b5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04224d0d9b7960e4e2b5">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;X{1,}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-98955938991c22cd12b4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-98955938991c22cd12b4">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d97e1eec2ab3f9df50ba" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d97e1eec2ab3f9df50ba">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;н{1,2}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-dcae992780f2b19c6bfa" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dcae992780f2b19c6bfa">{"x":{"html":"<ul>\n  <li>1888 - самый дли<span class='match'>нн<\/span>ый год, записа<span class='match'>нн<\/span>ый в римских цифрах: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1a1db363d34ad0c8903d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1a1db363d34ad0c8903d">{"x":{"html":"<ul>\n  <li>1888 - самый дли<span class='match'>нн<\/span>ый год, записа<span class='match'>нн<\/span>ый в римских цифрах: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Для самых распространенных вариантов количества искомых паттернов есть сокращения:</p>
 <ul>
-<li>? = 0 или 1</li>
-<li><ul>
-<li>= 1 или больше</li>
-</ul></li>
-<li><ul>
-<li>= 0 или больше</li>
-</ul></li>
+<li><code>?</code> = 0 или 1</li>
+<li><code>+</code> = 1 или больше</li>
+<li><code>*</code> = 0 или больше</li>
 </ul>
-<p>Например, чтобы вытащить все последовательности, начинающиеся на “Л” и заканчивающиеся на “а” (включая Ла), нужно записать так:</p>
+<p>Например, чтобы вытащить все последовательности, начинающиеся на <code>Л</code> и заканчивающиеся на <code>а</code> (включая <code>Ла</code>), нужно записать так:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Л.*а$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-853b055482335af6d53d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-853b055482335af6d53d">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0cde7d7b3e303c730090" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0cde7d7b3e303c730090">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Ну а что бы вытащить все последовательности, где стоит или не стоит какой-то символ, то записать нужно так:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Ле.?а$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-27155d8ec906c59be390" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-27155d8ec906c59be390">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a01b019e877ecf02e40c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a01b019e877ecf02e40c">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Найдите время в формате “04:30”, “06:59”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>)</code></pre></div>
-<div id="htmlwidget-d3e49b2f9b2331c78534" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d3e49b2f9b2331c78534">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0bc09d32bb5ea42e37c5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0bc09d32bb5ea42e37c5">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ol start="2" style="list-style-type: decimal">
 <li>Найдите время в формате “04:30”, “06:59”, игнорируя “невозможное” время, например, “19:84”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>)</code></pre></div>
-<div id="htmlwidget-a590f666af706b126006" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a590f666af706b126006">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f68f09c6fec8e8980251" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f68f09c6fec8e8980251">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ol start="3" style="list-style-type: decimal">
 <li>Найдите время, которое может быть в других форматах: “4:20”, “20-10”, но не “20г21” или “2019”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>, <span class="st">&quot;20-10&quot;</span>, <span class="st">&quot;4:20&quot;</span>, <span class="st">&quot;20r21&quot;</span>, <span class="st">&quot;2019&quot;</span>)</code></pre></div>
-<div id="htmlwidget-7a323faea15b63a494ed" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7a323faea15b63a494ed">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n  <li><span class='match'>20-10<\/span><\/li>\n  <li>4:20<\/li>\n  <li>20r21<\/li>\n  <li>2019<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b4ee1bfbce5c3853d8cf" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4ee1bfbce5c3853d8cf">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n  <li><span class='match'>20-10<\/span><\/li>\n  <li>4:20<\/li>\n  <li>20r21<\/li>\n  <li>2019<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="text_next" class="section level2">
-<h2><span class="header-section-number">5.4</span> А что дальше?</h2>
+<h2><span class="header-section-number">5.4</span> Анализ текста - что дальше?</h2>
 <p>Регулярные выражения - это супермощный инструмент. Однако он довольно непростой, да и выглядит совершенно монструозно. Хэдли Уикхэм приводит следующий пример реально используемого кода для поиска в тексте электронных почт:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="st">&quot;(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:(?:(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t]
 )<span class="op">+</span><span class="er">|</span>\Z<span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span><span class="st">&quot;(?:[^</span><span class="ch">\&quot;\r\\</span><span class="st">]|</span><span class="ch">\\</span><span class="st">.|(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">]))*&quot;</span>(?<span class="op">:</span>(?<span class="op">:</span>
@@ -835,11 +823,11 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <span class="st">.(?:(?:</span><span class="ch">\r\n</span><span class="st">)?[ </span><span class="ch">\t</span><span class="st">])*(?:[^()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\] \<span class="dv">000</span><span class="op">-</span>\<span class="dv">031</span>]<span class="op">+</span>(?<span class="op">:</span>(?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">+</span><span class="er">|</span>\Z
 <span class="op">|</span>(?=[\[<span class="st">&quot;()&lt;&gt;@,;:</span><span class="ch">\\</span><span class="st">&quot;</span>.\[\]]))<span class="op">|</span>\[([<span class="op">^</span>\[\]\r\\]<span class="op">|</span>\\.)<span class="op">*</span>\](?<span class="op">:</span>(?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>\<span class="op">&gt;</span>(?<span class="op">:</span>(
 ?<span class="op">:</span>\r\n)?[ \t])<span class="op">*</span>))<span class="op">*</span>)?;\s<span class="op">*</span>)<span class="st">&quot;</span></code></pre></div>
-<p>Обычно работа с текстовыми данными сводится к нескольким отдельным операциям. Например, нужно вытащить из HTML-файла все теги или наоборот избавиться от них. Для этого, конечно, есть специальные пакеты, например, <code>rvest</code>. Сделать <em>токенизацию</em>, то есть разбить текст на токены - значимые единицы текста (обычно слова) - пакет <code>tidytext</code>. Обычно затем нужно перевести эти слова в неопределенную форму (лемматизация) или отбросить окончания (стеммизация) - см. пакет <code>SnowballC</code>.</p>
-<p>Есть удобные инструменты, которые все это делают сразу. Например, пакет <code>udpipe</code>:</p>
+<p>Обычно работа с текстовыми данными сводится к нескольким отдельным операциям. Например, нужно вытащить из HTML-файла все теги или наоборот избавиться от них. Для этого, конечно, есть специальные пакеты, например, <code>rvest</code>. Еще иногда нужно делать <em>токенизацию</em>, то есть разбивать текст на токены - значимые единицы текста (обычно слова). Для этого есть пакет <code>tidytext</code>. Обычно затем нужно перевести эти слова в неопределенную форму (лемматизация) или отбросить окончания (стеммизация) - см. пакет <code>SnowballC</code>.</p>
+<p>Есть удобные инструменты, которые умеют делать это все сразу. Например, пакет <code>udpipe</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;udpipe&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(udpipe)</code></pre></div>
-<p>Для примера возьмем одну песню Дэвида Боуи:</p>
+<p>Для примера возьмем одну песню Дэвида Боуи и “прогоним” через <code>udpipe::udpipe()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">heroes &lt;-<span class="st"> </span>b[<span class="kw">grep</span>(<span class="st">&quot;Heroes&quot;</span>,song_name)[<span class="dv">1</span>],lyrics]
 tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, <span class="st">&quot;english&quot;</span>)
 <span class="kw">head</span>(tok_heroes)</code></pre></div>
@@ -871,13 +859,13 @@ tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, 
 ## 4          &lt;NA&gt;
 ## 5          &lt;NA&gt;
 ## 6          &lt;NA&gt;</code></pre>
-<p>В результате мы имеем очень длинный датафрейм, каждая строчка которого - это слово или знак препинания. Выглядит не очень симпатично (на первый взгляд), но с этим очень удобно работать. Например, с помощью функции <code>merge()</code> можно присоединить к словам сентимент-словарь и сделать сентимент анализ песен Дэвида Боуи. Можно посчитать частотность слов в его песнях. Или же исследовать их сочетание - и сделать топик моделлинг. Освоив базовый инструментарий работы с текстом, перед Вами открывается увлекательный мир анализа естественного языка!</p>
+<p>В результате мы получили очень длинный датафрейм, каждая строчка которого - это слово или знак препинания. Выглядит не очень симпатично (на первый взгляд), но с этим очень удобно работать. Например, с помощью функции <code>data.table::merge()</code> можно присоединить к словам сентимент-словарь и сделать сентимент анализ песен Дэвида Боуи. Можно посчитать частотность слов в его песнях. Или же исследовать их сочетание - и сделать топик моделлинг. Освоив базовый инструментарий работы с текстом, перед Вами открывается увлекательный мир анализа естественного языка!</p>
 </div>
 <div id="fuzzy" class="section level2">
 <h2><span class="header-section-number">5.5</span> Fuzzy matching</h2>
 <p>Часто бывает, что два <code>character</code> значения совпадают не полностью. Например, в одном случае слово написано в единственном числе, а в другом - во множественном. Или того хуже - в одном случае слово написано с ошибкой. Такие ситуации особенно часто возникают при соединении несколько баз вместе или же когда данные вводятся вручную. Например, представим, что мы опросили людей, кто их любимый актер. Но вот незадача: некоторые написали имя любимого актера с ошибкой!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">actors &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Benedict Cumberbatch&quot;</span>, <span class="st">&quot;Bandersnatch Cummerbund&quot;</span>, <span class="st">&quot;Bendenswitch Cumbersquash&quot;</span>, <span class="st">&quot;Bennendim Cumbendatch&quot;</span>, <span class="st">&quot;Bendandsnap Cucumbersnatch&quot;</span>, <span class="st">&quot;Kevin Smith&quot;</span>, <span class="st">&quot;Emma Stone&quot;</span>, <span class="st">&quot;Martin Freeman&quot;</span>)</code></pre></div>
-<p>В этой ситуации нам поможет fuzzy matching - примерное (approximate) сопоставление с паттерном. Как же измеряется эта “примерная похожесть”? О, как и всегда в таких случаях, за этим стоит целая наука. Самая распространенный способ посчитать похожесть, точнее, непохожесть - это расстояние Левенштайна. Это количество операций, которые нужно сделать, чтобы получить из одной строки другую. Вот список допустимых операций:</p>
+<p>В этой ситуации нам поможет fuzzy matching - примерное (approximate) сопоставление с паттерном. Как же измеряется эта “примерная похожесть”? О, как и всегда в таких случаях, за этим стоит целая наука. Самая распространенный способ посчитать похожесть, точнее, непохожесть - это расстояние Левенштайна. Это количество операций, которые нужно сделать, чтобы получить из одной строки другую. Вот список допустимых операций при расчете расстояния Левенштейна:</p>
 <ul>
 <li>вставка ab → aNb</li>
 <li>удаление aOb → ab</li>
@@ -914,7 +902,7 @@ tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, 
 <li>Найдите все варианты песни <code>&quot;Space Oddity&quot;</code> по данной версии с помощью fuzzy matching:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">space &lt;-<span class="st"> </span>b[<span class="kw">grep</span>(<span class="st">&quot;Space Oddity&quot;</span>, song_name)[<span class="dv">1</span>], lyrics]</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <pre><code>##    song_id
 ## 1:  112817
 ## 2: 4664522
@@ -1003,7 +991,7 @@ tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, 
           </div>
         </div>
       </div>
-<a href="d2-rmd.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="d4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -1049,19 +1037,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

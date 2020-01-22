@@ -5,7 +5,7 @@ RMarkdown - это мощный инструмент создания отчет
 
 Вот как это работает:
 
-![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+![Как работает RMarkdown](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
 
 - В основе всего лежит ![pandoc](https://pandoc.org) - программа, которая преобразует разные форматы друг в друга. Поскольку разные форматы и даже виды документов имеют много схожих элементов, это вохможно сделать: например, и Word-файлы, и LaTeX, и HTML-документы имеют заголовки разных уровней.
 
@@ -18,10 +18,10 @@ RMarkdown - это мощный инструмент создания отчет
 Пример Markdown кода:
 
 ``` 
-![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+![Как работает RMarkdown](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
 ```
 
-![Если картинка не загрузилась, будет этот текст](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+![Как работает RMarkdown](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
 
 
 Вот так делать заголовки:
@@ -174,7 +174,7 @@ ggplotly(ggplot_scatter)
 
 ### Вставлять HTML {#html}
 
-Можно собирать RMarkdown документ в разные форматы: .pdf (с помощью LaTeX), Word-файл или HTML-страницу. Если во собираете документ соответствующего формата, то вам доступны и соответствующие плюшки этого формата. Например, этот сайт - это .Rmd, собранный в HTML. Я могу вставлять сюда любой HTML код. Например, видео с YouTube!
+Можно собирать RMarkdown документ в разные форматы: .pdf (с помощью LaTeX), Word-файл, HTML-страницу и некоторые другие форматы. Если во собираете документ соответствующего формата, то вам доступны и соответствующие плюшки этого формата. Например, этот сайт - это .Rmd, собранный в HTML. Я могу вставлять сюда любой HTML код. Например, видео с YouTube!
 
 ```
 <iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
