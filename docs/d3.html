@@ -25,7 +25,7 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-22">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -623,70 +623,70 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 <p>Итак, перейдем к синтаксису “регулярок”. Если нужно найти простую последовательность, то здесь все так же, как и обычно. Очень похоже на то, что Вы делаете, если нажимаете <code>Ctrl + F</code> и пытаетесь найти в тексте какое-то ключевое слово:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Саня&quot;</span>, <span class="st">&quot;Ваня&quot;</span>, <span class="st">&quot;Даня&quot;</span>, <span class="st">&quot;Женя&quot;</span>, <span class="st">&quot;Аня&quot;</span>, <span class="st">&quot;Андрей&quot;</span>, <span class="st">&quot;Леша&quot;</span>, <span class="st">&quot;Лера&quot;</span>, <span class="st">&quot;Витя&quot;</span>, <span class="st">&quot;Валера&quot;</span>)
 <span class="kw">str_view_all</span>(names, <span class="st">&quot;аня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-146dcfeecde5594011fb" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-146dcfeecde5594011fb">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e7fbe3e4500d8cb35ea4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e7fbe3e4500d8cb35ea4">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Заметьте, “Аня” осталась за бортом, потому что регулярные выражения case-sensitive. Скажем, мы хотим найти паттерны “аня”, написанные как с большой, так и с маленькой буквы. Здесь придут на помощь наборы - возможные варианты букв, которые мы ожидаем увидеть на нужном месте:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[аА]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-ce6da2d70a211a82fa9d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ce6da2d70a211a82fa9d">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e3a1a741a27d382262cf" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e3a1a741a27d382262cf">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Женя<\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Ура, мы поймали Аню!</p>
 <p>Наборы можно задавать в целом диапазоне. Например, чтобы задать все буквы кириллицы, нужно задать такой диапазон: <code>[а-яА-ЯёЁ]</code> (<code>ё</code> и <code>Ë</code> находятся за пределами диапазонов <code>а-я</code> и <code>А-Я</code>).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-c013e91f7b8f8334f7a4" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c013e91f7b8f8334f7a4">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-810605b6e47640fb2ca5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-810605b6e47640fb2ca5">{"x":{"html":"<ul>\n  <li>С<span class='match'>аня<\/span><\/li>\n  <li>В<span class='match'>аня<\/span><\/li>\n  <li>Д<span class='match'>аня<\/span><\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Теперь мы поймали еще и Женю.</p>
 <p>Символ <code>^</code> (внутри набора) означает, что мы ожидаем увидеть любые символы, кроме тех, что в наборе. Попробуйте догадаться, какие имена мы поймаем следующими паттернами: <code>&quot;[^а-яА-ЯёЁ]ня&quot;</code>, <code>&quot;[^а]ня&quot;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а-яА-ЯёЁ]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-36703ead072fec303f1b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-36703ead072fec303f1b">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a7e5e677c778f59c922d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a7e5e677c778f59c922d">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[^а]ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4465742b8c344654141d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4465742b8c344654141d">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-29aa193a20dcd9dceaae" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-29aa193a20dcd9dceaae">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Ж<span class='match'>еня<\/span><\/li>\n  <li><span class='match'>Аня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li>Леша<\/li>\n  <li>Лера<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Иногда нужно найти один из двух паттернов - то есть реализовать что-то вроде логического ИЛИ. В регулярных выражениях тоже такое есть. Более того, для этого нужен тот же оператор, что и в R - <code>|</code>. Например, мы хотим найти все имена, заканчивающиеся на “ня” и начинающиеся на “Ле”:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;Ле|ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-ef9d79c2ccd50b682e0c" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ef9d79c2ccd50b682e0c">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9783e929597613daf068" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9783e929597613daf068">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Если бы паттерн включал бы в себя еще и варианты с маленькой буквы “л”, то мы бы поймали еще и Валеру:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;[лЛ]е|ня&quot;</span>)</code></pre></div>
-<div id="htmlwidget-72c5467536d387ef4b8b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-72c5467536d387ef4b8b">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Ва<span class='match'>ле<\/span>ра<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c6e41b8fda0664a324aa" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c6e41b8fda0664a324aa">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Ва<span class='match'>ле<\/span>ра<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Чтобы этого избежать, мы можем задать, что <code>&quot;[лЛ]е&quot;</code> должно быть в начале строки (с помощью знака <code>&quot;^&quot;</code>), а <code>&quot;ня&quot;</code> - в конце.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^[лЛ]е|ня$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-dce9919f5cb37ba23d69" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dce9919f5cb37ba23d69">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e3f32ff5855a243845d7" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e3f32ff5855a243845d7">{"x":{"html":"<ul>\n  <li>Са<span class='match'>ня<\/span><\/li>\n  <li>Ва<span class='match'>ня<\/span><\/li>\n  <li>Да<span class='match'>ня<\/span><\/li>\n  <li>Же<span class='match'>ня<\/span><\/li>\n  <li>А<span class='match'>ня<\/span><\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Ле<\/span>ша<\/li>\n  <li><span class='match'>Ле<\/span>ра<\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Что если мы хотим найти точку? Давайте попробуем использовать ее в регулярном выражении:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hello &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;При 534вет.&quot;, &quot;</span>всем<span class="st">&quot;)</span>
 <span class="st">str_view_all(hello, &quot;</span>.<span class="st">&quot;)</span></code></pre></div>
-<div id="htmlwidget-5c67e41b9c168f689158" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5c67e41b9c168f689158">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span><span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9343190e0668e37ff18b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9343190e0668e37ff18b">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span><span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Что-то не то. Дело в том, что точка (как и уже знакомые нам некоторые другие символы - <code>[]|^$</code>) - это спецсимволы, которые имеют специальную функцию в регулярных выражениях. Конкретно точка означает “любой знак”. Но если нам нужно найти в тексте именно точку или другой спецсимвол, то его нужно <em>экранировать</em> с помощью специального паттерна <code>\\</code> (вне R это <code>\</code>):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>)</code></pre></div>
-<div id="htmlwidget-1b482a1d3dab140bfeef" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1b482a1d3dab140bfeef">{"x":{"html":"<ul>\n  <li>При 534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-af6733b570b7e015c4df" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-af6733b570b7e015c4df">{"x":{"html":"<ul>\n  <li>При 534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Для наиболее распространенных последовательностей есть специальные символы. С ними все наоборот, чтобы их использовать, нужно их экранировать. Например, <code>\\w</code> выдаст все цифробуквенные (<em>alphanumeric</em>) знаки:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">w&quot;</span>)</code></pre></div>
-<div id="htmlwidget-4dc75799bc7271375bc3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4dc75799bc7271375bc3">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span>.<\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3b1adaeb9f89f62b7e4e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3b1adaeb9f89f62b7e4e">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span>.<\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>А <code>\\W</code> - все кроме цифробуквенных знаков</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">W&quot;</span>)</code></pre></div>
-<div id="htmlwidget-23c27a2771d6fe99221b" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-23c27a2771d6fe99221b">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-15248f468d4bbf5915b4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-15248f468d4bbf5915b4">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет<span class='match'>.<\/span><\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\d</code> - только цифры:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>)</code></pre></div>
-<div id="htmlwidget-fc527ddf5a117bbfc9d2" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fc527ddf5a117bbfc9d2">{"x":{"html":"<ul>\n  <li>При <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span>вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d21206d3e66933bec9c3" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d21206d3e66933bec9c3">{"x":{"html":"<ul>\n  <li>При <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span>вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\D</code> - кроме цифр:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">s&quot;</span>)</code></pre></div>
-<div id="htmlwidget-f473d72d1da7571ac802" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f473d72d1da7571ac802">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-830bdc511bb612ee9569" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-830bdc511bb612ee9569">{"x":{"html":"<ul>\n  <li>При<span class='match'> <\/span>534вет.<\/li>\n  <li>всем<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\s</code> - только пробелы:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">S&quot;</span>)</code></pre></div>
-<div id="htmlwidget-5495dbf2a5860a910597" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5495dbf2a5860a910597">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-64eadddfd20d70e1a50f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-64eadddfd20d70e1a50f">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span> <span class='match'>5<\/span><span class='match'>3<\/span><span class='match'>4<\/span><span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><code>\\S</code> - все кроме пробелов:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(hello, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">D&quot;</span>)</code></pre></div>
-<div id="htmlwidget-b9675aa76658a7971ca2" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b9675aa76658a7971ca2">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span>534<span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-71ef63f2ecd6e1c7478e" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-71ef63f2ecd6e1c7478e">{"x":{"html":"<ul>\n  <li><span class='match'>П<\/span><span class='match'>р<\/span><span class='match'>и<\/span><span class='match'> <\/span>534<span class='match'>в<\/span><span class='match'>е<\/span><span class='match'>т<\/span><span class='match'>.<\/span><\/li>\n  <li><span class='match'>в<\/span><span class='match'>с<\/span><span class='match'>е<\/span><span class='match'>м<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Следующий этап наращивания нашей мощи инструментария регулярных выражений - количество паттернов.</p>
 <p>В общем виде оно задается с помощью фигурных скобочек:</p>
 <ul>
@@ -697,14 +697,14 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">long &lt;-<span class="st"> &quot;1888 - самый длинный год, записанный в римских цифрах: MDCCCLXXXVIII&quot;</span>
 <span class="kw">str_view_all</span>(long, <span class="st">&quot;C{3}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-1372b2aa552d0320a498" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1372b2aa552d0320a498">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-eedf03545c11be26398c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eedf03545c11be26398c">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MD<span class='match'>CCC<\/span>LXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;X{1,}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-fe1a196e7437e14929d3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fe1a196e7437e14929d3">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6aa9577e12dd9040f12c" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6aa9577e12dd9040f12c">{"x":{"html":"<ul>\n  <li>1888 - самый длинный год, записанный в римских цифрах: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(long, <span class="st">&quot;н{1,2}&quot;</span>)</code></pre></div>
-<div id="htmlwidget-8e2d17cb7fced267d9e3" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8e2d17cb7fced267d9e3">{"x":{"html":"<ul>\n  <li>1888 - самый дли<span class='match'>нн<\/span>ый год, записа<span class='match'>нн<\/span>ый в римских цифрах: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-61f9cd4c0df77f386b6d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-61f9cd4c0df77f386b6d">{"x":{"html":"<ul>\n  <li>1888 - самый дли<span class='match'>нн<\/span>ый год, записа<span class='match'>нн<\/span>ый в римских цифрах: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Для самых распространенных вариантов количества искомых паттернов есть сокращения:</p>
 <ul>
 <li><code>?</code> = 0 или 1</li>
@@ -713,34 +713,34 @@ b[<span class="kw">which.max</span>(n_letters),]</code></pre></div>
 </ul>
 <p>Например, чтобы вытащить все последовательности, начинающиеся на <code>Л</code> и заканчивающиеся на <code>а</code> (включая <code>Ла</code>), нужно записать так:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Л.*а$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-27bd9a12c5ec719f16a1" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-27bd9a12c5ec719f16a1">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3bacbba50fb691531e87" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3bacbba50fb691531e87">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Ну а что бы вытащить все последовательности, где стоит или не стоит какой-то символ, то записать нужно так:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_view_all</span>(names, <span class="st">&quot;^Ле.?а$&quot;</span>)</code></pre></div>
-<div id="htmlwidget-b3c311bedcf55185ea1d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b3c311bedcf55185ea1d">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-523be081e4d3969ed58a" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-523be081e4d3969ed58a">{"x":{"html":"<ul>\n  <li>Саня<\/li>\n  <li>Ваня<\/li>\n  <li>Даня<\/li>\n  <li>Женя<\/li>\n  <li>Аня<\/li>\n  <li>Андрей<\/li>\n  <li><span class='match'>Леша<\/span><\/li>\n  <li><span class='match'>Лера<\/span><\/li>\n  <li>Витя<\/li>\n  <li>Валера<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
 <li>Найдите время в формате “04:30”, “06:59”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>)</code></pre></div>
-<div id="htmlwidget-6f65c151fbb2b7ac9a50" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6f65c151fbb2b7ac9a50">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a88c9a1ae872305c86bf" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a88c9a1ae872305c86bf">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ol start="2" style="list-style-type: decimal">
 <li>Найдите время в формате “04:30”, “06:59”, игнорируя “невозможное” время, например, “19:84”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>)</code></pre></div>
-<div id="htmlwidget-8f47043e9adb915fbf5d" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8f47043e9adb915fbf5d">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-178fe2603c2f260316b1" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-178fe2603c2f260316b1">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <ol start="3" style="list-style-type: decimal">
 <li>Найдите время, которое может быть в других форматах: “4:20”, “20-10”, но не “20г21” или “2019”</li>
 </ol>
 <p>Проверьте на векторе <code>times</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">times &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;04:30&quot;</span>, <span class="st">&quot;06:59&quot;</span>,<span class="st">&quot;fg:55&quot;</span>,<span class="st">&quot;3345&quot;</span>, <span class="st">&quot;19:84&quot;</span>, <span class="st">&quot;20-10&quot;</span>, <span class="st">&quot;4:20&quot;</span>, <span class="st">&quot;20r21&quot;</span>, <span class="st">&quot;2019&quot;</span>)</code></pre></div>
-<div id="htmlwidget-ce08c39f96d4a35f8363" style="width:960px;height:100%;" class="str_view html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ce08c39f96d4a35f8363">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n  <li><span class='match'>20-10<\/span><\/li>\n  <li>4:20<\/li>\n  <li>20r21<\/li>\n  <li>2019<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a7fe04a3a446e02976e5" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a7fe04a3a446e02976e5">{"x":{"html":"<ul>\n  <li><span class='match'>04:30<\/span><\/li>\n  <li><span class='match'>06:59<\/span><\/li>\n  <li>fg:55<\/li>\n  <li>3345<\/li>\n  <li>19:84<\/li>\n  <li><span class='match'>20-10<\/span><\/li>\n  <li>4:20<\/li>\n  <li>20r21<\/li>\n  <li>2019<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="text_next" class="section level2">
@@ -907,7 +907,7 @@ tok_heroes &lt;-<span class="st"> </span><span class="kw">udpipe</span>(heroes, 
 <li>Найдите все варианты песни <code>&quot;Space Oddity&quot;</code> по данной версии с помощью fuzzy matching:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">space &lt;-<span class="st"> </span>b[<span class="kw">grep</span>(<span class="st">&quot;Space Oddity&quot;</span>, song_name)[<span class="dv">1</span>], lyrics]</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 <pre><code>##    song_id
 ## 1:  112817
 ## 2: 4664522

@@ -25,7 +25,7 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-22">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -280,10 +280,10 @@ back[,BodyWeightKG<span class="op">:</span><span class="er">=</span><span class=
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 <span class="kw">ggplot</span>(back)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BodyWeightKG, <span class="dt">fill =</span> Sex), <span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(back)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">x =</span> BackpackWeightKG, <span class="dt">fill =</span> Sex), <span class="dt">bins =</span> <span class="dv">12</span>, <span class="dt">position =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.7</span>)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Теперь исследуем взаимосвязь переменных. Посчитайте коэффициент корреляции Пирсона и Спирмена.</li>
 </ol>
@@ -316,7 +316,7 @@ back[,BodyWeightKG<span class="op">:</span><span class="er">=</span><span class=
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(back, <span class="kw">aes</span>(<span class="dt">x =</span> BodyWeightKG, <span class="dt">y =</span> BackpackWeightKG))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Sex), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 </div>
 <div id="lm" class="section level2">
 <h2><span class="header-section-number">2.2</span> Простая линейная регрессия</h2>
@@ -378,7 +378,7 @@ back[, bp <span class="op">:</span><span class="er">=</span><span class="st"> </
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="fl">0.03713</span>, <span class="dt">intercept =</span> <span class="fl">2.71125</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_cartesian</span>(<span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="dv">140</span>))</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Функция <code>predict()</code> позволяет скормить модели новые данные и получить предсказания для новых значений предикторов. Попробуем поиграть с этим немного. Допустим, предскажем вес рюкзака для студента весом в 100 кг:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(model, <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">BodyWeightKG =</span> <span class="dv">100</span>))</code></pre></div>
 <pre><code>##        1 
@@ -524,12 +524,12 @@ tss</code></pre></div>
 <li><p><em>Residuals-Leverage plot.</em> Здесь по оси <em>х</em> - расстояние Кука, а по оси <em>у</em> - стандартизированный размер выбросов. Расстояние Кука показывает <em>high-leverage points</em> - точки, которые имеют экстремальные предсказанные значения, то есть очень большие или очень маленькие значения по предикторам. Для линейной регрессии такие значения имеют большее значение, чем экстремальные точки по предсказываемой переменной. Особенно сильное влияние имеют точки, которые имеют экстремальные значения и по предикторам, и по предсказываемой переменной. Одна такая точка может поменять направление регрессионной прямой! Расстояние Кука отражает уровень <em>leverage</em>, а стандартизированные ошибки отражают экстремальные значения по <em>у</em> (вернее, экстремальные отклонения от предсказанных значений). В этом графике нужно смотреть на точки с правой стороны графика, особенно если они находятся высоко или низко по оси <em>у</em>.</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(model)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-60-1.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-60-2.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-60-3.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-60-4.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-1.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-2.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-3.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-4.png" width="672" /></p>
 <p>Давайте теперь нарисуем регрессионную прямую на скаттерплоте:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> back,<span class="kw">aes</span>(<span class="dt">x =</span> body, <span class="dt">y =</span> bp))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.3</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> model<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">intercept =</span> model<span class="op">$</span>coefficients[<span class="dv">1</span>])</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
 <li><p>На практике порогом для экстремальных точек часто выбирают среднее ±2 или ±3 стандартных отклонения. Напишите функцию <code>is_outlier()</code>, которая возвращает <code>TRUE</code>, если значение выходит за 2 стандартных отклонения от среднего.</p></li>
@@ -595,7 +595,7 @@ model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span> model2<span class="op">$</span>coefficients[<span class="dv">1</span>], 
               <span class="dt">slope =</span> model2<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">linetype =</span> <span class="st">&quot;dotted&quot;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 </div>
 </div>
 <div id="lm_mult" class="section level2">

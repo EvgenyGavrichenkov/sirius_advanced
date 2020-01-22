@@ -25,7 +25,7 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-22">
+<meta name="date" content="2020-01-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -419,7 +419,7 @@ opinion_corr &lt;-<span class="st"> </span><span class="kw">corr.test</span>(opi
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;corrplot&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(corrplot)
 <span class="kw">corrplot</span>(opinion_cor, <span class="dt">method =</span> <span class="st">&quot;color&quot;</span>, <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
 <p>Каждый квадратик - корреляция двух колонок. Синяя - положительная корреляция, красная - отрицательная. Чем насыщеннее цвет, тем сильнее корреляция (то есть выше значение по модулю). Колонки автоматически переставляются в нужном порядке для “группировки”.</p>
 <p>На картинке можно увидеть, что есть две основных группы вопросов, которые положительно коррелируют внутри группы друг с другом и отрицательно - с вопросами из другой группы.</p>
 <p>Различиные многомерные методы анализа позволяют нам выйти за пределы анализа отдельных пар корреляций и попытаться понять структуру, которая стоит за этой корреляционной матрицей. Поэтому во многих многомерных методах анализа данных именно матрица корреляций выступает в роли входных данных.</p>
@@ -498,7 +498,7 @@ opinion_corr &lt;-<span class="st"> </span><span class="kw">corr.test</span>(opi
 ## iOp47    0.174231721 -0.46253063 -0.123396692  0.48427005  0.17481876
 ## iOP12.5 -0.177910829  0.01561185 -0.051961030 -0.05844298 -0.01982064</code></pre>
 <p>В принципе, z-преобразование было делать необязательно, <code>prcomp()</code> умеет делать это сам:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(opinion, <span class="dt">scale. =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(opinion, <span class="dt">center =</span> <span class="ot">TRUE</span>, <span class="dt">scale. =</span> <span class="ot">TRUE</span>)
 pr</code></pre></div>
 <pre><code>## Standard deviations (1, .., p=15):
 ##  [1] 1.7822858 1.2706276 1.0404145 1.0373031 0.9620233 0.9594423 0.9312585
@@ -573,15 +573,15 @@ pr</code></pre></div>
 <h3><span class="header-section-number">5.3.1</span> Количество извлекаемых компонент</h3>
 <p>Визуализация объясненных дисперсий с помощью каждого фактора может использоваться для того, чтобы решить, какие оси оставить, а какие отбросить.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pr)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
 <p>Если после какой-то шкалы график резко “падает” и становится ровным, то можно предположить, что эти последние шкалы представляют некоторый “шум” в данных - их мы и собираемся отбросить.</p>
 <p>В пакете <code>psych</code> есть функция <code>fa.parallel()</code>, которая позволяет не только визуализировать, но и дает пользователю количество рекомендуемых компонент. Важно понимать, что эти границы условны, поэтому не стоит безусловно доверять этой функции.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">fa.parallel</span>(opinion)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
 <pre><code>## Parallel analysis suggests that the number of factors =  6  and the number of components =  4</code></pre>
 <p>Можно визуализировать данные в новых осях (например, в первых двух):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pr<span class="op">$</span>x[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 <p>Наконец, выбрать желаемое количество компонент можно через параметр <code>rank. =</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prcomp</span>(opinion, <span class="dt">scale. =</span> <span class="ot">TRUE</span>, <span class="dt">rank. =</span> <span class="dv">4</span>)</code></pre></div>
 <pre><code>## Standard deviations (1, .., p=15):
@@ -684,7 +684,7 @@ load</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(load_dt, <span class="kw">aes</span>(<span class="dt">x =</span> Factor1, <span class="dt">y =</span> Factor2))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> names), <span class="dt">vjust =</span> <span class="dv">1</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
 </div>
 <div id="cfa" class="section level2">
 <h2><span class="header-section-number">5.5</span> Конфирматорный факторный анализ</h2>
@@ -765,7 +765,7 @@ load</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(semPlot)
 <span class="kw">semPaths</span>(hs_cfa)</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
 <p>КФА лежит в основе структурного моделирования (<em>structural equation modelling, SEM</em>). По сути, структурное моделирование - это КФА + анализ пути (<em>path analysis</em>), который можно рассматривать как расширение множественной линейной регрессии - только вместо одного линейного уравнения у нас появляется целая система уровнений. Если же в системе уравнений использовать не наблюдаемые, а на латентные переменные, то получается структурное моделирование.</p>
 </div>
 <div id="other_multi" class="section level2">
@@ -793,7 +793,7 @@ opinion_ig,
 <span class="dt">edge.curved =</span> <span class="dv">0</span>,
 <span class="dt">vertex.label.color =</span> <span class="st">&quot;black&quot;</span>
 )</code></pre></div>
-<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
 <p>В R есть множество пакетов для интерактивных визуализаций графов.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;networkD3&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(networkD3)
@@ -809,8 +809,8 @@ opinion_nd3<span class="op">$</span>links<span class="op">$</span>target &lt;-<s
 <span class="dt">Group =</span> <span class="dv">1</span>,
 <span class="dt">opacity =</span> <span class="dv">1</span>
 )</code></pre></div>
-<div id="htmlwidget-523dc85cc9d353ddbffe" style="width:672px;height:480px;" class="forceNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-523dc85cc9d353ddbffe">{"x":{"links":{"source":[2,3,1,4,9,6,3,5,0,1,1,2,1,2,4,3,8,5,4,2,1,2,4,1,11,8,2,3,9],"target":[4,4,4,11,11,11,11,11,2,2,3,3,9,9,9,9,9,6,8,8,8,7,12,12,12,12,12,12,12],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"],"group":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"]},"options":{"NodeID":"name","Group":1,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-30,"opacity":1,"zoom":false,"legend":false,"arrows":false,"nodesize":false,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-251227d7da9b99059f82" style="width:672px;height:480px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-251227d7da9b99059f82">{"x":{"links":{"source":[2,3,1,4,9,6,3,5,0,1,1,2,1,2,4,3,8,5,4,2,1,2,4,1,11,8,2,3,9],"target":[4,4,4,11,11,11,11,11,2,2,3,3,9,9,9,9,9,6,8,8,8,7,12,12,12,12,12,12,12],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"],"group":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"]},"options":{"NodeID":"name","Group":1,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-30,"opacity":1,"zoom":false,"legend":false,"arrows":false,"nodesize":false,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>

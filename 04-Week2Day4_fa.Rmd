@@ -141,7 +141,7 @@ prcomp(opinion_scaled)
 В принципе, z-преобразование было делать необязательно, `prcomp()` умеет делать это сам:
 
 ```{r}
-pr <- prcomp(opinion, scale. = TRUE)
+pr <- prcomp(opinion, center = TRUE, scale. = TRUE)
 pr
 ```
 
