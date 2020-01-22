@@ -6,20 +6,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
-  <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
+  <meta name="description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  <meta property="og:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
   
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   
-  <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
+  <meta name="twitter:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
   
 
 <meta name="author" content="Иван Поздняков">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="d1.html">
-<link rel="next" href="d2-rmd.html">
+<link rel="next" href="d3.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -48,6 +48,18 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -128,63 +140,55 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>3.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
 <li class="chapter" data-level="3.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>3.1.10</b> Заключение</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 2, продолжение</a><ul>
-<li class="chapter" data-level="4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
-<li class="chapter" data-level="4.2" data-path="d2-rmd.html"><a href="d2-rmd.html#--rmarkdown"><i class="fa fa-check"></i><b>4.2</b> Что такое RMarkdown</a></li>
-<li class="chapter" data-level="4.3" data-path="d2-rmd.html"><a href="d2-rmd.html#--"><i class="fa fa-check"></i><b>4.3</b> Чанки с кодом</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>4.3.1</b> Настройки чанка</a></li>
-<li class="chapter" data-level="4.3.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>4.3.2</b> Настройка нескольких чанков</a></li>
-<li class="chapter" data-level="4.3.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>4.3.3</b> Чанки с Python!</a></li>
-<li class="chapter" data-level="4.3.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>4.3.4</b> Код вне чанков (inline code)</a></li>
-<li class="chapter" data-level="4.3.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>4.3.5</b> Синтаксис Markdown (без R)</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="d2-rmd.html"><a href="d2-rmd.html#--"><i class="fa fa-check"></i><b>4.4</b> Заголовки разных уровней</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#-"><i class="fa fa-check"></i><b>4.4.1</b> Мне заголовок</a></li>
-<li class="chapter" data-level="4.4.2" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>4.4.2</b> Таблицы</a></li>
-<li class="chapter" data-level="4.4.3" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>4.4.3</b> Визуализации</a></li>
-<li class="chapter" data-level="4.4.4" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>4.4.4</b> Динамические визуализации в plotly</a></li>
-<li class="chapter" data-level="4.4.5" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>4.4.5</b> Вставлять HTML</a></li>
+<li class="chapter" data-level="3.2" data-path="d2.html"><a href="d2.html#rmd"><i class="fa fa-check"></i><b>3.2</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="d2.html"><a href="d2.html#chunk"><i class="fa fa-check"></i><b>3.2.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.2.2" data-path="d2.html"><a href="d2.html#chunks"><i class="fa fa-check"></i><b>3.2.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.2.3" data-path="d2.html"><a href="d2.html#python"><i class="fa fa-check"></i><b>3.2.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.2.4" data-path="d2.html"><a href="d2.html#inline"><i class="fa fa-check"></i><b>3.2.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="d2.html"><a href="d2.html#md"><i class="fa fa-check"></i><b>3.2.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="d2.html"><a href="d2.html#rmd_tables"><i class="fa fa-check"></i><b>3.2.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.2.7" data-path="d2.html"><a href="d2.html#vis"><i class="fa fa-check"></i><b>3.2.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.2.8" data-path="d2.html"><a href="d2.html#din_vis"><i class="fa fa-check"></i><b>3.2.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.2.9" data-path="d2.html"><a href="d2.html#html"><i class="fa fa-check"></i><b>3.2.9</b> Вставлять HTML</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 3</a><ul>
-<li class="chapter" data-level="5.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>5.1</b> Введение в работу с текстом</a></li>
-<li class="chapter" data-level="5.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>5.2</b> Базовые операции с текстом</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>5.2.1</b> Соединение и разъединение строк</a></li>
-<li class="chapter" data-level="5.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>5.2.2</b> Подсчет длины строк</a></li>
-<li class="chapter" data-level="5.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>5.2.3</b> Выделение подстрок и обрезание строк</a></li>
-<li class="chapter" data-level="5.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>5.2.4</b> Изменение регистра</a></li>
-<li class="chapter" data-level="5.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>5.2.5</b> Случайные последовательности</a></li>
-<li class="chapter" data-level="5.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>5.2.6</b> Сортировка</a></li>
+<li class="chapter" data-level="4" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Объединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>5.3</b> Поиск паттернов и регулярные выражения</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>5.3.1</b> grep(), gsub()</a></li>
-<li class="chapter" data-level="5.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>5.3.2</b> Регулярные выражения</a></li>
+<li class="chapter" data-level="4.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>5.4</b> А что дальше?</a></li>
-<li class="chapter" data-level="5.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>5.5</b> Fuzzy matching</a></li>
+<li class="chapter" data-level="4.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>4.4</b> Анализ текста - что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 4</a><ul>
-<li class="chapter" data-level="6.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>6.1</b> Многомерные методы анализа данных</a></li>
-<li class="chapter" data-level="6.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>6.2</b> Хитмап корреляций</a></li>
-<li class="chapter" data-level="6.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>6.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>6.3.1</b> Количество извлекаемых компонент</a></li>
+<li class="chapter" data-level="5" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>5.1</b> Многомерные методы анализа данных</a></li>
+<li class="chapter" data-level="5.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>5.2</b> Хитмап корреляций</a></li>
+<li class="chapter" data-level="5.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>5.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>5.3.1</b> Количество извлекаемых компонент</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>6.4</b> Эксплораторный факторный анализ</a></li>
-<li class="chapter" data-level="6.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>6.5</b> Конфирматорный факторный анализ</a></li>
-<li class="chapter" data-level="6.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>6.6</b> Другие многомерные методы</a></li>
+<li class="chapter" data-level="5.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>5.4</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>7</b> Неделя 2, День 6</a><ul>
-<li class="chapter" data-level="7.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>7.1</b> Стиль кода</a></li>
-<li class="chapter" data-level="7.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>7.2</b> Вопроизводимость исследований</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>7.2.1</b> Спорные исследовательские практики</a></li>
-<li class="chapter" data-level="7.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>7.2.2</b> Вопроизводимые исследования в R</a></li>
-<li class="chapter" data-level="7.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>7.2.3</b> Статистическая мощность</a></li>
+<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
 </ul>
 
       </nav>
@@ -649,7 +653,7 @@ diet[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span
 ## 1:     A 24
 ## 2:     B 25
 ## 3:     C 27</code></pre>
-<p>Небольшие различия в размерах групп - это ОК, тем более, что на практике такое очень часто случается: кого-то пришлось выкинуть из анализа, для какой-то строчки были потеряны данные и т.д. Однако больших различий в размерах групп стоит избегать. Самое плохое, когда группы различаются значительно по размеру (более чем в 2 раза) и стандартные отклонения отличаются значительно (более чем в 2 раза).</p>
+<p>Небольшие различия в размерах групп - это ОК, тем более, что на практике такое очень часто случается: кого-то пришлось выкинуть из анализа, для какой-то строчки были потеряны данные и т.д. Однако больших различий в размерах групп стоит избегать. Самое плохое, когда группы различаются значительно по размеру (более чем в 2 раза) и вариабельность внутри групп отличается значительно (более чем в 2 раза).</p>
 </div>
 <div id="fact_aov" class="section level3">
 <h3><span class="header-section-number">3.1.7</span> Многофакторный дисперсионный анализ (Factorial ANOVA)</h3>
@@ -746,6 +750,198 @@ pd =<span class="st"> </span><span class="kw">position_dodge</span>(<span class=
 <div id="aov_sum" class="section level3">
 <h3><span class="header-section-number">3.1.10</span> Заключение</h3>
 <p>Мы разобрали много разных вариантов дисперсионного анализа. И это неудивительно - дисперсионный анализ является одним из самых распространенных статистических методов, в особенности в экспериментальных науках. При этом дисперсионный анализ можно представить как частный случай множественной линейной регрессии!</p>
+</div>
+</div>
+<div id="rmd" class="section level2">
+<h2><span class="header-section-number">3.2</span> RMarkdown</h2>
+<p>RMarkdown - это мощный инструмент создания отчетов с использованием R (и других языков программирования). С помощью RMarkdown можно превратить скрипт с анализом в красивый отчет - Word-документ, PDF-документ, веб-страницу, презентацию (с интерактивными элементами!). Кстати, этот сайт тоже сделан с помощью RMarkdown.</p>
+<p>Вот как это работает:</p>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png" alt="Как работает RMarkdown" />
+<p class="caption">Как работает RMarkdown</p>
+</div>
+<ul>
+<li><p>В основе всего лежит <img src="https://pandoc.org" alt="pandoc" /> - программа, которая преобразует разные форматы друг в друга. Поскольку разные форматы и даже виды документов имеют много схожих элементов, это вохможно сделать: например, и Word-файлы, и LaTeX, и HTML-документы имеют заголовки разных уровней.</p></li>
+<li><p><img src="https://daringfireball.net/projects/markdown/" alt="Markdown" /> - это еще одна разметка. Ее преимущество - в удобстве использовании и простоте синтаксиса. Например, именно эта разметка используется на <img src="https://github.com" alt="GitHub" /> для ReadMe файлов. Markdown-документы - это просто текстовые документы с .Md разрешением.</p></li>
+<li><p><img src="https://yihui.org/knitr/" alt="knitr" /> - R пакет для работы со специальными файлами .Rmd для превращения их в обычные .Md. Отличие .Rmd от .Md в наличии специально оформленных кусков кода (чанков). Эти куски кода выполняются и в .Md файле кроме самого кода (или даже без него) вставляется результат выполнения этого кода. Например, результат выполнения статистических тестов или график.</p></li>
+</ul>
+<p>-<embed src="https://rmarkdown.rstudio.com/index.html" /> - просто удобная оболочка над <img src="https://yihui.org/knitr/" alt="knitr" /> с нужными настройками.</p>
+<p>Пример Markdown кода:</p>
+<pre><code>![Как работает RMarkdown](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)</code></pre>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png" alt="Как работает RMarkdown" />
+<p class="caption">Как работает RMarkdown</p>
+</div>
+<p>Вот так делать заголовки:</p>
+<pre><code># R Markdown
+
+## Что такое RMarkdown
+
+## Чанки с кодом </code></pre>
+<p>Это чанк с кодом. Он отделяется ``` с обоих сторон и {r}. Это означает, что внутри находится код на R, который должен быть выполнен:</p>
+<p>``` {r}<br />
+2+2<br />
+```</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div id="chunk" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Настройки чанка</h3>
+<p>У чанка с кодом есть набор настроек. Самый важные из них такие:</p>
+<ul>
+<li><p><em>echo</em>: будет ли показан сам код</p></li>
+<li><p><em>message</em> и <em>warning</em>: будут ли показаны сообщения и предупреждения, всплывающие во время исполнения кода</p></li>
+<li><p><em>eval</em>: будет ли испольняться код внутри чанка</p></li>
+</ul>
+</div>
+<div id="chunks" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Настройка нескольких чанков</h3>
+<p>Все эти настройки можно настроить как для отдельных чанков, так и для все чанков сразу:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="python" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Чанки с Python!</h3>
+<p>Вместо {r} нужно написать {python}</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="st">&#39;hello, python !&#39;</span>
+<span class="bu">print</span> (x.split(<span class="st">&quot; &quot;</span>))</code></pre></div>
+<pre><code>## [&#39;hello,&#39;, &#39;python&#39;, &#39;!&#39;]</code></pre>
+</div>
+<div id="inline" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Код вне чанков (inline code)</h3>
+<p>Число пи равно ` r pi `:</p>
+<p><code>Число пи равно 3.1415927</code></p>
+</div>
+<div id="md" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Синтаксис Markdown (без R)</h3>
+<div id="md_high" class="section level4">
+<h4><span class="header-section-number">3.2.5.1</span> Выделение текста</h4>
+<pre><code>*Курсив* 
+_Тоже курсив_
+**Полужирный**
+__Тоже полужирный__</code></pre>
+<p><em>Курсив</em> <em>Тоже курсив</em> <strong>Полужирный</strong> <strong>Тоже полужирный</strong></p>
+</div>
+<div id="headers" class="section level4">
+<h4><span class="header-section-number">3.2.5.2</span> Заголовки разных уровней</h4>
+<pre><code>## Заголовки разных уровней
+
+### Мне заголовок
+
+#### И моему сыну тоже
+
+##### И моему!
+
+###### OK, boomer
+</code></pre>
+</div>
+<div id="md_lists" class="section level4">
+<h4><span class="header-section-number">3.2.5.3</span> Списки</h4>
+<ul>
+<li><p>Первый вариант списка выглядит так:</p></li>
+<li>Можно и с подсписком</li>
+<li><p>Почему бы и нет?</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Кому нужен порядок</li>
+<li>Тот списки номерует</li>
+</ol>
+</div>
+<div id="md_cite" class="section level4">
+<h4><span class="header-section-number">3.2.5.4</span> Цитаты</h4>
+<p>Цитата:</p>
+<blockquote>
+<p>Я устал<br />
+Который год во мне живет нарвал</p>
+</blockquote>
+</div>
+</div>
+<div id="rmd_tables" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Таблицы</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+go &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/iGLAS for R course.csv&quot;</span>)
+go[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<pre><code>##     StartDate   EndDate Status      IPAddress
+## 1:  1/15/2017 1/16/2017      0   144.139.7.52
+## 2:  1/27/2017 1/27/2017      0  31.54.151.215
+## 3:  1/24/2017 1/24/2017      0   176.62.130.7
+## 4: 01/10/2017 1/23/2017      0 86.161.181.218</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">StartDate</th>
+<th align="left">EndDate</th>
+<th align="right">Status</th>
+<th align="left">IPAddress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1/15/2017</td>
+<td align="left">1/16/2017</td>
+<td align="right">0</td>
+<td align="left">144.139.7.52</td>
+</tr>
+<tr class="even">
+<td align="left">1/27/2017</td>
+<td align="left">1/27/2017</td>
+<td align="right">0</td>
+<td align="left">31.54.151.215</td>
+</tr>
+<tr class="odd">
+<td align="left">1/24/2017</td>
+<td align="left">1/24/2017</td>
+<td align="right">0</td>
+<td align="left">176.62.130.7</td>
+</tr>
+<tr class="even">
+<td align="left">01/10/2017</td>
+<td align="left">1/23/2017</td>
+<td align="right">0</td>
+<td align="left">86.161.181.218</td>
+</tr>
+<tr class="odd">
+<td align="left">12/11/2016</td>
+<td align="left">12/11/2016</td>
+<td align="right">0</td>
+<td align="left">31.211.8.249</td>
+</tr>
+</tbody>
+</table>
+<div id="dynamic_tables" class="section level4">
+<h4><span class="header-section-number">3.2.6.1</span> Динамические таблицы</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DT)
+<span class="kw">datatable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<div id="htmlwidget-290fd9b460e87bfcdcd3" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-290fd9b460e87bfcdcd3">{"x":{"filter":"none","data":[["1","2","3","4","5"],["1/15/2017","1/27/2017","1/24/2017","01/10/2017","12/11/2016"],["1/16/2017","1/27/2017","1/24/2017","1/23/2017","12/11/2016"],[0,0,0,0,0],["144.139.7.52","31.54.151.215","176.62.130.7","86.161.181.218","31.211.8.249"],[100,6,67,6,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>StartDate<\/th>\n      <th>EndDate<\/th>\n      <th>Status<\/th>\n      <th>IPAddress<\/th>\n      <th>Progress<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="vis" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Визуализации</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Stat2Data)
+<span class="kw">library</span>(data.table)
+<span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
+back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)
+
+ggplot_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(back, <span class="kw">aes</span>(<span class="dt">x =</span> BodyWeight, <span class="dt">y =</span> BackpackWeight))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Sex), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">2</span>)
+ggplot_scatter</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+</div>
+<div id="din_vis" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Динамические визуализации в plotly</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotly)
+<span class="kw">ggplotly</span>(ggplot_scatter)</code></pre></div>
+<div id="htmlwidget-94b4947e3794bc5ae726" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-94b4947e3794bc5ae726">{"x":{"data":[{"x":[125,120,180,185,130,120,135,125,145,105,125,117,205,140,165,145,120,135,165,145,140,143,145,135,130,165,140,115,128,150,150,116,145,144,130,140,125,150,140,127,150,125,125,144,105,125,130,120,175,145,115,110,130,135,128],"y":[9,10,8,4,5,2,8,12,13,6,10,14,15,5,6,10,15,9,14,17,14,8,8,13,10,15,10,5,6,5,10,21,13,17,10,9,13,10,8,12,14,5,14,25,2,8,15,10,25,24,5,10,19,13,9],"text":["Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 180<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 185<br />BackpackWeight:  4","Sex: Female<br />BodyWeight: 130<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 120<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 117<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 205<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 165<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 143<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 145<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 150<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 116<br />BackpackWeight: 21","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 127<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 175<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 24","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 110<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 19","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  9"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Female","legendgroup":"Female","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[195,155,240,170,160,170,170,175,165,170,145,270,160,150,190,145,160,155,220,170,155,190,185,175,180,220,195,125,180,180,150,160,135,170,175,150,160,168,155,210,165,195,130,140,170],"y":[8,6,5,8,21,11,11,11,5,20,11,10,18,8,25,7,11,4,13,19,8,16,5,10,11,12,35,2,6,20,14,8,14,20,16,18,18,11,13,15,14,6,11,9,15],"text":["Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 240<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 21","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 165<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 145<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 270<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 150<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 25","Sex: Male<br />BodyWeight: 145<br />BackpackWeight:  7","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  4","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 19","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 185<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 12","Sex: Male<br />BodyWeight: 195<br />BackpackWeight: 35","Sex: Male<br />BodyWeight: 125<br />BackpackWeight:  2","Sex: Male<br />BodyWeight: 180<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 160<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 135<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 168<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 210<br />BackpackWeight: 15","Sex: Male<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 130<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 15"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Male","legendgroup":"Male","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[96.75,278.25],"tickmode":"array","ticktext":["100","150","200","250"],"tickvals":[100,150,200,250],"categoryorder":"array","categoryarray":["100","150","200","250"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"BodyWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.35,36.65],"tickmode":"array","ticktext":["10","20","30"],"tickvals":[10,20,30],"categoryorder":"array","categoryarray":["10","20","30"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"BackpackWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.913385826771654},"annotations":[{"text":"Sex","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1666665189c82":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"1666665189c82","visdat":{"1666665189c82":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="html" class="section level3">
+<h3><span class="header-section-number">3.2.9</span> Вставлять HTML</h3>
+<p>Можно собирать RMarkdown документ в разные форматы: .pdf (с помощью LaTeX), Word-файл, HTML-страницу и некоторые другие форматы. Если во собираете документ соответствующего формата, то вам доступны и соответствующие плюшки этого формата. Например, этот сайт - это .Rmd, собранный в HTML. Я могу вставлять сюда любой HTML код. Например, видео с YouTube!</p>
+<pre><code>&lt;iframe width=&quot;966&quot; height=&quot;543&quot; src=&quot;https://www.youtube.com/embed/hHW1oY26kxQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 
 </div>
 </div>
@@ -765,7 +961,7 @@ pd =<span class="st"> </span><span class="kw">position_dodge</span>(<span class=
         </div>
       </div>
 <a href="d1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="d2-rmd.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="d3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -802,7 +998,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["sirius_advanced.pdf", "sirius_advanced.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
