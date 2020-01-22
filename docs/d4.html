@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5 Неделя 2, День 4 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <meta name="description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="5 Неделя 2, День 4 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Неделя 2, День 4 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  
+  <meta name="twitter:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
+  
+
+<meta name="author" content="Иван Поздняков">
+
+
+<meta name="date" content="2020-01-22">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="d3.html">
+<link rel="next" href="d6.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
+<script src="libs/edgebundleR-0.0.2/packages.js"></script>
+<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Начало работы</a></li>
+<li class="chapter" data-level="2" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>2.1</b> Warmup exercise</a></li>
+<li class="chapter" data-level="2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.1</b> Функция lm()</a></li>
+<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.2</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.3</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.4</b> Влияние выбросов на линейную модель</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>2.3</b> Множественная линейная регрессия</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>3.1</b> Дисперсионный анализ (ANOVA)</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="d2.html"><a href="d2.html#aov"><i class="fa fa-check"></i><b>3.1.1</b> Функция aov()</a></li>
+<li class="chapter" data-level="3.1.2" data-path="d2.html"><a href="d2.html#anova_nhst"><i class="fa fa-check"></i><b>3.1.2</b> Тестирование значимости нулевой гипотезы в ANOVA.</a></li>
+<li class="chapter" data-level="3.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>3.1.3</b> Post-hoc тесты</a></li>
+<li class="chapter" data-level="3.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>3.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
+<li class="chapter" data-level="3.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>3.1.5</b> Dummy coding</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2.html"><a href="d2.html#aova"><i class="fa fa-check"></i><b>3.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="3.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>3.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
+<li class="chapter" data-level="3.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>3.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
+<li class="chapter" data-level="3.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>3.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
+<li class="chapter" data-level="3.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>3.1.10</b> Заключение</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="d2.html"><a href="d2.html#rmd"><i class="fa fa-check"></i><b>3.2</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="d2.html"><a href="d2.html#chunk"><i class="fa fa-check"></i><b>3.2.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.2.2" data-path="d2.html"><a href="d2.html#chunks"><i class="fa fa-check"></i><b>3.2.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.2.3" data-path="d2.html"><a href="d2.html#python"><i class="fa fa-check"></i><b>3.2.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.2.4" data-path="d2.html"><a href="d2.html#inline"><i class="fa fa-check"></i><b>3.2.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="d2.html"><a href="d2.html#md"><i class="fa fa-check"></i><b>3.2.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="d2.html"><a href="d2.html#rmd_tables"><i class="fa fa-check"></i><b>3.2.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.2.7" data-path="d2.html"><a href="d2.html#vis"><i class="fa fa-check"></i><b>3.2.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.2.8" data-path="d2.html"><a href="d2.html#din_vis"><i class="fa fa-check"></i><b>3.2.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.2.9" data-path="d2.html"><a href="d2.html#html"><i class="fa fa-check"></i><b>3.2.9</b> Вставлять HTML</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Объединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>4.4</b> Анализ текста - что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>5.1</b> Многомерные методы анализа данных</a></li>
+<li class="chapter" data-level="5.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>5.2</b> Хитмап корреляций</a></li>
+<li class="chapter" data-level="5.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>5.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>5.3.1</b> Количество извлекаемых компонент</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>5.4</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d4" class="section level1">
+<h1><span class="header-section-number">5</span> Неделя 2, День 4</h1>
+<div id="multi" class="section level2">
+<h2><span class="header-section-number">5.1</span> Многомерные методы анализа данных</h2>
+<p>Сегодняшнее занятие будет посвящено многомерным методам анализа данных - методам работы с данными, в которых много колонок. Мы уже сталкивались с некоторыми многомерными методами, такими как множественная линейная регрессия. Поэтому вы знаете, что многомерность создает новые проблемы. Например, при множественных корреляциях или попарных сравнениях возникает проблема множественных сравнений, а при использовании множественной регрессии лишние предикторы могут ловить только шум и приводить к переобучению (если говорить в терминах машинного обучения). Короче говоря, больше - не значит лучше. Нужно четко понимать, зачем мы используем данные и что пытаемся измерить.</p>
+<p>Однако в некоторых случаях мы в принципе не можем ничего интересного сделать с маленьким набором переменных. Много ли мы можем измерить личностным тестом с одним единственным вопросом? Можем ли мы точно оценить уровень интеллекта по успешности выполнения одного единственного задания? Очевидно, что нет. Более того, даже концепция интеллекта в современном его представлении появилась во многом благодаря разработке многомерных методов анализа! Ну или наоборот: исследования интеллекта подстегнули развитие многомерных методов.</p>
+<p>Наши данные как раз очень многомерные. Это данные опроса с использованием очень большого количества вопросов. Мы возьмем только колонки, содержащие в названии “Op” - это ответы на всякие мировоззренческие вопросы, а это значит, что на них нет правильного ответа, а разные люди будут отвечать по-разному. Эти вопросы связаны с отношением к науке и технологиям, к “научному мировоззрению”. Например, “Scientific development is essential for improving people’s lives” и “Consuming genetically modified (GMO) food is perfectly safe”. Очевидно, что ответы на все эти вопросы будут как-то скоррелированы (положительно или отрицательно). С помощью таких методов как анализ главных компонент и факторный анализ можно уменьшить количество переменных и попытаться понять, что стоит на паттерном различий в ответах респондентов.</p>
+<p><strong>Самостоятельное задание:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Сделайте data.table opinion, в котором будут только колонки с <code>&quot;OP&quot;</code> или <code>&quot;Op&quot;</code> в названии.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+data &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/iGLAS for R course.csv&quot;</span>)</code></pre></div>
+<p>Для этого можно воспользоваться регулярными выражениями!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">op &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;iO[pP]&quot;</span>, <span class="kw">names</span>(data), <span class="dt">value =</span> <span class="ot">TRUE</span>)
+opinion &lt;-<span class="st"> </span>data[, ..op]</code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Удалите все колонки, где слишком много <code>NA</code>, потом удалите строчки с <code>NA</code>:</li>
+</ol>
+<p>Разобьем задачу на части: сначала создадим функцию, которая считает частоту <code>NA</code> в колонке:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">frac_na &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">mean</span>(<span class="kw">is.na</span>(x))</code></pre></div>
+<p>Потом применим эту фунцкию, чтобы выделить названия колонок, в которых <code>NA</code> меньше половины:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">not_na_op &lt;-<span class="st"> </span><span class="kw">sapply</span>(opinion, frac_na) <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.5</span> 
+opinion &lt;-<span class="st"> </span>opinion[, ..not_na_op]</code></pre></div>
+<p>Осталось удалить относительно небольшое количество строчек с NA:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion &lt;-<span class="st"> </span>opinion[<span class="kw">complete.cases</span>(opinion),]</code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Посчитайте матрицу корреляций opinion:</li>
+</ol>
+<p>Напоминаю, что это можно сделать несколькими способами. Конечно, можно просто коррелировать каждую пару переменных с каждой:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion[, <span class="kw">cor.test</span>(iOp01, iOp03)]</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  iOp01 and iOp03
+## t = 4.3619, df = 4981, p-value = 1.316e-05
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.03397746 0.08929939
+## sample estimates:
+##        cor 
+## 0.06168581</code></pre>
+<p>Из этих данных можно доставать значений корреляций - и так повторить для каждой пары переменных. Это не очень удобно. Можно сделать проще - с помощью функции <code>cor()</code> посчитать всю матрицу корреляций.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion_cor &lt;-<span class="st"> </span><span class="kw">cor</span>(opinion)
+opinion_cor</code></pre></div>
+<pre><code>##                iOp01       iOp03       iOp04       iOp10        iOp11
+## iOp01    1.000000000  0.06168581 -0.09790765  0.09710549 -0.005725227
+## iOp03    0.061685805  1.00000000 -0.11774907  0.38227617 -0.125308613
+## iOp04   -0.097907651 -0.11774907  1.00000000 -0.30967796  0.265454316
+## iOp10    0.097105491  0.38227617 -0.30967796  1.00000000 -0.237845009
+## iOp11   -0.005725227 -0.12530861  0.26545432 -0.23784501  1.000000000
+## iOp02.5 -0.032672387 -0.10008960  0.30204766 -0.22103331  0.211416777
+## iOp42    0.181658491  0.04159865  0.04141262 -0.03209103  0.082770905
+## iOp43   -0.003794763 -0.02254635  0.12403584 -0.05257601  0.132697538
+## iOp46    0.052547325  0.17397235 -0.14585023  0.22097407 -0.086064297
+## iOp45    0.134881909  0.14934259 -0.41026076  0.28213000 -0.192350246
+## iOP13.5 -0.040780421 -0.19078695  0.32713384 -0.29964666  0.215998965
+## iOp44    0.004436168  0.03011891  0.07615861 -0.04030566  0.113388468
+## iOp07.5  0.027425667 -0.07286297  0.18466025 -0.15426662  0.259294932
+## iOp47   -0.012785049 -0.07423265  0.33009538 -0.27045062  0.312349968
+## iOP12.5  0.168927842  0.12041632 -0.08985733  0.14446427 -0.068279608
+##             iOp02.5        iOp42        iOp43       iOp46        iOp45
+## iOp01   -0.03267239  0.181658491 -0.003794763  0.05254732  0.134881909
+## iOp03   -0.10008960  0.041598655 -0.022546352  0.17397235  0.149342590
+## iOp04    0.30204766  0.041412616  0.124035835 -0.14585023 -0.410260758
+## iOp10   -0.22103331 -0.032091028 -0.052576008  0.22097407  0.282129998
+## iOp11    0.21141678  0.082770905  0.132697538 -0.08606430 -0.192350246
+## iOp02.5  1.00000000  0.136295690  0.124001544 -0.15602734 -0.209353362
+## iOp42    0.13629569  1.000000000  0.232244315 -0.03223088 -0.006915756
+## iOp43    0.12400154  0.232244315  1.000000000 -0.05692068 -0.047643316
+## iOp46   -0.15602734 -0.032230885 -0.056920680  1.00000000  0.173623846
+## iOp45   -0.20935336 -0.006915756 -0.047643316  0.17362385  1.000000000
+## iOP13.5  0.39518963  0.134509434  0.098597768 -0.15017812 -0.214800604
+## iOp44    0.07653149  0.099007929  0.108009257 -0.03229476 -0.046154797
+## iOp07.5  0.23017497  0.207500065  0.248239874 -0.10794585 -0.083293739
+## iOp47    0.25021173  0.161576936  0.113803852 -0.10644965 -0.241338330
+## iOP12.5 -0.07638594  0.094466167 -0.032880878  0.14201499  0.093801862
+##             iOP13.5        iOp44     iOp07.5        iOp47      iOP12.5
+## iOp01   -0.04078042  0.004436168  0.02742567 -0.012785049  0.168927842
+## iOp03   -0.19078695  0.030118914 -0.07286297 -0.074232647  0.120416318
+## iOp04    0.32713384  0.076158609  0.18466025  0.330095376 -0.089857326
+## iOp10   -0.29964666 -0.040305663 -0.15426662 -0.270450622  0.144464274
+## iOp11    0.21599896  0.113388468  0.25929493  0.312349968 -0.068279608
+## iOp02.5  0.39518963  0.076531485  0.23017497  0.250211729 -0.076385936
+## iOp42    0.13450943  0.099007929  0.20750007  0.161576936  0.094466167
+## iOp43    0.09859777  0.108009257  0.24823987  0.113803852 -0.032880878
+## iOp46   -0.15017812 -0.032294760 -0.10794585 -0.106449653  0.142014989
+## iOp45   -0.21480060 -0.046154797 -0.08329374 -0.241338330  0.093801862
+## iOP13.5  1.00000000  0.100923055  0.21146886  0.315878637 -0.063165249
+## iOp44    0.10092306  1.000000000  0.10301330  0.103123900 -0.014437449
+## iOp07.5  0.21146886  0.103013296  1.00000000  0.296110105 -0.008059640
+## iOp47    0.31587864  0.103123900  0.29611011  1.000000000  0.005139235
+## iOP12.5 -0.06316525 -0.014437449 -0.00805964  0.005139235  1.000000000</code></pre>
+<p>Ну а можно воспользоваться пакетом <code>&quot;psych&quot;</code>, который создаст специальный объект классов <code>&quot;psych&quot;</code> и <code>&quot;corr.test&quot;</code>. Внутри этого объекта будут и матрица корреляций и матрица p-values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(psych)
+opinion_corr &lt;-<span class="st"> </span><span class="kw">corr.test</span>(opinion)
+<span class="kw">class</span>(opinion_corr)</code></pre></div>
+<pre><code>## [1] &quot;psych&quot;     &quot;corr.test&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(opinion_corr<span class="op">$</span>r)</code></pre></div>
+<pre><code>## [1] &quot;matrix&quot;</code></pre>
+<p>Если Вы решите проверить, совпадают ли результаты этих двух способов, то увидите, что, внезапно, нет:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion_corr<span class="op">$</span>r <span class="op">==</span><span class="st"> </span>opinion_cor</code></pre></div>
+<pre><code>##         iOp01 iOp03 iOp04 iOp10 iOp11 iOp02.5 iOp42 iOp43 iOp46 iOp45
+## iOp01    TRUE FALSE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE FALSE FALSE
+## iOp03   FALSE  TRUE FALSE  TRUE  TRUE   FALSE  TRUE FALSE  TRUE FALSE
+## iOp04    TRUE FALSE  TRUE FALSE FALSE   FALSE  TRUE FALSE  TRUE FALSE
+## iOp10    TRUE  TRUE FALSE  TRUE FALSE   FALSE FALSE FALSE FALSE  TRUE
+## iOp11    TRUE  TRUE FALSE FALSE  TRUE   FALSE  TRUE FALSE FALSE  TRUE
+## iOp02.5  TRUE FALSE FALSE FALSE FALSE    TRUE FALSE FALSE  TRUE  TRUE
+## iOp42    TRUE  TRUE  TRUE FALSE  TRUE   FALSE  TRUE  TRUE FALSE  TRUE
+## iOp43    TRUE FALSE FALSE FALSE FALSE   FALSE  TRUE  TRUE  TRUE  TRUE
+## iOp46   FALSE  TRUE  TRUE FALSE FALSE    TRUE FALSE  TRUE  TRUE FALSE
+## iOp45   FALSE FALSE FALSE  TRUE  TRUE    TRUE  TRUE  TRUE FALSE  TRUE
+## iOP13.5 FALSE  TRUE FALSE  TRUE  TRUE   FALSE  TRUE FALSE  TRUE  TRUE
+## iOp44    TRUE FALSE  TRUE FALSE FALSE   FALSE  TRUE FALSE  TRUE FALSE
+## iOp07.5  TRUE FALSE FALSE FALSE  TRUE    TRUE FALSE FALSE  TRUE  TRUE
+## iOp47   FALSE  TRUE  TRUE FALSE  TRUE   FALSE  TRUE FALSE  TRUE  TRUE
+## iOP12.5 FALSE FALSE FALSE FALSE FALSE    TRUE FALSE  TRUE  TRUE FALSE
+##         iOP13.5 iOp44 iOp07.5 iOp47 iOP12.5
+## iOp01     FALSE  TRUE    TRUE FALSE   FALSE
+## iOp03      TRUE FALSE   FALSE  TRUE   FALSE
+## iOp04     FALSE  TRUE   FALSE  TRUE   FALSE
+## iOp10      TRUE FALSE   FALSE FALSE   FALSE
+## iOp11      TRUE FALSE    TRUE  TRUE   FALSE
+## iOp02.5   FALSE FALSE    TRUE FALSE    TRUE
+## iOp42      TRUE  TRUE   FALSE  TRUE   FALSE
+## iOp43     FALSE FALSE   FALSE FALSE    TRUE
+## iOp46      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp45      TRUE FALSE    TRUE  TRUE   FALSE
+## iOP13.5    TRUE FALSE    TRUE FALSE    TRUE
+## iOp44     FALSE  TRUE    TRUE FALSE   FALSE
+## iOp07.5    TRUE  TRUE    TRUE  TRUE   FALSE
+## iOp47     FALSE FALSE    TRUE  TRUE   FALSE
+## iOP12.5    TRUE FALSE   FALSE FALSE    TRUE</code></pre>
+<p>Причина в том, что дробные числа хранятся в компьютере как степени двойки с разной степенью точности - поэтому могут возникать такие вот небольшие различия. А вот если округлить, то все значения окажутся одинаковыми:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(opinion_corr<span class="op">$</span>r,<span class="dv">2</span>) <span class="op">==</span><span class="st"> </span><span class="kw">round</span>(opinion_cor,<span class="dv">2</span>)</code></pre></div>
+<pre><code>##         iOp01 iOp03 iOp04 iOp10 iOp11 iOp02.5 iOp42 iOp43 iOp46 iOp45
+## iOp01    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp03    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp04    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp10    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp11    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp02.5  TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp42    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp43    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp46    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp45    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOP13.5  TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp44    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp07.5  TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOp47    TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+## iOP12.5  TRUE  TRUE  TRUE  TRUE  TRUE    TRUE  TRUE  TRUE  TRUE  TRUE
+##         iOP13.5 iOp44 iOp07.5 iOp47 iOP12.5
+## iOp01      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp03      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp04      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp10      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp11      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp02.5    TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp42      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp43      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp46      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp45      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOP13.5    TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp44      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp07.5    TRUE  TRUE    TRUE  TRUE    TRUE
+## iOp47      TRUE  TRUE    TRUE  TRUE    TRUE
+## iOP12.5    TRUE  TRUE    TRUE  TRUE    TRUE</code></pre>
+<p>Давайте отдельно посмотрим на матрицу p-values (в нижнем углу - сами p-values, в верхнем - с коррекцией на множество сравнений):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(opinion_corr<span class="op">$</span>p, <span class="dv">3</span>)</code></pre></div>
+<pre><code>##         iOp01 iOp03 iOp04 iOp10 iOp11 iOp02.5 iOp42 iOp43 iOp46 iOp45
+## iOp01   0.000 0.000 0.000 0.000     1   0.324 0.000 1.000 0.005 0.000
+## iOp03   0.000 0.000 0.000 0.000     0   0.000 0.066 1.000 0.000 0.000
+## iOp04   0.000 0.000 0.000 0.000     0   0.000 0.066 0.000 0.000 0.000
+## iOp10   0.000 0.000 0.000 0.000     0   0.000 0.324 0.005 0.000 0.000
+## iOp11   0.686 0.000 0.000 0.000     0   0.000 0.000 0.000 0.000 0.000
+## iOp02.5 0.021 0.000 0.000 0.000     0   0.000 0.000 0.000 0.000 0.000
+## iOp42   0.000 0.003 0.003 0.023     0   0.000 0.000 0.000 0.324 1.000
+## iOp43   0.789 0.112 0.000 0.000     0   0.000 0.000 0.000 0.001 0.017
+## iOp46   0.000 0.000 0.000 0.000     0   0.000 0.023 0.000 0.000 0.000
+## iOp45   0.000 0.000 0.000 0.000     0   0.000 0.626 0.001 0.000 0.000
+## iOP13.5 0.004 0.000 0.000 0.000     0   0.000 0.000 0.000 0.000 0.000
+## iOp44   0.754 0.033 0.000 0.004     0   0.000 0.000 0.000 0.023 0.001
+## iOp07.5 0.053 0.000 0.000 0.000     0   0.000 0.000 0.000 0.000 0.000
+## iOp47   0.367 0.000 0.000 0.000     0   0.000 0.000 0.000 0.000 0.000
+## iOP12.5 0.000 0.000 0.000 0.000     0   0.000 0.000 0.020 0.000 0.000
+##         iOP13.5 iOp44 iOp07.5 iOp47 iOP12.5
+## iOp01     0.072 1.000   0.529 1.000   0.000
+## iOp03     0.000 0.368   0.000 0.000   0.000
+## iOp04     0.000 0.000   0.000 0.000   0.000
+## iOp10     0.000 0.075   0.000 0.000   0.000
+## iOp11     0.000 0.000   0.000 0.000   0.000
+## iOp02.5   0.000 0.000   0.000 0.000   0.000
+## iOp42     0.000 0.000   0.000 0.000   0.000
+## iOp43     0.000 0.000   0.000 0.000   0.324
+## iOp46     0.000 0.324   0.000 0.000   0.000
+## iOp45     0.000 0.023   0.000 0.000   0.000
+## iOP13.5   0.000 0.000   0.000 0.000   0.000
+## iOp44     0.000 0.000   0.000 0.000   1.000
+## iOp07.5   0.000 0.000   0.000 0.000   1.000
+## iOp47     0.000 0.000   0.000 0.000   1.000
+## iOP12.5   0.000 0.308   0.569 0.717   0.000</code></pre>
+</div>
+<div id="heatmap" class="section level2">
+<h2><span class="header-section-number">5.2</span> Хитмап корреляций</h2>
+<p>Как видите, почти все коррелирует друг с другом, даже с учетом поправок. Такие множественные корреляции лучше всего смотреть с помощью хитмап-визуализации:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;corrplot&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(corrplot)
+<span class="kw">corrplot</span>(opinion_cor, <span class="dt">method =</span> <span class="st">&quot;color&quot;</span>, <span class="dt">order =</span> <span class="st">&quot;hclust&quot;</span>)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
+<p>Каждый квадратик - корреляция двух колонок. Синяя - положительная корреляция, красная - отрицательная. Чем насыщеннее цвет, тем сильнее корреляция (то есть выше значение по модулю). Колонки автоматически переставляются в нужном порядке для “группировки”.</p>
+<p>На картинке можно увидеть, что есть две основных группы вопросов, которые положительно коррелируют внутри группы друг с другом и отрицательно - с вопросами из другой группы.</p>
+<p>Различиные многомерные методы анализа позволяют нам выйти за пределы анализа отдельных пар корреляций и попытаться понять структуру, которая стоит за этой корреляционной матрицей. Поэтому во многих многомерных методах анализа данных именно матрица корреляций выступает в роли входных данных.</p>
+</div>
+<div id="pca" class="section level2">
+<h2><span class="header-section-number">5.3</span> Анализ главных компонент (Principal component analysis)</h2>
+<p>Анализ главных компонент (АГК) известен как метод “уменьшения размерности”. Представьте, что вам дан набор данных с большим количеством количеством похожих переменных… Ох, надо же, наш датасет как раз именно такой!</p>
+<p>Действительно, подобная ситуация часто возникает в опросниковых данных. Для начала представим ответы на вопросы как точки в многомерном пространстве. Ну, многомерные пространтсва представлять сложно, но вот два измерения - вполне, получится стандартная диаграмма рассеяния.</p>
+<p>Суть АГК в том, чтобы повернуть оси этого пространства так, чтобы первые оси объясняли как можно больший разброс данных, а последние - как можно меньший. Тогда мы могли бы отбросить последние оси и не очень-то многое потерять в данных.</p>
+<p>Для двух осей это выглядит вот так:</p>
+<div class="figure">
+<img src="images/q7hip.gif" />
+
+</div>
+<p>Первая ось должна минимизировать красные расстояния. Вторая ось будет просто перпендикулярна первой оси.</p>
+<blockquote>
+<p>Математически, АГК - это нахождение собственных векторов и собственных значений матрицы корреляций или ковариаций. Собственные вектора - это такие особенные вектора матрицы, умножив которые на данную матрицу, можно получить тот же самый вектор (т.е. того же направления), но другой длины. А вот коэффициент множителя длины нового вектора - это собственное значение. В контексте АГК, собственные вектора - это новые оси (т.е. те самые новые компоненты), а собственные значения - это размер объясняемой дисперсии с помощью новых осей.</p>
+</blockquote>
+<p>Итак, для начала нам нужно центрировать и нормировать данные - вычесть среднее и поделить на стандартное отклонение, т.е. посчитать z-оценки. Это нужно для того, чтобы сделать все шкалы равноценными. Это особенно важно делать когда разные шкалы используют несопоставимые единицы измерения. Скажем, одна колонка - это масса человека в килограммах, а другая - рост в метрах. Если применять АГК на этих данных, то ничего хорошего не выйдет: вклад роста будет слишком маленьким. А вот если мы сделаем z-преобразование, то приведем и вес, и рост к “общему знаменателю”.</p>
+<p>В нашем случае это не так критично, поскольку во всех случаях испытуемые отвечают по одинаковой 7-балльной шкале.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion_scaled &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(<span class="kw">scale</span>(opinion))</code></pre></div>
+<p>В базовом R уже есть инструменты для АГК <code>princomp()</code> и <code>prcomp()</code>, считают они немного по-разному. Возьмем более рекомендуемый вариант, <code>prcomp()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prcomp</span>(opinion_scaled)</code></pre></div>
+<pre><code>## Standard deviations (1, .., p=15):
+##  [1] 1.7822858 1.2706276 1.0404145 1.0373031 0.9620233 0.9594423 0.9312585
+##  [8] 0.9151956 0.8932286 0.8511995 0.8189853 0.8003226 0.7568713 0.7509609
+## [15] 0.7274690
+## 
+## Rotation (n x k) = (15 x 15):
+##                 PC1         PC2         PC3           PC4         PC5
+## iOp01   -0.06943778  0.38155798 -0.19427723  0.4915882664  0.19803386
+## iOp03   -0.20562301  0.30500547  0.47716338 -0.2907785685 -0.20900299
+## iOp04    0.36177159 -0.08071718  0.34244974 -0.0003028303 -0.11323021
+## iOp10   -0.34078095  0.23989272  0.19732683 -0.2139680548 -0.17104896
+## iOp11    0.29931733  0.09490561  0.09826912 -0.0213681852  0.23233088
+## iOp02.5  0.32443413  0.07300092  0.07894631  0.0320344221 -0.22999432
+## iOp42    0.12845659  0.48677246 -0.23754435  0.0526953352 -0.14183215
+## iOp43    0.16507540  0.31259574 -0.28949688 -0.4294394393 -0.28394314
+## iOp46   -0.20512296  0.17552225  0.40029547  0.0300032371  0.04153754
+## iOp45   -0.29856014  0.20970290 -0.31605182 -0.0187235987  0.07757389
+## iOP13.5  0.35202797  0.02718279  0.05356841  0.1507532470 -0.03959969
+## iOp44    0.11226061  0.20192394  0.07709088 -0.4107140003  0.80179338
+## iOp07.5  0.26953643  0.30979313 -0.15452816 -0.1165836764 -0.10753154
+## iOp47    0.33900566  0.15729302  0.24253529  0.1122834985  0.03911805
+## iOP12.5 -0.10942316  0.33363638  0.26570013  0.4695379747  0.04614479
+##                 PC6          PC7         PC8          PC9         PC10
+## iOp01   -0.15062622  0.086873091 -0.36382134  0.434219525 -0.294884944
+## iOp03   -0.23181854  0.028323653 -0.34924941 -0.041639577  0.099043057
+## iOp04   -0.05029616  0.211504124  0.01004747  0.199516759 -0.159180605
+## iOp10   -0.13095970 -0.053855368 -0.17025640 -0.051893607 -0.186371938
+## iOp11    0.46069587 -0.051935276 -0.38659529  0.074794408 -0.174518794
+## iOp02.5 -0.36039154 -0.451433548  0.02531913  0.005203201 -0.301394416
+## iOp42   -0.19693292  0.151161377  0.15029456  0.208217043  0.586642570
+## iOp43    0.18770535  0.248241667  0.31276168  0.154365239 -0.362684643
+## iOp46    0.44736652 -0.352974058  0.39556974  0.473486940  0.079459941
+## iOp45    0.11041482 -0.512305517 -0.04298693 -0.213770985  0.023419463
+## iOP13.5 -0.26367332 -0.425241487  0.20911238 -0.010784156 -0.004230272
+## iOp44   -0.28023510  0.019551048  0.17605295 -0.045507654 -0.042046820
+## iOp07.5  0.30741820 -0.121070383 -0.17902370 -0.366582757 -0.039498614
+## iOp47    0.17602641  0.006911587 -0.16548973 -0.174333373  0.417089629
+## iOP12.5  0.04333967  0.264739933  0.39189684 -0.507508839 -0.249004492
+##                 PC11        PC12         PC13        PC14        PC15
+## iOp01    0.268041765 -0.10759740 -0.017454400  0.05583458 -0.07759637
+## iOp03   -0.028268175 -0.14763906 -0.207863748 -0.27700923 -0.42210555
+## iOp04    0.189110923 -0.09478334 -0.006973371 -0.52100969  0.55114105
+## iOp10   -0.047812745  0.09035923  0.551647315  0.34238261  0.44032361
+## iOp11   -0.639556895  0.07498348  0.119986008 -0.07704203 -0.04334111
+## iOp02.5 -0.162737844  0.26521465 -0.464150949  0.28093279  0.11355379
+## iOp42   -0.293136056  0.26303996  0.050047991 -0.12403748  0.14999167
+## iOp43   -0.029759426 -0.37536418 -0.058696637  0.13243197 -0.11563024
+## iOp46    0.156393341  0.14514663 -0.053539827  0.04183396 -0.04903883
+## iOp45   -0.074520395 -0.37759488 -0.197166575 -0.35794150  0.35036950
+## iOP13.5 -0.008700931 -0.29354808  0.586329244 -0.15432949 -0.31640366
+## iOp44    0.088893908  0.05750762 -0.038890456  0.02630346  0.04428991
+## iOp07.5  0.516696787  0.44286099  0.106674560 -0.14620017 -0.09660579
+## iOp47    0.174231721 -0.46253063 -0.123396692  0.48427005  0.17481876
+## iOP12.5 -0.177910829  0.01561185 -0.051961030 -0.05844298 -0.01982064</code></pre>
+<p>В принципе, z-преобразование было делать необязательно, <code>prcomp()</code> умеет делать это сам:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(opinion, <span class="dt">scale. =</span> <span class="ot">TRUE</span>)
+pr</code></pre></div>
+<pre><code>## Standard deviations (1, .., p=15):
+##  [1] 1.7822858 1.2706276 1.0404145 1.0373031 0.9620233 0.9594423 0.9312585
+##  [8] 0.9151956 0.8932286 0.8511995 0.8189853 0.8003226 0.7568713 0.7509609
+## [15] 0.7274690
+## 
+## Rotation (n x k) = (15 x 15):
+##                 PC1         PC2         PC3           PC4         PC5
+## iOp01   -0.06943778  0.38155798 -0.19427723  0.4915882664  0.19803386
+## iOp03   -0.20562301  0.30500547  0.47716338 -0.2907785685 -0.20900299
+## iOp04    0.36177159 -0.08071718  0.34244974 -0.0003028303 -0.11323021
+## iOp10   -0.34078095  0.23989272  0.19732683 -0.2139680548 -0.17104896
+## iOp11    0.29931733  0.09490561  0.09826912 -0.0213681852  0.23233088
+## iOp02.5  0.32443413  0.07300092  0.07894631  0.0320344221 -0.22999432
+## iOp42    0.12845659  0.48677246 -0.23754435  0.0526953352 -0.14183215
+## iOp43    0.16507540  0.31259574 -0.28949688 -0.4294394393 -0.28394314
+## iOp46   -0.20512296  0.17552225  0.40029547  0.0300032371  0.04153754
+## iOp45   -0.29856014  0.20970290 -0.31605182 -0.0187235987  0.07757389
+## iOP13.5  0.35202797  0.02718279  0.05356841  0.1507532470 -0.03959969
+## iOp44    0.11226061  0.20192394  0.07709088 -0.4107140003  0.80179338
+## iOp07.5  0.26953643  0.30979313 -0.15452816 -0.1165836764 -0.10753154
+## iOp47    0.33900566  0.15729302  0.24253529  0.1122834985  0.03911805
+## iOP12.5 -0.10942316  0.33363638  0.26570013  0.4695379747  0.04614479
+##                 PC6          PC7         PC8          PC9         PC10
+## iOp01   -0.15062622  0.086873091 -0.36382134  0.434219525 -0.294884944
+## iOp03   -0.23181854  0.028323653 -0.34924941 -0.041639577  0.099043057
+## iOp04   -0.05029616  0.211504124  0.01004747  0.199516759 -0.159180605
+## iOp10   -0.13095970 -0.053855368 -0.17025640 -0.051893607 -0.186371938
+## iOp11    0.46069587 -0.051935276 -0.38659529  0.074794408 -0.174518794
+## iOp02.5 -0.36039154 -0.451433548  0.02531913  0.005203201 -0.301394416
+## iOp42   -0.19693292  0.151161377  0.15029456  0.208217043  0.586642570
+## iOp43    0.18770535  0.248241667  0.31276168  0.154365239 -0.362684643
+## iOp46    0.44736652 -0.352974058  0.39556974  0.473486940  0.079459941
+## iOp45    0.11041482 -0.512305517 -0.04298693 -0.213770985  0.023419463
+## iOP13.5 -0.26367332 -0.425241487  0.20911238 -0.010784156 -0.004230272
+## iOp44   -0.28023510  0.019551048  0.17605295 -0.045507654 -0.042046820
+## iOp07.5  0.30741820 -0.121070383 -0.17902370 -0.366582757 -0.039498614
+## iOp47    0.17602641  0.006911587 -0.16548973 -0.174333373  0.417089629
+## iOP12.5  0.04333967  0.264739933  0.39189684 -0.507508839 -0.249004492
+##                 PC11        PC12         PC13        PC14        PC15
+## iOp01    0.268041765 -0.10759740 -0.017454400  0.05583458 -0.07759637
+## iOp03   -0.028268175 -0.14763906 -0.207863748 -0.27700923 -0.42210555
+## iOp04    0.189110923 -0.09478334 -0.006973371 -0.52100969  0.55114105
+## iOp10   -0.047812745  0.09035923  0.551647315  0.34238261  0.44032361
+## iOp11   -0.639556895  0.07498348  0.119986008 -0.07704203 -0.04334111
+## iOp02.5 -0.162737844  0.26521465 -0.464150949  0.28093279  0.11355379
+## iOp42   -0.293136056  0.26303996  0.050047991 -0.12403748  0.14999167
+## iOp43   -0.029759426 -0.37536418 -0.058696637  0.13243197 -0.11563024
+## iOp46    0.156393341  0.14514663 -0.053539827  0.04183396 -0.04903883
+## iOp45   -0.074520395 -0.37759488 -0.197166575 -0.35794150  0.35036950
+## iOP13.5 -0.008700931 -0.29354808  0.586329244 -0.15432949 -0.31640366
+## iOp44    0.088893908  0.05750762 -0.038890456  0.02630346  0.04428991
+## iOp07.5  0.516696787  0.44286099  0.106674560 -0.14620017 -0.09660579
+## iOp47    0.174231721 -0.46253063 -0.123396692  0.48427005  0.17481876
+## iOP12.5 -0.177910829  0.01561185 -0.051961030 -0.05844298 -0.01982064</code></pre>
+<p><code>summary()</code> выдаст полезную информацию, в частности, долю объясненной дисперсии и кумулятивную долю объясненной дисперсии</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(pr)</code></pre></div>
+<pre><code>## Importance of components:
+##                           PC1    PC2     PC3     PC4    PC5     PC6
+## Standard deviation     1.7823 1.2706 1.04041 1.03730 0.9620 0.95944
+## Proportion of Variance 0.2118 0.1076 0.07216 0.07173 0.0617 0.06137
+## Cumulative Proportion  0.2118 0.3194 0.39157 0.46330 0.5250 0.58637
+##                            PC7     PC8     PC9   PC10    PC11   PC12
+## Standard deviation     0.93126 0.91520 0.89323 0.8512 0.81899 0.8003
+## Proportion of Variance 0.05782 0.05584 0.05319 0.0483 0.04472 0.0427
+## Cumulative Proportion  0.64418 0.70002 0.75321 0.8015 0.84623 0.8889
+##                           PC13   PC14    PC15
+## Standard deviation     0.75687 0.7510 0.72747
+## Proportion of Variance 0.03819 0.0376 0.03528
+## Cumulative Proportion  0.92712 0.9647 1.00000</code></pre>
+<div id="pca_n" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Количество извлекаемых компонент</h3>
+<p>Визуализация объясненных дисперсий с помощью каждого фактора может использоваться для того, чтобы решить, какие оси оставить, а какие отбросить.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pr)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p>Если после какой-то шкалы график резко “падает” и становится ровным, то можно предположить, что эти последние шкалы представляют некоторый “шум” в данных - их мы и собираемся отбросить.</p>
+<p>В пакете <code>psych</code> есть функция <code>fa.parallel()</code>, которая позволяет не только визуализировать, но и дает пользователю количество рекомендуемых компонент. Важно понимать, что эти границы условны, поэтому не стоит безусловно доверять этой функции.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">psych<span class="op">::</span><span class="kw">fa.parallel</span>(opinion)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
+<pre><code>## Parallel analysis suggests that the number of factors =  6  and the number of components =  4</code></pre>
+<p>Можно визуализировать данные в новых осях (например, в первых двух):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(pr<span class="op">$</span>x[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
+<p>Наконец, выбрать желаемое количество компонент можно через параметр <code>rank. =</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prcomp</span>(opinion, <span class="dt">scale. =</span> <span class="ot">TRUE</span>, <span class="dt">rank. =</span> <span class="dv">4</span>)</code></pre></div>
+<pre><code>## Standard deviations (1, .., p=15):
+##  [1] 1.7822858 1.2706276 1.0404145 1.0373031 0.9620233 0.9594423 0.9312585
+##  [8] 0.9151956 0.8932286 0.8511995 0.8189853 0.8003226 0.7568713 0.7509609
+## [15] 0.7274690
+## 
+## Rotation (n x k) = (15 x 4):
+##                 PC1         PC2         PC3           PC4
+## iOp01   -0.06943778  0.38155798 -0.19427723  0.4915882664
+## iOp03   -0.20562301  0.30500547  0.47716338 -0.2907785685
+## iOp04    0.36177159 -0.08071718  0.34244974 -0.0003028303
+## iOp10   -0.34078095  0.23989272  0.19732683 -0.2139680548
+## iOp11    0.29931733  0.09490561  0.09826912 -0.0213681852
+## iOp02.5  0.32443413  0.07300092  0.07894631  0.0320344221
+## iOp42    0.12845659  0.48677246 -0.23754435  0.0526953352
+## iOp43    0.16507540  0.31259574 -0.28949688 -0.4294394393
+## iOp46   -0.20512296  0.17552225  0.40029547  0.0300032371
+## iOp45   -0.29856014  0.20970290 -0.31605182 -0.0187235987
+## iOP13.5  0.35202797  0.02718279  0.05356841  0.1507532470
+## iOp44    0.11226061  0.20192394  0.07709088 -0.4107140003
+## iOp07.5  0.26953643  0.30979313 -0.15452816 -0.1165836764
+## iOp47    0.33900566  0.15729302  0.24253529  0.1122834985
+## iOP12.5 -0.10942316  0.33363638  0.26570013  0.4695379747</code></pre>
+</div>
+</div>
+<div id="fa" class="section level2">
+<h2><span class="header-section-number">5.4</span> Эксплораторный факторный анализ</h2>
+<p>Чарльз Спирмен был один из пионеров использования коэффициентов корреляции в научных исследованиях. Он уже в самом начале XX века использовал корреляционные матрицы для исследования связи разных тестов, которые проходили школьники. Он обнаружил, что оценки по самым разным тестам коррелируют друг с другом. Короче говоря, если учащийся хорошо справляется с математикой, то и с музыкой у него, скорее всего, будет хорошо.</p>
+<p>Чарльз Спирмен предположил, что за этими шкалами стоит некоторый единый фактор, который он назвал фактором <em>g</em> (от слова <em>general</em>) - общий интеллект. С точки зрения Спирмена, общий интеллект - это латентный фактор, который объясняет существующие корреляции между баллами за разные тесты, а то, что общий интеллект не объясняет, - это отдельные способности.</p>
+<p>Для того, чтобы доказать свою теорию, Чарльз Спирмен придумал эксплораторный факторный анализ (ЭФА; <em>exploratory factor analysis</em>)<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</p>
+<p>Суть ЭФА несколько сложнее АГК. Если в АГК мы просто вертим оси исходного пространства, чтобы максимизировать дисперсию первых осей и минимизировать дисперсию последних, то в ЭФА мы строим модель с заданным количеством латентных (т.е. “скрытых”) переменных, которые должны объяснять общую дисперсию наблюдаемых переменных и быть ортогональными (перпендикулярными) друг другу. Ну а все необъясненное остается влиянием независимых индивидуальных факторов. Кроме того, полученные латентные факторы можно еще “повращать” для большей интерпретируемости латентных факторов. Причем “вращение” может быть как ортогональным (самое распространенное - варимакс) или косоугольным (например, облимин). В первом случае факторы останутся нескоррелированными, во втором случае - нет.</p>
+<p>Для ЭФА есть много пакетов, более того, уже знакомый нам <code>psych</code> умеет делать ЭФА.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fa_none_fit &lt;-<span class="st"> </span><span class="kw">factanal</span>(opinion_scaled, <span class="dt">factors =</span> <span class="dv">6</span>, <span class="dt">rotation =</span> <span class="st">&quot;varimax&quot;</span>)
+fa_none_fit</code></pre></div>
+<pre><code>## 
+## Call:
+## factanal(x = opinion_scaled, factors = 6, rotation = &quot;varimax&quot;)
+## 
+## Uniquenesses:
+##   iOp01   iOp03   iOp04   iOp10   iOp11 iOp02.5   iOp42   iOp43   iOp46 
+##   0.842   0.633   0.539   0.516   0.730   0.742   0.512   0.775   0.863 
+##   iOp45 iOP13.5   iOp44 iOp07.5   iOp47 iOP12.5 
+##   0.605   0.005   0.948   0.642   0.614   0.828 
+## 
+## Loadings:
+##         Factor1 Factor2 Factor3 Factor4 Factor5 Factor6
+## iOp01           -0.111                           0.371 
+## iOp03                            0.587           0.109 
+## iOp04    0.152   0.569   0.279  -0.113          -0.136 
+## iOp10   -0.103  -0.270  -0.208   0.592                 
+## iOp11            0.188   0.447  -0.151                 
+## iOp02.5  0.279   0.246   0.247  -0.120   0.196         
+## iOp42                                    0.569   0.391 
+## iOp43                    0.197           0.426         
+## iOp46           -0.137           0.266  -0.126   0.160 
+## iOp45           -0.575  -0.102   0.168           0.150 
+## iOP13.5  0.939   0.173   0.198  -0.192                 
+## iOp44                    0.145           0.154         
+## iOp07.5                  0.496           0.316         
+## iOp47    0.148   0.313   0.482  -0.115           0.115 
+## iOP12.5                          0.165           0.374 
+## 
+##                Factor1 Factor2 Factor3 Factor4 Factor5 Factor6
+## SS loadings      1.044   0.990   0.977   0.934   0.724   0.538
+## Proportion Var   0.070   0.066   0.065   0.062   0.048   0.036
+## Cumulative Var   0.070   0.136   0.201   0.263   0.311   0.347
+## 
+## Test of the hypothesis that 6 factors are sufficient.
+## The chi square statistic is 130.78 on 30 degrees of freedom.
+## The p-value is 1.52e-14</code></pre>
+<p>Получаемый результат имеет примерно тот же вид, что и при АГК. Нужно смотреть на кумулятивную объясненную дисперсию, а также смотреть на факторные нагрузки - связь латентных факторов с наблюдаемыми шкалами. Особенно нас интересуют факторные нагрузки близкие к 1 и -1 (значения близкие к нулю скрыты). Анализируя эти шкалы, можно сделать вывод о том, что из себя представляет латентный фактор содержательно. Возьмем для примера второй фактор. В нем есть как выраженные положительные, так и отрицательные нагрузки:</p>
+<ul>
+<li><p><strong>“Consuming genetically modified (GMO) food is perfectly safe”</strong> - положительная нагрузка <em>.569.</em></p></li>
+<li><p><strong>“When you are ill, how likely are you to turn to alternative medicine (such as homeopathy) rather than seeking treatment from conventional medicine?”</strong> - отрицательная нагрузка <em>-.575.</em></p></li>
+</ul>
+<p>Можно предположить, что этот фактор означает доверие к академической науке: те, у кого высокое значение по этому фактору, не боятся ГМО, а те, у кого низкое значение, - верят в эффективность гомеопатии.</p>
+<p>Давайте визуализируем с помощью <code>ggplot2</code> факторные нагрузки по первым двум факторам:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">load &lt;-<span class="st"> </span>fa_none_fit<span class="op">$</span>loadings[,<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]
+<span class="kw">library</span>(ggplot2)
+load_dt &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(load)
+load_dt<span class="op">$</span>names &lt;-<span class="st"> </span><span class="kw">rownames</span>(load)
+load</code></pre></div>
+<pre><code>##             Factor1      Factor2
+## iOp01   -0.01566970 -0.110771479
+## iOp03   -0.07033983 -0.025900326
+## iOp04    0.15240114  0.568881912
+## iOp10   -0.10317583 -0.270441390
+## iOp11    0.06172226  0.188263581
+## iOp02.5  0.27880820  0.246291576
+## iOp42    0.06696601  0.060755424
+## iOp43    0.01663996  0.011630244
+## iOp46   -0.05416371 -0.137096836
+## iOp45   -0.06206774 -0.574575950
+## iOP13.5  0.93850496  0.172697022
+## iOp44    0.05999292  0.049111124
+## iOp07.5  0.07140540  0.009635239
+## iOp47    0.14796036  0.312706149
+## iOP12.5 -0.01468160 -0.040392354</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(load_dt, <span class="kw">aes</span>(<span class="dt">x =</span> Factor1, <span class="dt">y =</span> Factor2))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> names), <span class="dt">vjust =</span> <span class="dv">1</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+</div>
+<div id="cfa" class="section level2">
+<h2><span class="header-section-number">5.5</span> Конфирматорный факторный анализ</h2>
+<p>Как следует из названия, если ЭФА - это более эксплораторный метод анализа, то конфирматорный факторный анализ (КФА) предназначен для проверки моделей о структуре факторов.</p>
+<p>Как и в ЭФА, в КФА есть неизмеряемые латентные переменные, которые как-то объясняют измеряемые переменные. Однако если в ЭФА мы просто строим модель, где все латентные переменные объясняют все измеряемые переменные, то в КФА мы можем проверять более специфическую модель, где отдельные латентные переменные связаны только с определенными измеряемыми переменными. Кроме того, мы можем задавать (или не задавать) корреляции между латентными факторами и ошибками.</p>
+<p>Самый распространенный пакет для КФА в R - lavaan (LAtent VAriable ANalysis). Впрочем, это один из самых распространенных инструментов для КФА (и структурного моделирования, о чем будет позже) вообще!</p>
+<p>Давайте сразу его установим и загрузим данные по 9 тестам младшеклассников.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lavaan)
+<span class="kw">data</span>(HolzingerSwineford1939)</code></pre></div>
+<p>Модель предполагает, наличие трех коррелирующих друг с другом факторов: визуальный фактор (задания х1, х2, х3), текстовый фактор (задания х4, х5, х6) и фактор скорости (задания х7, х8, х9). Для того, чтобы задать такую модель, у <code>lavaan</code> есть свой синтаксис. Описание модели записывается в строковую переменную.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HS_model &lt;-<span class="st"> &quot;</span>
+<span class="st">visual =~ x1 + x2 + x3</span>
+<span class="st">textual =~ x4 + x5 + x6</span>
+<span class="st">speed =~ x7 + x8 + x9</span>
+<span class="st">&quot;</span></code></pre></div>
+<p>Затем происходит фиттинг модели с помощью функции <code>cfa()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">hs_cfa &lt;-<span class="st"> </span><span class="kw">cfa</span>(HS_model, <span class="dt">data =</span> HolzingerSwineford1939)
+<span class="kw">summary</span>(hs_cfa)</code></pre></div>
+<pre><code>## lavaan 0.6-4 ended normally after 35 iterations
+## 
+##   Optimization method                           NLMINB
+##   Number of free parameters                         21
+## 
+##   Number of observations                           301
+## 
+##   Estimator                                         ML
+##   Model Fit Test Statistic                      85.306
+##   Degrees of freedom                                24
+##   P-value (Chi-square)                           0.000
+## 
+## Parameter Estimates:
+## 
+##   Information                                 Expected
+##   Information saturated (h1) model          Structured
+##   Standard Errors                             Standard
+## 
+## Latent Variables:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   visual =~                                           
+##     x1                1.000                           
+##     x2                0.554    0.100    5.554    0.000
+##     x3                0.729    0.109    6.685    0.000
+##   textual =~                                          
+##     x4                1.000                           
+##     x5                1.113    0.065   17.014    0.000
+##     x6                0.926    0.055   16.703    0.000
+##   speed =~                                            
+##     x7                1.000                           
+##     x8                1.180    0.165    7.152    0.000
+##     x9                1.082    0.151    7.155    0.000
+## 
+## Covariances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##   visual ~~                                           
+##     textual           0.408    0.074    5.552    0.000
+##     speed             0.262    0.056    4.660    0.000
+##   textual ~~                                          
+##     speed             0.173    0.049    3.518    0.000
+## 
+## Variances:
+##                    Estimate  Std.Err  z-value  P(&gt;|z|)
+##    .x1                0.549    0.114    4.833    0.000
+##    .x2                1.134    0.102   11.146    0.000
+##    .x3                0.844    0.091    9.317    0.000
+##    .x4                0.371    0.048    7.779    0.000
+##    .x5                0.446    0.058    7.642    0.000
+##    .x6                0.356    0.043    8.277    0.000
+##    .x7                0.799    0.081    9.823    0.000
+##    .x8                0.488    0.074    6.573    0.000
+##    .x9                0.566    0.071    8.003    0.000
+##     visual            0.809    0.145    5.564    0.000
+##     textual           0.979    0.112    8.737    0.000
+##     speed             0.384    0.086    4.451    0.000</code></pre>
+<p>Здесь мы можем увидеть, сошлась ли модель, оценки качества модели и оценки интересующих параметров модели.</p>
+<p>Модели для КФА принято рисовать в виде блок-схем с кружочками, квадратиками и стрелочками. Есть несколько вариантов, как именно отрисовывать модели, например, нужно ли отдельным кружочком рисовать ошибку для каждой измеряемой модели. Но, в целом, правила такие: <em>круги</em> - это латентные переменные, <em>квадраты</em> - измеряемые переменные, <em>стрелочки</em> - ассоциации между ними.</p>
+<p>Для визуализации моделей, построенных в <code>lavaan</code>, существует пакет <code>semPlot</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;semPlot&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(semPlot)
+<span class="kw">semPaths</span>(hs_cfa)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
+<p>КФА лежит в основе структурного моделирования (<em>structural equation modelling, SEM</em>). По сути, структурное моделирование - это КФА + анализ пути (<em>path analysis</em>), который можно рассматривать как расширение множественной линейной регрессии - только вместо одного линейного уравнения у нас появляется целая система уровнений. Если же в системе уравнений использовать не наблюдаемые, а на латентные переменные, то получается структурное моделирование.</p>
+</div>
+<div id="other_multi" class="section level2">
+<h2><span class="header-section-number">5.6</span> Другие многомерные методы</h2>
+<p>АГК, ЭФА, КФА, структурное моделирование - не единственные многомерные методы для анализа данных. За бортом осталось множество подходов, таких как кластерный анализ и многомерное шкалирование. В заключение я хочу показать еще один интересный подход к анализу данных в социальных науках - сетевой анализ, т.е. анализ графов. Этот метод активно применяется в исследованиях социальных сетей, в биологии и даже в гуманитарных науках.</p>
+<p>В основе графа лежит матрица близости между переменными. В данном случае мы можем использовать уже знакомую нам матрицу корреляций. Тогда отдельная вершина будет отдельным пунктом опросником, а связью между ними - наличие корреляции выше выбранного порога (использовать пороговое значение необязательно, но сделает визуализацию нагляднее).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;igraph&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">opinion_cor_abs &lt;-<span class="st"> </span><span class="kw">abs</span>(opinion_cor)
+<span class="kw">diag</span>(opinion_cor_abs) &lt;-<span class="st"> </span><span class="dv">0</span>
+<span class="kw">rownames</span>(opinion_cor_abs) &lt;-<span class="st"> </span><span class="kw">colnames</span>(opinion_cor_abs) &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">colnames</span>(opinion_cor_abs))
+
+
+<span class="kw">library</span>(igraph)
+opinion_ig &lt;-<span class="st"> </span><span class="kw">graph.adjacency</span>(opinion_cor_abs, <span class="dt">weighted =</span> <span class="ot">TRUE</span>, <span class="dt">mode =</span> <span class="st">&quot;lower&quot;</span>)
+opinion_ig &lt;-<span class="st"> </span><span class="kw">delete.edges</span>(opinion_ig, <span class="kw">E</span>(opinion_ig)[weight <span class="op">&lt;</span><span class="st"> </span><span class="fl">0.2</span>])
+<span class="kw">plot</span>(opinion_ig, <span class="dt">vertex.colour =</span> <span class="st">&quot;grey&quot;</span>, <span class="dt">vertex.frame.color =</span> <span class="ot">NA</span>,
+     <span class="dt">vertex.size =</span> <span class="kw">strength</span>(opinion_ig)<span class="op">*</span><span class="dv">3</span><span class="op">+</span><span class="dv">2</span>, <span class="dt">vertex.label.dist =</span> <span class="dv">1</span>,
+     <span class="dt">edge.curved =</span> <span class="dv">0</span>, <span class="dt">vertex.label.color =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<p>В R есть множество пакетов для интерактивных визуализаций графов.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;edgebundleR&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(edgebundleR)
+<span class="kw">edgebundle</span>(opinion_ig)</code></pre></div>
+<div id="htmlwidget-84065c9d7f228f4274ca" style="width:672px;height:480px;" class="edgebundleR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-84065c9d7f228f4274ca">{"x":{"json_real":"[{\"name\":\"iOp01\",\"imports\":null},{\"name\":\"iOp03\",\"imports\":\"iOp10\"},{\"name\":\"iOp04\",\"imports\":[\"iOp10\",\"iOp11\",\"iOp025\",\"iOp45\",\"iOP135\",\"iOp47\"]},{\"name\":\"iOp10\",\"imports\":[\"iOp11\",\"iOp025\",\"iOp46\",\"iOp45\",\"iOP135\",\"iOp47\"]},{\"name\":\"iOp11\",\"imports\":[\"iOp025\",\"iOP135\",\"iOp075\",\"iOp47\"]},{\"name\":\"iOp025\",\"imports\":[\"iOp45\",\"iOP135\",\"iOp075\",\"iOp47\"]},{\"name\":\"iOp42\",\"imports\":[\"iOp43\",\"iOp075\"]},{\"name\":\"iOp43\",\"imports\":\"iOp075\"},{\"name\":\"iOp46\",\"imports\":null},{\"name\":\"iOp45\",\"imports\":[\"iOP135\",\"iOp47\"]},{\"name\":\"iOP135\",\"imports\":[\"iOp075\",\"iOp47\"]},{\"name\":\"iOp44\",\"imports\":null},{\"name\":\"iOp075\",\"imports\":\"iOp47\"},{\"name\":\"iOp47\",\"imports\":null},{\"name\":\"iOP125\",\"imports\":null}]","width":null,"height":null,"padding":100,"tension":0.5,"fontsize":14,"nodesize":[5,20],"directed":false},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;networkD3&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(networkD3)
+opinion_nd3 &lt;-<span class="st"> </span><span class="kw">igraph_to_networkD3</span>(opinion_ig)
+<span class="kw">forceNetwork</span>(<span class="dt">Links =</span> opinion_nd3<span class="op">$</span>links, <span class="dt">Nodes =</span> opinion_nd3<span class="op">$</span>nodes,
+             <span class="dt">Source =</span> <span class="st">&#39;source&#39;</span>, <span class="dt">Target =</span> <span class="st">&#39;target&#39;</span>, 
+             <span class="dt">NodeID =</span> <span class="st">&#39;name&#39;</span>, <span class="dt">Group =</span> <span class="dv">1</span>, <span class="dt">opacity =</span> <span class="dv">1</span>)</code></pre></div>
+<div id="htmlwidget-698457f15ee93841a937" style="width:672px;height:480px;" class="forceNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-698457f15ee93841a937">{"x":{"links":{"source":[3,4,2,5,10,7,4,6,1,2,2,3,2,3,5,4,9,6,5,3,2,3,5,2,12,9,3,4,10],"target":[5,5,5,12,12,12,12,12,3,3,4,4,10,10,10,10,10,7,9,9,9,8,13,13,13,13,13,13,13],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"],"group":["iOp01","iOp03","iOp04","iOp10","iOp11","iOp025","iOp42","iOp43","iOp46","iOp45","iOP135","iOp44","iOp075","iOp47","iOP125"]},"options":{"NodeID":"name","Group":1,"colourScale":"d3.scaleOrdinal(d3.schemeCategory20);","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":50,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-30,"opacity":1,"zoom":false,"legend":false,"arrows":false,"nodesize":false,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>Потом, правда, оказалось, что в данном случае факторный анализ ничего не доказывает, зато метод оказался очень полезным и получил большое распространение (особенно в психологии).<a href="d4.html#fnref6">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="d3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

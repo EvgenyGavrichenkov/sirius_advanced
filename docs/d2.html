@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <meta name="description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Неделя 2, День 2 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  
+  <meta name="twitter:description" content="Конспекты для ‘Анализ данных в социальных науках с помощью языка R’ в Сириусе" />
+  
+
+<meta name="author" content="Иван Поздняков">
+
+
+<meta name="date" content="2020-01-22">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="d1.html">
+<link rel="next" href="d3.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.6/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/d3-4.5.0/d3.min.js"></script>
+<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
+<script src="libs/edgebundleR-0.0.2/packages.js"></script>
+<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
+<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Начало работы</a></li>
+<li class="chapter" data-level="2" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 1</a><ul>
+<li class="chapter" data-level="2.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>2.1</b> Warmup exercise</a></li>
+<li class="chapter" data-level="2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2</b> Простая линейная регрессия</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.1</b> Функция lm()</a></li>
+<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.2</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.3</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.4</b> Влияние выбросов на линейную модель</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>2.3</b> Множественная линейная регрессия</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="d2.html"><a href="d2.html"><i class="fa fa-check"></i><b>3</b> Неделя 2, День 2</a><ul>
+<li class="chapter" data-level="3.1" data-path="d2.html"><a href="d2.html#anova"><i class="fa fa-check"></i><b>3.1</b> Дисперсионный анализ (ANOVA)</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="d2.html"><a href="d2.html#aov"><i class="fa fa-check"></i><b>3.1.1</b> Функция aov()</a></li>
+<li class="chapter" data-level="3.1.2" data-path="d2.html"><a href="d2.html#anova_nhst"><i class="fa fa-check"></i><b>3.1.2</b> Тестирование значимости нулевой гипотезы в ANOVA.</a></li>
+<li class="chapter" data-level="3.1.3" data-path="d2.html"><a href="d2.html#anova_posthoc"><i class="fa fa-check"></i><b>3.1.3</b> Post-hoc тесты</a></li>
+<li class="chapter" data-level="3.1.4" data-path="d2.html"><a href="d2.html#aov_as_lm"><i class="fa fa-check"></i><b>3.1.4</b> ANOVA и т-тест как частные случаи линейной регрессии</a></li>
+<li class="chapter" data-level="3.1.5" data-path="d2.html"><a href="d2.html#dummy"><i class="fa fa-check"></i><b>3.1.5</b> Dummy coding</a></li>
+<li class="chapter" data-level="3.1.6" data-path="d2.html"><a href="d2.html#aova"><i class="fa fa-check"></i><b>3.1.6</b> Допущения ANOVA</a></li>
+<li class="chapter" data-level="3.1.7" data-path="d2.html"><a href="d2.html#fact_aov"><i class="fa fa-check"></i><b>3.1.7</b> Многофакторный дисперсионный анализ (Factorial ANOVA)</a></li>
+<li class="chapter" data-level="3.1.8" data-path="d2.html"><a href="d2.html#rm_aov"><i class="fa fa-check"></i><b>3.1.8</b> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</a></li>
+<li class="chapter" data-level="3.1.9" data-path="d2.html"><a href="d2.html#mixed_aov"><i class="fa fa-check"></i><b>3.1.9</b> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</a></li>
+<li class="chapter" data-level="3.1.10" data-path="d2.html"><a href="d2.html#aov_sum"><i class="fa fa-check"></i><b>3.1.10</b> Заключение</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="d2.html"><a href="d2.html#rmd"><i class="fa fa-check"></i><b>3.2</b> RMarkdown</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="d2.html"><a href="d2.html#chunk"><i class="fa fa-check"></i><b>3.2.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="3.2.2" data-path="d2.html"><a href="d2.html#chunks"><i class="fa fa-check"></i><b>3.2.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="3.2.3" data-path="d2.html"><a href="d2.html#python"><i class="fa fa-check"></i><b>3.2.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="3.2.4" data-path="d2.html"><a href="d2.html#inline"><i class="fa fa-check"></i><b>3.2.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="d2.html"><a href="d2.html#md"><i class="fa fa-check"></i><b>3.2.5</b> Синтаксис Markdown (без R)</a></li>
+<li class="chapter" data-level="3.2.6" data-path="d2.html"><a href="d2.html#rmd_tables"><i class="fa fa-check"></i><b>3.2.6</b> Таблицы</a></li>
+<li class="chapter" data-level="3.2.7" data-path="d2.html"><a href="d2.html#vis"><i class="fa fa-check"></i><b>3.2.7</b> Визуализации</a></li>
+<li class="chapter" data-level="3.2.8" data-path="d2.html"><a href="d2.html#din_vis"><i class="fa fa-check"></i><b>3.2.8</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="3.2.9" data-path="d2.html"><a href="d2.html#html"><i class="fa fa-check"></i><b>3.2.9</b> Вставлять HTML</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 3</a><ul>
+<li class="chapter" data-level="4.1" data-path="d3.html"><a href="d3.html#text"><i class="fa fa-check"></i><b>4.1</b> Введение в работу с текстом</a></li>
+<li class="chapter" data-level="4.2" data-path="d3.html"><a href="d3.html#text_base"><i class="fa fa-check"></i><b>4.2</b> Базовые операции с текстом</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="d3.html"><a href="d3.html#text_c"><i class="fa fa-check"></i><b>4.2.1</b> Объединение и разъединение строк</a></li>
+<li class="chapter" data-level="4.2.2" data-path="d3.html"><a href="d3.html#text_len"><i class="fa fa-check"></i><b>4.2.2</b> Подсчет длины строк</a></li>
+<li class="chapter" data-level="4.2.3" data-path="d3.html"><a href="d3.html#text_cut"><i class="fa fa-check"></i><b>4.2.3</b> Выделение подстрок и обрезание строк</a></li>
+<li class="chapter" data-level="4.2.4" data-path="d3.html"><a href="d3.html#text_to"><i class="fa fa-check"></i><b>4.2.4</b> Изменение регистра</a></li>
+<li class="chapter" data-level="4.2.5" data-path="d3.html"><a href="d3.html#text_rand"><i class="fa fa-check"></i><b>4.2.5</b> Случайные последовательности</a></li>
+<li class="chapter" data-level="4.2.6" data-path="d3.html"><a href="d3.html#text_sort"><i class="fa fa-check"></i><b>4.2.6</b> Сортировка</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="d3.html"><a href="d3.html#regexp"><i class="fa fa-check"></i><b>4.3</b> Поиск паттернов и регулярные выражения</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d3.html"><a href="d3.html#grep"><i class="fa fa-check"></i><b>4.3.1</b> grep(), gsub()</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d3.html"><a href="d3.html#reg"><i class="fa fa-check"></i><b>4.3.2</b> Регулярные выражения</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d3.html"><a href="d3.html#text_next"><i class="fa fa-check"></i><b>4.4</b> Анализ текста - что дальше?</a></li>
+<li class="chapter" data-level="4.5" data-path="d3.html"><a href="d3.html#fuzzy"><i class="fa fa-check"></i><b>4.5</b> Fuzzy matching</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="d4.html"><a href="d4.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 4</a><ul>
+<li class="chapter" data-level="5.1" data-path="d4.html"><a href="d4.html#multi"><i class="fa fa-check"></i><b>5.1</b> Многомерные методы анализа данных</a></li>
+<li class="chapter" data-level="5.2" data-path="d4.html"><a href="d4.html#heatmap"><i class="fa fa-check"></i><b>5.2</b> Хитмап корреляций</a></li>
+<li class="chapter" data-level="5.3" data-path="d4.html"><a href="d4.html#pca"><i class="fa fa-check"></i><b>5.3</b> Анализ главных компонент (Principal component analysis)</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="d4.html"><a href="d4.html#pca_n"><i class="fa fa-check"></i><b>5.3.1</b> Количество извлекаемых компонент</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="d4.html"><a href="d4.html#fa"><i class="fa fa-check"></i><b>5.4</b> Эксплораторный факторный анализ</a></li>
+<li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
+<li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
+<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="d2" class="section level1">
+<h1><span class="header-section-number">3</span> Неделя 2, День 2</h1>
+<div id="anova" class="section level2">
+<h2><span class="header-section-number">3.1</span> Дисперсионный анализ (ANOVA)</h2>
+<p>Дисперсионный анализ или ANOVA<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> - один из самых распространенных методов статистического анализа в психологии и многих других дисциплинах. Дисперсионный анализ очень хорошо подходит для анализа данных, полученных в эксперименте - методе организации исследования, при котором исследователь напрямую управляет уровнями независимой переменной. Терминологическая связь между дисперсионным анализом и планированием эксперимента настолько тесная, что многие термины пересекаются, поэтому нужно быть осторожными. Как и в случае с линейной регрессией, если мы что-то называем “независимой переменной” (или “фактором”), это не порождает никакой каузальной связи.</p>
+<blockquote>
+<p>Еще одна важная вещь, которую нужно понимать про дисперсионный анализ, это то, что у этого метода очень запутывающее название: из названия кажется, что этот статистический метод для сравнения дисперсий. Нет, это не так (хотя такие статистические тесты тоже есть, и они нам сегодня пригодятся - см. <a href="d2.html#aova">3.1.6</a>). Нет, это просто сравнение средних в случае, если есть больше, чем 2 группы для сравнения.</p>
+</blockquote>
+<p>У дисперсионного анализа очень много разновидностей, для которых придумали множество названий. “Обычная” ANOVA называется One-Way ANOVA, она же межгрупповая ANOVA, это аналог независимого т-теста для нескольких групп.</p>
+<p>Давайте начнем сразу с проведения теста. Мы будем использовать <a href="https://www.sheffield.ac.uk/polopoly_fs/1.570199!/file/stcp-Rdataset-Diet.csv">данные с курса по статистике Университета Шеффилда про эффективность диет</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+diet &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/stcp-Rdataset-Diet.csv&quot;</span>)</code></pre></div>
+<p>Сделаем небольшой препроцессинг данных. Создадим дополнительные “факторные” переменные, создадим переменную, в которой будет разница массы “до” и “после”, удалим <code>NA</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet[, weight.loss <span class="op">:</span><span class="er">=</span><span class="st"> </span>weight6weeks <span class="op">-</span><span class="st"> </span>pre.weight]
+diet[, Dietf <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">factor</span>(Diet, <span class="dt">labels =</span> LETTERS[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])]
+diet[, Person <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">factor</span>(Person)]
+diet &lt;-<span class="st"> </span>diet[<span class="kw">complete.cases</span>(diet),]</code></pre></div>
+<div id="aov" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Функция aov()</h3>
+<p>Попробуем сразу провести дисперсионных анализ с помощью функции <code>aov()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">aov_model &lt;-<span class="st"> </span><span class="kw">aov</span>(weight.loss <span class="op">~</span><span class="st"> </span>Dietf, diet)
+aov_model</code></pre></div>
+<pre><code>## Call:
+##    aov(formula = weight.loss ~ Dietf, data = diet)
+## 
+## Terms:
+##                    Dietf Residuals
+## Sum of Squares   60.5270  410.4018
+## Deg. of Freedom        2        73
+## 
+## Residual standard error: 2.371064
+## Estimated effects may be unbalanced</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(aov_model)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)   
+## Dietf        2   60.5  30.264   5.383 0.0066 **
+## Residuals   73  410.4   5.622                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Мы получили что-то похожее на результат применения функции <code>lm()</code>. Правда, лаконичнее, но с новыми столбцами <code>Sum Sq</code>, <code>Mean Sq</code> и новой статистикой <em>F</em> вместо <em>t</em>. Что будет, если с теми же данными с той же формулой запустить <code>lm()</code> вместо <code>aov()</code>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(weight.loss <span class="op">~</span><span class="st"> </span>Dietf, diet))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight.loss ~ Dietf, data = diet)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7000 -1.6519 -0.1759  1.4420  5.3680 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -3.3000     0.4840  -6.818 2.26e-09 ***
+## DietfB        0.0320     0.6776   0.047  0.96246    
+## DietfC       -1.8481     0.6652  -2.778  0.00694 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.371 on 73 degrees of freedom
+## Multiple R-squared:  0.1285, Adjusted R-squared:  0.1047 
+## F-statistic: 5.383 on 2 and 73 DF,  p-value: 0.006596</code></pre>
+<p><code>lm()</code> превратил <code>Dietf</code> в две переменные, но <em>F</em> и p-value у двух моделей одинаковые! Кроме того, функция <code>aov()</code> является, по сути, просто “оберткой” над <code>lm()</code>:</p>
+<blockquote>
+<p>This provides a wrapper to lm for fitting linear models to balanced or unbalanced experimental designs.</p>
+</blockquote>
+</div>
+<div id="anova_nhst" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Тестирование значимости нулевой гипотезы в ANOVA.</h3>
+<p>Как и в случае с другими статистическими тестами, мы можем выделить 4 этапа в тестировании значимости нулевой гипотезы в ANOVA:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Формулирование нулевой и альтернативной гипотезы.</strong> Нулевая гипотеза говорит, что между средними в генеральной совокупности нет различий:</li>
+</ol>
+<p><span class="math display">\[H_0:\mu_1 = \mu_2 = ... = \mu_n\]</span> Можно было бы предположить, что ненулевая гипотеза звучит как “все средние не равны”, но вообще-то это не так. Альтернативная гипотеза в дисперсионном анализе звучит так:</p>
+<p><span class="math display">\[H_1: \text{Не все средние равны}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Подсчет статистики.</strong> Как мы уже видели раньше, в дисперсионном анализе используется новая для нас статистика <em>F</em>. Впрочем, мы ее видели, когда смотрели на аутпут функции <code>lm()</code>, когда делали линейную регрессию. Чтобы считать <em>F</em> (если вдруг мы хотим сделать это вручную), нужно построить талбицу ANOVA (ANOVA table).</li>
+</ol>
+<table>
+<colgroup>
+<col width="19%" />
+<col width="11%" />
+<col width="18%" />
+<col width="27%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Таблица ANOVA</th>
+<th align="center">Степени свободы</th>
+<th align="center">Суммы квадратов</th>
+<th align="center">Средние квадраты</th>
+<th align="center">F-статистика</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Межгрупповые</td>
+<td align="center"><span class="math inline">\(df_{b}\)</span></td>
+<td align="center"><span class="math inline">\(SS_{b}\)</span></td>
+<td align="center"><span class="math inline">\(MS_{b} =\frac{SS_{b}}{df_{b}}\)</span></td>
+<td align="center"><span class="math inline">\(F=\frac{MS_{b}}{MS_{w}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Внутригрупповые</td>
+<td align="center"><span class="math inline">\(df_{w}\)</span></td>
+<td align="center"><span class="math inline">\(SS_{w}\)</span></td>
+<td align="center"><span class="math inline">\(MS_{w} =\frac{SS_{w}}{df_{w}}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">Общие</td>
+<td align="center"><span class="math inline">\(df_{t}\)</span></td>
+<td align="center"><span class="math inline">\(SS_{t}= SS_{b} + SS_{w}\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Именно эту таблицу мы видели, когда использовали функцию <code>aov()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(aov_model)</code></pre></div>
+<pre><code>##             Df Sum Sq Mean Sq F value Pr(&gt;F)   
+## Dietf        2   60.5  30.264   5.383 0.0066 **
+## Residuals   73  410.4   5.622                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Вот как это все считается:</p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="8%" />
+<col width="32%" />
+<col width="17%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Таблица ANOVA</th>
+<th align="center">Степени свободы</th>
+<th align="center">Суммы квадратов</th>
+<th align="center">Средние квадраты</th>
+<th align="center">F-статистика</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Между</td>
+<td align="center"><span class="math inline">\(df_{b}=J-1\)</span></td>
+<td align="center"><span class="math inline">\(SS_{b}= \sum\limits_{j=1}^J \sum\limits_{i=1}^{n_j} (\overline{x_j}-\overline{x})^2\)</span></td>
+<td align="center"><span class="math inline">\(MS_{b} =\frac{SS_{b}}{df_{b}}\)</span></td>
+<td align="center"><span class="math inline">\(F=\frac{MS_{b}}{MS_{w}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Внутри</td>
+<td align="center"><span class="math inline">\(df_{w}=N-J\)</span></td>
+<td align="center"><span class="math inline">\(SS_{w}= \sum\limits_{j=1}^J \sum\limits_{i=1}^{n_j} (x_{ij}-\overline{x_j})^2\)</span></td>
+<td align="center"><span class="math inline">\(MS_{w} =\frac{SS_{w}}{df_{w}}\)</span></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">Общие</td>
+<td align="center"><span class="math inline">\(df_{t}=N-1\)</span></td>
+<td align="center"><span class="math inline">\(SS_{t}= \sum\limits_{j=1}^J \sum\limits_{i=1}^{n_j} (x_{ij}-\overline{x})^2\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(J\)</span> означает количество групп, <span class="math inline">\(N\)</span> - общее количество наблюдений во всех группах, <span class="math inline">\(n_j\)</span> означает количество наблюдений в группе j, а <span class="math inline">\(x_{ij}\)</span> - наблюдение под номером <span class="math inline">\(i\)</span> в группе <span class="math inline">\(j\)</span>.</p>
+<p>Вариабельность обозначается <span class="math inline">\(SS\)</span> и означает “сумму квадратов” (sum of squares) - это то же, что и дисперсия, только мы не делим вме в конце на количество наблюдений (или количество наблюдений минус один): <span class="math display">\[SS = \sum\limits_{i=1}^{n_j} (x_{i}-\overline{x})^2\]</span></p>
+<p>Здесь много формул, но суть довольно простая: мы разделяем вариабельность зависимой переменной на внутригрупповую и межгрупповую, считаем их соотношение, которое и будет <em>F</em>. В среднем, <em>F</em> будет равен 1 при верности нулевой гипотезы. Это означает, что и межгрупповая вариабельность, и внутригрупповая вариабельность - это просто шум. Но если же межгрупповая вариабельность - это не просто шум, то это соотношение будет сильно больше единицы.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Подсчет p-value.</strong> В т-тесте мы смотрели, как статистика распределена при условии верности нулевой гипотезы. То есть что будет, если нулевая гипотеза верна, мы будем повторять эксперимент с точно таким же дизайном (и размером выборок) бесконечное количество раз и считать <em>F</em>.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">betweendf &lt;-<span class="st"> </span><span class="dv">2</span>
+withindf &lt;-<span class="st"> </span><span class="dv">73</span>
+f &lt;-<span class="st"> </span><span class="kw">summary</span>(aov_model)[[<span class="dv">1</span>]]<span class="op">$</span>F[<span class="dv">1</span>]
+
+v &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.1</span>,<span class="dv">10</span>, <span class="fl">0.01</span>)
+fdist &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">fvalues =</span> v, <span class="dt">pdf =</span> <span class="kw">df</span>(v, betweendf, withindf))
+
+<span class="kw">library</span>(ggplot2)
+
+label &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;F(&quot;</span>, betweendf, <span class="st">&quot;, &quot;</span>, withindf, <span class="st">&quot;) = &quot;</span>, <span class="kw">round</span>(f, <span class="dv">3</span>))
+
+<span class="kw">ggplot</span>(fdist, <span class="kw">aes</span>(<span class="dt">x =</span> fvalues, <span class="dt">y =</span> pdf))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>()<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> f)<span class="op">+</span>
+<span class="st">  </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> f<span class="op">+</span><span class="dv">1</span>, <span class="dt">y =</span> <span class="fl">0.2</span>, <span class="dt">label =</span> label)<span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">expand=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()<span class="op">+</span>
+<span class="kw">theme</span>(<span class="dt">axis.line.y =</span> <span class="kw">element_blank</span>(),
+      <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>(),
+      <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),
+      <span class="dt">axis.title.y =</span> <span class="kw">element_blank</span>())  </code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-38"></span>
+<img src="sirius_advanced_files/figure-html/unnamed-chunk-38-1.png" alt="\label{fig:fig1}F-распределение при верности нулевой гипотезы (см. детали в тексте)" width="60%" />
+<p class="caption">
+Рисунок 3.1: F-распределение при верности нулевой гипотезы (см. детали в тексте)
+</p>
+</div>
+<p>Заметьте, распределение <em>F</em> несимметричное<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. Это значит, что мы всегда считаем считаем площадь от <em>F</em> до плюс бесконечности (без умножения на 2, как мы это делали в т-тесте):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pf</span>(f, betweendf, withindf)</code></pre></div>
+<pre><code>## [1] 0.006595853</code></pre>
+<p>Это и есть наш p-value!</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Сравнение p-value с уровнем <span class="math inline">\(\alpha\)</span>.</strong> Самый простой этап: если наш p-value меньше, чем <span class="math inline">\(\alpha\)</span> (который обычно равен .05), то мы отвергаем нулевую гипотезу. Если нет - не отвергаем.</li>
+</ol>
+<p>В нашем случае это 0.0065959, что, очевидно, меньше, чем .05. Отвергаем нулевую гипотезу (о том, что нет различий), принимаем ненулевую (о том, что различия есть). Все!</p>
+</div>
+<div id="anova_posthoc" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Post-hoc тесты</h3>
+<p>Тем не менее, дисперсионного анализа недостаточно, чтобы решить, какие именно группы между собой различаются. Для этого нужно проводить post-hoc тесты (апостериорные тесты).</p>
+<p>Post-hoc переводится с латыни как “после этого”. Post-hoc тесты проводятся, если в результате ANOVA Вы отвергли нулевую гипотезу. Собственно, пост-хоки никак не связаны с дисперсионным анализом на уровне расчетов - это абсолютно независимые тесты, но исторически так сложилось, что они известны именно как дополнительный этап ANOVA.</p>
+<p>Самый простой вариант пост-хок теста - это попарные т-тесты с поправками на множественные сравнения:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairwise.t.test</span>(diet<span class="op">$</span>weight.loss, diet<span class="op">$</span>Dietf)</code></pre></div>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  diet$weight.loss and diet$Dietf 
+## 
+##   A     B    
+## B 0.962 -    
+## C 0.017 0.017
+## 
+## P value adjustment method: holm</code></pre>
+<p>Второй подход связан с использованием специализированных тестов, таких как тест Тьюки (Tukey Honest Significant Differences = Tukey HSD). Для этого в R есть функция <code>TukeyHSD()</code>, которую нужно применять на объект <code>aov</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(aov_model)</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = weight.loss ~ Dietf, data = diet)
+## 
+## $Dietf
+##          diff       lwr        upr     p adj
+## B-A  0.032000 -1.589085  1.6530850 0.9987711
+## C-A -1.848148 -3.439554 -0.2567422 0.0188047
+## C-B -1.880148 -3.454614 -0.3056826 0.0152020</code></pre>
+</div>
+<div id="aov_as_lm" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> ANOVA и т-тест как частные случаи линейной регрессии</h3>
+<p>Как мы уже видели, если применить <code>lm()</code> или <code>aov()</code> на одних и тех же данных с одной и той же формулой, то результат будет очень похожим. Но есть одно но: <code>lm()</code> создает из одного фактора две переменных-предиктора:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(weight.loss <span class="op">~</span><span class="st"> </span>Dietf, diet))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight.loss ~ Dietf, data = diet)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7000 -1.6519 -0.1759  1.4420  5.3680 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -3.3000     0.4840  -6.818 2.26e-09 ***
+## DietfB        0.0320     0.6776   0.047  0.96246    
+## DietfC       -1.8481     0.6652  -2.778  0.00694 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.371 on 73 degrees of freedom
+## Multiple R-squared:  0.1285, Adjusted R-squared:  0.1047 
+## F-statistic: 5.383 on 2 and 73 DF,  p-value: 0.006596</code></pre>
+<p>Дело в том, что мы не можем просто так загнать номинативную переменную в качестве предиктора в линейную регрессию. Мы можем это легко сделать, если у нас всего два уровня в номинативном предикторе. Тогда один из уровней можно обозначить за 0, другой - за 1. Такие переменные иногда называются “бинарными”. Тогда это легко использовать в линейной регрессии:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(weight.loss <span class="op">~</span><span class="st"> </span>gender, diet))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight.loss ~ gender, data = diet)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.1848 -1.7264  0.2041  1.6846  5.9930 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -3.8930     0.3846 -10.123  1.3e-15 ***
+## gender       -0.1221     0.5836  -0.209    0.835    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.522 on 74 degrees of freedom
+## Multiple R-squared:  0.0005914,  Adjusted R-squared:  -0.01291 
+## F-statistic: 0.04379 on 1 and 74 DF,  p-value: 0.8348</code></pre>
+<p>Можно ли так делать? Вполне! Допущения линейной регрессии касаются остатков, а не переменных самих по себе. Разве что это немного избыточно: линейная регрессия с бинарным предиктором - это фактически независимый т-тест:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight.loss <span class="op">~</span><span class="st"> </span>gender, diet, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  weight.loss by gender
+## t = 0.20925, df = 74, p-value = 0.8348
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -1.040810  1.285067
+## sample estimates:
+## mean in group 0 mean in group 1 
+##       -3.893023       -4.015152</code></pre>
+<p>Как видите, p-value совпадают! А <em>t</em> статистика в квадрате - это <em>F</em> (при двух группах):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight.loss <span class="op">~</span><span class="st"> </span>gender, diet, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)<span class="op">$</span>statistic<span class="op">^</span><span class="dv">2</span></code></pre></div>
+<pre><code>##          t 
+## 0.04378592</code></pre>
+<p>Более того, те же самые результаты можно получить и с помощью коэффициента корреляции Пирсона:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor.test</span>(diet<span class="op">$</span>gender, diet<span class="op">$</span>weight.loss)</code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  diet$gender and diet$weight.loss
+## t = -0.20925, df = 74, p-value = 0.8348
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.2484113  0.2022466
+## sample estimates:
+##         cor 
+## -0.02431772</code></pre>
+<p>Теперь должно быть понятно, почему все эти функции делают вроде бы разные статистические тесты, но выдают такой похожий результат - это фактически один и тот же метод! Все эти методы (и некоторые из тех, что будем рассматривать далее) можно рассматривать как разновидности множественной линейной регрессии.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+</div>
+<div id="dummy" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Dummy coding</h3>
+<p>Тем не менее, вопрос остается открытым: как превратить номинативную переменную в количественную и загнать ее в регрессию? Для этого можно использовать “фиктивное кодирование” (dummy coding):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet[, isA <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.numeric</span>(Dietf <span class="op">==</span><span class="st"> &quot;A&quot;</span>)]
+diet[, isB <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.numeric</span>(Dietf <span class="op">==</span><span class="st"> &quot;B&quot;</span>)]
+diet[, isC <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">as.numeric</span>(Dietf <span class="op">==</span><span class="st"> &quot;C&quot;</span>)]
+diet[<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>,<span class="dv">15</span><span class="op">:</span><span class="dv">16</span>,<span class="dv">35</span><span class="op">:</span><span class="dv">36</span>),<span class="kw">c</span>(<span class="st">&quot;Dietf&quot;</span>, <span class="st">&quot;isA&quot;</span>, <span class="st">&quot;isB&quot;</span>, <span class="st">&quot;isC&quot;</span>)]</code></pre></div>
+<pre><code>##    Dietf isA isB isC
+## 1:     A   1   0   0
+## 2:     A   1   0   0
+## 3:     B   0   1   0
+## 4:     B   0   1   0
+## 5:     C   0   0   1
+## 6:     C   0   0   1</code></pre>
+<p>Заметьте, что такое кодирование избыточно. Если мы знаем, что диет 3, а данная диета - это не диета В и не диета С, то это диета А. Значит, одна из созданных нами колонок - “лишняя”:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet[, isA <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="ot">NULL</span>]</code></pre></div>
+<p>Используем новую колонки для линейной регрессии и сравним результаты:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(weight.loss <span class="op">~</span><span class="st"> </span>isB <span class="op">+</span><span class="st"> </span>isC, diet))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight.loss ~ isB + isC, data = diet)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7000 -1.6519 -0.1759  1.4420  5.3680 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -3.3000     0.4840  -6.818 2.26e-09 ***
+## isB           0.0320     0.6776   0.047  0.96246    
+## isC          -1.8481     0.6652  -2.778  0.00694 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.371 on 73 degrees of freedom
+## Multiple R-squared:  0.1285, Adjusted R-squared:  0.1047 
+## F-statistic: 5.383 on 2 and 73 DF,  p-value: 0.006596</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">lm</span>(weight.loss <span class="op">~</span><span class="st"> </span>Dietf, diet))</code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight.loss ~ Dietf, data = diet)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -5.7000 -1.6519 -0.1759  1.4420  5.3680 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -3.3000     0.4840  -6.818 2.26e-09 ***
+## DietfB        0.0320     0.6776   0.047  0.96246    
+## DietfC       -1.8481     0.6652  -2.778  0.00694 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.371 on 73 degrees of freedom
+## Multiple R-squared:  0.1285, Adjusted R-squared:  0.1047 
+## F-statistic: 5.383 on 2 and 73 DF,  p-value: 0.006596</code></pre>
+<p>То же самое!</p>
+</div>
+<div id="aova" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Допущения ANOVA</h3>
+<ol style="list-style-type: decimal">
+<li><strong>Нормальность распределения ошибок:</strong></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">residuals</span>(aov_model))</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p>Как мы видим, распределение не сильно далеко от нормального - этого вполне достаточно. ANOVA - это метод достаточно устойчивый к отклонениям от нормальности.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Гомогенность дисперсий.</strong></li>
+</ol>
+<p>То есть их равенство. Можно посмотреть на распределение остатков:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet<span class="op">$</span>residuals &lt;-<span class="st"> </span><span class="kw">residuals</span>(aov_model)
+<span class="kw">ggplot</span>(diet, <span class="kw">aes</span>(<span class="dt">x =</span> Dietf, <span class="dt">y =</span> residuals))<span class="op">+</span><span class="st"> </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>Все выглядит неплохо: нет какой-то одной группы, у которой разброс сильно больше или меньше. Есть и более формальные способы проверить равенство дисперсий. Например, с помощью теста Ливиня (Levene’s test). Для того, чтобы его провести, мы воспользуемся новым пакетом <code>ez</code> (читать как “easy”). Этот пакет сильно упрощает проведение дисперсионного анализа, особенно для более сложных дизайнов.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ez&quot;</span>)</code></pre></div>
+<p>Синтаксис довольно простой: нужно указать, данные, зависимую переменную, переменную с ID, факторы. Необходимо прописать фактор в <code>between =</code> или <code>within =</code>. В данном случае - в <code>between =</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ez)
+ez_model &lt;-<span class="st"> </span><span class="kw">ezANOVA</span>(<span class="dt">data =</span> diet,
+        <span class="dt">dv=</span> weight.loss,
+        <span class="dt">wid =</span> Person, 
+        <span class="dt">between =</span> Dietf,
+        <span class="dt">detailed =</span> T, 
+        <span class="dt">return_aov =</span> T)</code></pre></div>
+<pre><code>## Warning: You have removed one or more Ss from the analysis. Refactoring
+## &quot;Person&quot; for ANOVA.</code></pre>
+<pre><code>## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().</code></pre>
+<pre><code>## Coefficient covariances computed by hccm()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ez_model</code></pre></div>
+<pre><code>## $ANOVA
+##   Effect DFn DFd      SSn      SSd        F           p p&lt;.05       ges
+## 1  Dietf   2  73 60.52701 410.4018 5.383104 0.006595853     * 0.1285269
+## 
+## $`Levene&#39;s Test for Homogeneity of Variance`
+##   DFn DFd      SSn      SSd         F         p p&lt;.05
+## 1   2  73 2.040419 160.8859 0.4629076 0.6312856      
+## 
+## $aov
+## Call:
+##    aov(formula = formula(aov_formula), data = data)
+## 
+## Terms:
+##                    Dietf Residuals
+## Sum of Squares   60.5270  410.4018
+## Deg. of Freedom        2        73
+## 
+## Residual standard error: 2.371064
+## Estimated effects may be unbalanced</code></pre>
+<p>Если при проведении теста Ливиня мы получаем <em>p &lt; .05</em>, то мы отбрасываем нулевую гипотезу о равенстве дисперсий. В данном случае мы не можем ее отбросить и поэтому принимаем<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p>Полученный объект (если поставить <code>return_aov = T</code>) содержит еще и объект <code>aov()</code> - на случай, если у Вас есть функции, которые работают с этим классом:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(ez_model<span class="op">$</span>aov)</code></pre></div>
+<pre><code>##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = formula(aov_formula), data = data)
+## 
+## $Dietf
+##          diff       lwr        upr     p adj
+## B-A  0.032000 -1.589085  1.6530850 0.9987711
+## C-A -1.848148 -3.439554 -0.2567422 0.0188047
+## C-B -1.880148 -3.454614 -0.3056826 0.0152020</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Примерно одинаковое количество испытуемых в разных группах.</strong> Здесь у нас все в порядке:</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet[,.N, by =<span class="st"> </span>Dietf]</code></pre></div>
+<pre><code>##    Dietf  N
+## 1:     A 24
+## 2:     B 25
+## 3:     C 27</code></pre>
+<p>Небольшие различия в размерах групп - это ОК, тем более, что на практике такое очень часто случается: кого-то пришлось выкинуть из анализа, для какой-то строчки были потеряны данные и т.д. Однако больших различий в размерах групп стоит избегать. Самое плохое, когда группы различаются значительно по размеру (более чем в 2 раза) и вариабельность внутри групп отличается значительно (более чем в 2 раза).</p>
+</div>
+<div id="fact_aov" class="section level3">
+<h3><span class="header-section-number">3.1.7</span> Многофакторный дисперсионный анализ (Factorial ANOVA)</h3>
+<p>На практике можно встретить One-Way ANOVA (однофакторную ANOVA) довольно редко. Обычно в исследованиях встречается многофакторный дисперсионный анализ, в котором проверяется влияние сразу нескольких факторов. В научных статьях это обозначается примерно так: “3х2 ANOVA”. Это означает, что был проведен двухфакторный дисперсионный анализ, причем в одном факторе было три уровня, во втором - два. В нашем случае это будут факторы “Диета” и “Пол”. Это означает, что у нас две гипотезы: о влиянии диеты на потерю веса и о влиянии пола на потерю веса. Кроме того, появляется гипотеза о взаимодействии факторов - то есть о том, что разные диеты по разному влияют на потерю веса для разных полов.</p>
+<p>Взаимодействие двух факторов хорошо видно на графике с линиями: если две линии параллельны, то взаимодействия нет. Если они не параллельны (пересекаются, сходятся, расходятся), то взаимодействие есть.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">diet[, genderf<span class="op">:</span><span class="er">=</span><span class="kw">factor</span>(gender, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;ж&quot;</span>, <span class="st">&quot;м&quot;</span>))]
+sem &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">sd</span>(x)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))
+pivot &lt;-<span class="st"> </span>diet[,.(<span class="dt">meanloss =</span> <span class="kw">mean</span>(weight.loss), <span class="dt">se =</span> <span class="kw">sem</span>(weight.loss)), by =<span class="st"> </span>.(Dietf, genderf)]
+
+<span class="kw">library</span>(ggplot2)
+pd =<span class="st"> </span><span class="kw">position_dodge</span>(<span class="fl">0.05</span>)
+<span class="kw">ggplot</span>(pivot, <span class="kw">aes</span>(<span class="dt">x =</span> Dietf, <span class="dt">y =</span> meanloss, <span class="dt">colour =</span> genderf))<span class="op">+</span>
+<span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">group =</span> genderf), <span class="dt">position =</span> pd)<span class="op">+</span>
+<span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> meanloss <span class="op">-</span><span class="st"> </span>se, <span class="dt">ymax =</span> meanloss <span class="op">+</span>se), <span class="dt">position =</span> pd)</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-56-1.png" width="672" /></p>
+<p>Как видно по картинке, разница в эффективности диеты С по сравнению с другими видна только для женщин.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ezANOVA</span>(<span class="dt">data =</span> diet,
+        <span class="dt">dv=</span> weight.loss,
+        <span class="dt">wid =</span> Person, 
+        <span class="dt">between =</span> .(Dietf, gender),
+        <span class="dt">detailed =</span> T, 
+        <span class="dt">return_aov =</span> T)</code></pre></div>
+<pre><code>## Warning: You have removed one or more Ss from the analysis. Refactoring
+## &quot;Person&quot; for ANOVA.</code></pre>
+<pre><code>## Warning: &quot;gender&quot; will be treated as numeric.</code></pre>
+<pre><code>## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().</code></pre>
+<pre><code>## Coefficient covariances computed by hccm()</code></pre>
+<pre><code>## Warning: At least one numeric between-Ss variable detected, therefore no
+## assumption test will be returned.</code></pre>
+<pre><code>## $ANOVA
+##         Effect DFn DFd        SSn     SSd          F          p p&lt;.05
+## 1        Dietf   2  70 60.4172197 376.329 5.61902602 0.00545568     *
+## 2       gender   1  70  0.1686958 376.329 0.03137868 0.85990976      
+## 3 Dietf:gender   2  70 33.9040683 376.329 3.15320438 0.04884228     *
+##           ges
+## 1 0.138334829
+## 2 0.000448066
+## 3 0.082645860
+## 
+## $aov
+## Call:
+##    aov(formula = formula(aov_formula), data = data)
+## 
+## Terms:
+##                    Dietf   gender Dietf:gender Residuals
+## Sum of Squares   60.5270   0.1687      33.9041  376.3290
+## Deg. of Freedom        2        1            2        70
+## 
+## Residual standard error: 2.318648
+## Estimated effects may be unbalanced</code></pre>
+<p>Итак, теперь мы проверяем три гипотезы вместо одной. Действительно, взаимодействие диеты и пола оказалось значимым, как и ожидалось.</p>
+</div>
+<div id="rm_aov" class="section level3">
+<h3><span class="header-section-number">3.1.8</span> Дисперсионный анализ с повторными измерениями (Repeated-measures ANOVA)</h3>
+<p>Если обычный дисперсионный анализ - это аналог независимого т-теста для нескольких групп, то дисперсионный анализ с повторными измерениями - это аналог зависимого т-теста. В функции <code>ezANOVA()</code> для проведения дисперсионного анализа с повторными измерениями нужно просто поставить нужным параметром внутригрупповую переменную. Это означает, что в данном случае мы должны иметь данные в длинном формате, для чего мы воспользуемся функцией <code>melt()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dietlong &lt;-<span class="st"> </span><span class="kw">melt</span>(diet,
+<span class="dt">measure =</span> <span class="kw">c</span>(<span class="st">&quot;pre.weight&quot;</span>, <span class="st">&quot;weight6weeks&quot;</span>),
+<span class="dt">variable =</span> <span class="st">&quot;time&quot;</span>,
+<span class="dt">value =</span> <span class="st">&quot;weight&quot;</span>)</code></pre></div>
+<pre><code>## Warning in melt.data.table(diet, measure = c(&quot;pre.weight&quot;,
+## &quot;weight6weeks&quot;), : &#39;measure.vars&#39; [pre.weight, weight6weeks] are not all
+## of the same type. By order of hierarchy, the molten data value column will
+## be of type &#39;double&#39;. All measure variables not of type &#39;double&#39; will be
+## coerced too. Check DETAILS in ?melt.data.table for more on coercion.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dietlongC &lt;-<span class="st"> </span><span class="kw">droplevels</span>(dietlong[Dietf <span class="op">==</span><span class="st"> &quot;C&quot;</span>,])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ezANOVA</span>(dietlongC,
+        <span class="dt">dv =</span> weight, 
+        <span class="dt">wid =</span> Person,
+        <span class="dt">within =</span> time)</code></pre></div>
+<pre><code>## $ANOVA
+##   Effect DFn DFd        F            p p&lt;.05       ges
+## 2   time   1  26 124.6949 2.030459e-11     * 0.0986036</code></pre>
+</div>
+<div id="mixed_aov" class="section level3">
+<h3><span class="header-section-number">3.1.9</span> Смешанный дисперсионный анализ (Mixed between-within subjects ANOVA)</h3>
+<p>Нам никто не мешает совмещать и внутригруппоые, и межгрупповые факторы вместе.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ezANOVA</span>(dietlong,
+        <span class="dt">dv =</span> weight, 
+        <span class="dt">wid =</span> Person,
+        <span class="dt">within =</span> time,
+        <span class="dt">between =</span> Dietf)</code></pre></div>
+<pre><code>## Warning: You have removed one or more Ss from the analysis. Refactoring
+## &quot;Person&quot; for ANOVA.</code></pre>
+<pre><code>## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().</code></pre>
+<pre><code>## $ANOVA
+##       Effect DFn DFd           F            p p&lt;.05         ges
+## 2      Dietf   2  73   0.8280758 4.409507e-01       0.021710057
+## 3       time   1  73 210.5004045 3.346036e-23     * 0.059209996
+## 4 Dietf:time   2  73   5.3831045 6.595853e-03     * 0.003208607</code></pre>
+<p>Здесь нас интересует взаимодействие между факторами. Результаты, полученные для этой гипотезы, идентичны результатам по обычному дисперсионному анализу на разницу до и после - по сути это одно и то же.</p>
+</div>
+<div id="aov_sum" class="section level3">
+<h3><span class="header-section-number">3.1.10</span> Заключение</h3>
+<p>Мы разобрали много разных вариантов дисперсионного анализа. И это неудивительно - дисперсионный анализ является одним из самых распространенных статистических методов, в особенности в экспериментальных науках. При этом дисперсионный анализ можно представить как частный случай множественной линейной регрессии!</p>
+</div>
+</div>
+<div id="rmd" class="section level2">
+<h2><span class="header-section-number">3.2</span> RMarkdown</h2>
+<p>RMarkdown - это мощный инструмент создания отчетов с использованием R (и других языков программирования). С помощью RMarkdown можно превратить скрипт с анализом в красивый отчет - Word-документ, PDF-документ, веб-страницу, презентацию (с интерактивными элементами!). Кстати, этот сайт тоже сделан с помощью RMarkdown.</p>
+<p>Вот как это работает:</p>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png" alt="Как работает RMarkdown" />
+<p class="caption">Как работает RMarkdown</p>
+</div>
+<ul>
+<li><p>В основе всего лежит <img src="https://pandoc.org" alt="pandoc" /> - программа, которая преобразует разные форматы друг в друга. Поскольку разные форматы и даже виды документов имеют много схожих элементов, это вохможно сделать: например, и Word-файлы, и LaTeX, и HTML-документы имеют заголовки разных уровней.</p></li>
+<li><p><img src="https://daringfireball.net/projects/markdown/" alt="Markdown" /> - это еще одна разметка. Ее преимущество - в удобстве использовании и простоте синтаксиса. Например, именно эта разметка используется на <img src="https://github.com" alt="GitHub" /> для ReadMe файлов. Markdown-документы - это просто текстовые документы с .Md разрешением.</p></li>
+<li><p><img src="https://yihui.org/knitr/" alt="knitr" /> - R пакет для работы со специальными файлами .Rmd для превращения их в обычные .Md. Отличие .Rmd от .Md в наличии специально оформленных кусков кода (чанков). Эти куски кода выполняются и в .Md файле кроме самого кода (или даже без него) вставляется результат выполнения этого кода. Например, результат выполнения статистических тестов или график.</p></li>
+</ul>
+<p>-<embed src="https://rmarkdown.rstudio.com/index.html" /> - просто удобная оболочка над <img src="https://yihui.org/knitr/" alt="knitr" /> с нужными настройками.</p>
+<p>Пример Markdown кода:</p>
+<pre><code>![Как работает RMarkdown](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)</code></pre>
+<div class="figure">
+<img src="https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png" alt="Как работает RMarkdown" />
+<p class="caption">Как работает RMarkdown</p>
+</div>
+<p>Вот так делать заголовки:</p>
+<pre><code># R Markdown
+
+## Что такое RMarkdown
+
+## Чанки с кодом </code></pre>
+<p>Это чанк с кодом. Он отделяется ``` с обоих сторон и {r}. Это означает, что внутри находится код на R, который должен быть выполнен:</p>
+<p>``` {r}<br />
+2+2<br />
+```</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span><span class="op">+</span><span class="dv">2</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div id="chunk" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Настройки чанка</h3>
+<p>У чанка с кодом есть набор настроек. Самый важные из них такие:</p>
+<ul>
+<li><p><em>echo</em>: будет ли показан сам код</p></li>
+<li><p><em>message</em> и <em>warning</em>: будут ли показаны сообщения и предупреждения, всплывающие во время исполнения кода</p></li>
+<li><p><em>eval</em>: будет ли испольняться код внутри чанка</p></li>
+</ul>
+</div>
+<div id="chunks" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Настройка нескольких чанков</h3>
+<p>Все эти настройки можно настроить как для отдельных чанков, так и для все чанков сразу:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>, <span class="dt">warning =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</div>
+<div id="python" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Чанки с Python!</h3>
+<p>Вместо {r} нужно написать {python}</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">x <span class="op">=</span> <span class="st">&#39;hello, python !&#39;</span>
+<span class="bu">print</span> (x.split(<span class="st">&quot; &quot;</span>))</code></pre></div>
+<pre><code>## [&#39;hello,&#39;, &#39;python&#39;, &#39;!&#39;]</code></pre>
+</div>
+<div id="inline" class="section level3">
+<h3><span class="header-section-number">3.2.4</span> Код вне чанков (inline code)</h3>
+<p>Число пи равно ` r pi `:</p>
+<p><code>Число пи равно 3.1415927</code></p>
+</div>
+<div id="md" class="section level3">
+<h3><span class="header-section-number">3.2.5</span> Синтаксис Markdown (без R)</h3>
+<div id="md_high" class="section level4">
+<h4><span class="header-section-number">3.2.5.1</span> Выделение текста</h4>
+<pre><code>*Курсив* 
+_Тоже курсив_
+**Полужирный**
+__Тоже полужирный__</code></pre>
+<p><em>Курсив</em> <em>Тоже курсив</em> <strong>Полужирный</strong> <strong>Тоже полужирный</strong></p>
+</div>
+<div id="headers" class="section level4">
+<h4><span class="header-section-number">3.2.5.2</span> Заголовки разных уровней</h4>
+<pre><code>## Заголовки разных уровней
+
+### Мне заголовок
+
+#### И моему сыну тоже
+
+##### И моему!
+
+###### OK, boomer
+</code></pre>
+</div>
+<div id="md_lists" class="section level4">
+<h4><span class="header-section-number">3.2.5.3</span> Списки</h4>
+<ul>
+<li><p>Первый вариант списка выглядит так:</p></li>
+<li>Можно и с подсписком</li>
+<li><p>Почему бы и нет?</p></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Кому нужен порядок</li>
+<li>Тот списки номерует</li>
+</ol>
+</div>
+<div id="md_cite" class="section level4">
+<h4><span class="header-section-number">3.2.5.4</span> Цитаты</h4>
+<p>Цитата:</p>
+<blockquote>
+<p>Я устал<br />
+Который год во мне живет нарвал</p>
+</blockquote>
+</div>
+</div>
+<div id="rmd_tables" class="section level3">
+<h3><span class="header-section-number">3.2.6</span> Таблицы</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(data.table)
+go &lt;-<span class="st"> </span><span class="kw">fread</span>(<span class="st">&quot;data/iGLAS for R course.csv&quot;</span>)
+go[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>]</code></pre></div>
+<pre><code>##     StartDate   EndDate Status      IPAddress
+## 1:  1/15/2017 1/16/2017      0   144.139.7.52
+## 2:  1/27/2017 1/27/2017      0  31.54.151.215
+## 3:  1/24/2017 1/24/2017      0   176.62.130.7
+## 4: 01/10/2017 1/23/2017      0 86.161.181.218</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>])</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">StartDate</th>
+<th align="left">EndDate</th>
+<th align="right">Status</th>
+<th align="left">IPAddress</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1/15/2017</td>
+<td align="left">1/16/2017</td>
+<td align="right">0</td>
+<td align="left">144.139.7.52</td>
+</tr>
+<tr class="even">
+<td align="left">1/27/2017</td>
+<td align="left">1/27/2017</td>
+<td align="right">0</td>
+<td align="left">31.54.151.215</td>
+</tr>
+<tr class="odd">
+<td align="left">1/24/2017</td>
+<td align="left">1/24/2017</td>
+<td align="right">0</td>
+<td align="left">176.62.130.7</td>
+</tr>
+<tr class="even">
+<td align="left">01/10/2017</td>
+<td align="left">1/23/2017</td>
+<td align="right">0</td>
+<td align="left">86.161.181.218</td>
+</tr>
+<tr class="odd">
+<td align="left">12/11/2016</td>
+<td align="left">12/11/2016</td>
+<td align="right">0</td>
+<td align="left">31.211.8.249</td>
+</tr>
+</tbody>
+</table>
+<div id="dynamic_tables" class="section level4">
+<h4><span class="header-section-number">3.2.6.1</span> Динамические таблицы</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(DT)
+<span class="kw">datatable</span>(go[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</code></pre></div>
+<div id="htmlwidget-d796a0978e73200cf4cf" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d796a0978e73200cf4cf">{"x":{"filter":"none","data":[["1","2","3","4","5"],["1/15/2017","1/27/2017","1/24/2017","01/10/2017","12/11/2016"],["1/16/2017","1/27/2017","1/24/2017","1/23/2017","12/11/2016"],[0,0,0,0,0],["144.139.7.52","31.54.151.215","176.62.130.7","86.161.181.218","31.211.8.249"],[100,6,67,6,100]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>StartDate<\/th>\n      <th>EndDate<\/th>\n      <th>Status<\/th>\n      <th>IPAddress<\/th>\n      <th>Progress<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="vis" class="section level3">
+<h3><span class="header-section-number">3.2.7</span> Визуализации</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(Stat2Data)
+<span class="kw">library</span>(data.table)
+<span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
+back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)
+
+ggplot_scatter &lt;-<span class="st"> </span><span class="kw">ggplot</span>(back, <span class="kw">aes</span>(<span class="dt">x =</span> BodyWeight, <span class="dt">y =</span> BackpackWeight))<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Sex), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">2</span>)
+ggplot_scatter</code></pre></div>
+<p><img src="sirius_advanced_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+</div>
+<div id="din_vis" class="section level3">
+<h3><span class="header-section-number">3.2.8</span> Динамические визуализации в plotly</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plotly)
+<span class="kw">ggplotly</span>(ggplot_scatter)</code></pre></div>
+<div id="htmlwidget-d0c32c73e6b0434248de" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d0c32c73e6b0434248de">{"x":{"data":[{"x":[125,120,180,185,130,120,135,125,145,105,125,117,205,140,165,145,120,135,165,145,140,143,145,135,130,165,140,115,128,150,150,116,145,144,130,140,125,150,140,127,150,125,125,144,105,125,130,120,175,145,115,110,130,135,128],"y":[9,10,8,4,5,2,8,12,13,6,10,14,15,5,6,10,15,9,14,17,14,8,8,13,10,15,10,5,6,5,10,21,13,17,10,9,13,10,8,12,14,5,14,25,2,8,15,10,25,24,5,10,19,13,9],"text":["Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 180<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 185<br />BackpackWeight:  4","Sex: Female<br />BodyWeight: 130<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 120<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 117<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 205<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 165<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 135<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 143<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 145<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 165<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 140<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  6","Sex: Female<br />BodyWeight: 150<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 116<br />BackpackWeight: 21","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 17","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 140<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 127<br />BackpackWeight: 12","Sex: Female<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 125<br />BackpackWeight: 14","Sex: Female<br />BodyWeight: 144<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 105<br />BackpackWeight:  2","Sex: Female<br />BodyWeight: 125<br />BackpackWeight:  8","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 15","Sex: Female<br />BodyWeight: 120<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 175<br />BackpackWeight: 25","Sex: Female<br />BodyWeight: 145<br />BackpackWeight: 24","Sex: Female<br />BodyWeight: 115<br />BackpackWeight:  5","Sex: Female<br />BodyWeight: 110<br />BackpackWeight: 10","Sex: Female<br />BodyWeight: 130<br />BackpackWeight: 19","Sex: Female<br />BodyWeight: 135<br />BackpackWeight: 13","Sex: Female<br />BodyWeight: 128<br />BackpackWeight:  9"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Female","legendgroup":"Female","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[195,155,240,170,160,170,170,175,165,170,145,270,160,150,190,145,160,155,220,170,155,190,185,175,180,220,195,125,180,180,150,160,135,170,175,150,160,168,155,210,165,195,130,140,170],"y":[8,6,5,8,21,11,11,11,5,20,11,10,18,8,25,7,11,4,13,19,8,16,5,10,11,12,35,2,6,20,14,8,14,20,16,18,18,11,13,15,14,6,11,9,15],"text":["Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 240<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 21","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 165<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 145<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 270<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 150<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 25","Sex: Male<br />BodyWeight: 145<br />BackpackWeight:  7","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  4","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 19","Sex: Male<br />BodyWeight: 155<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 190<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 185<br />BackpackWeight:  5","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 10","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 220<br />BackpackWeight: 12","Sex: Male<br />BodyWeight: 195<br />BackpackWeight: 35","Sex: Male<br />BodyWeight: 125<br />BackpackWeight:  2","Sex: Male<br />BodyWeight: 180<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 180<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 160<br />BackpackWeight:  8","Sex: Male<br />BodyWeight: 135<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 20","Sex: Male<br />BodyWeight: 175<br />BackpackWeight: 16","Sex: Male<br />BodyWeight: 150<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 160<br />BackpackWeight: 18","Sex: Male<br />BodyWeight: 168<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 155<br />BackpackWeight: 13","Sex: Male<br />BodyWeight: 210<br />BackpackWeight: 15","Sex: Male<br />BodyWeight: 165<br />BackpackWeight: 14","Sex: Male<br />BodyWeight: 195<br />BackpackWeight:  6","Sex: Male<br />BodyWeight: 130<br />BackpackWeight: 11","Sex: Male<br />BodyWeight: 140<br />BackpackWeight:  9","Sex: Male<br />BodyWeight: 170<br />BackpackWeight: 15"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","opacity":0.5,"size":7.55905511811024,"symbol":"circle","line":{"width":1.88976377952756,"color":"rgba(0,191,196,1)"}},"hoveron":"points","name":"Male","legendgroup":"Male","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[96.75,278.25],"tickmode":"array","ticktext":["100","150","200","250"],"tickvals":[100,150,200,250],"categoryorder":"array","categoryarray":["100","150","200","250"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"BodyWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.35,36.65],"tickmode":"array","ticktext":["10","20","30"],"tickvals":[10,20,30],"categoryorder":"array","categoryarray":["10","20","30"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"BackpackWeight","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":0.913385826771654},"annotations":[{"text":"Sex","x":1.02,"y":1,"showarrow":false,"ax":0,"ay":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xref":"paper","yref":"paper","textangle":-0,"xanchor":"left","yanchor":"bottom","legendTitle":true}],"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"12baf54f89bc2":{"colour":{},"x":{},"y":{},"type":"scatter"}},"cur_data":"12baf54f89bc2","visdat":{"12baf54f89bc2":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="html" class="section level3">
+<h3><span class="header-section-number">3.2.9</span> Вставлять HTML</h3>
+<p>Можно собирать RMarkdown документ в разные форматы: .pdf (с помощью LaTeX), Word-файл, HTML-страницу и некоторые другие форматы. Если во собираете документ соответствующего формата, то вам доступны и соответствующие плюшки этого формата. Например, этот сайт - это .Rmd, собранный в HTML. Я могу вставлять сюда любой HTML код. Например, видео с YouTube!</p>
+<pre><code>&lt;iframe width=&quot;966&quot; height=&quot;543&quot; src=&quot;https://www.youtube.com/embed/hHW1oY26kxQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>Потом, правда, оказалось, что в данном случае факторный анализ ничего не доказывает, зато метод оказался очень полезным и получил большое распространение (особенно в психологии).<a href="d2.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Форма <em>F</em>-распределения будет сильно зависеть от числа степеней свободы. Но оно всегда определено от 0 до плюс бесконечности: в числителе и знаменателе всегда неотрицательные числа.<a href="d2.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>Обобщением множественной линейной регрессии (вернее, одним из) можно считать общую линейную модель (general linear model). Общая линейная модель может предсказывать не одну, а сразу несколько объясняемых переменных в отличие от множественной линейной регрессии. Следующим этапом обобщения служит обобщенная линейная модель (generalized linear model). Фишка последней в том, что можно использовать не только модели с нормально распределенными остатками, но и, например, логистическую и пуассоновскую регрессию.<a href="d2.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>Вообще-то эта логика не совсем корректна. Тест Ливиня - это такой же статистический тест, как и остальные. Поэтому считать, что допущения соблюдаются на основании того, что p-value больше допустимого уровня <span class="math inline">\(\alpha\)</span>, - это неправильно. Но для проверки допущений такая не очень корректная практика считается допустимой.<a href="d2.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="d1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
