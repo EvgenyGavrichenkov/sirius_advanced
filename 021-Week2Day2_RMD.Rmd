@@ -159,6 +159,11 @@ ggplotly(ggplot_scatter)
 
 ### Вставлять HTML {#html}
 
-<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Можно собирать RMarkdown документ в разные форматы: .pdf (с помощью LaTeX), Word-файл или HTML-страницу. Если во собираете документ соответствующего формата, то вам доступны и соответствующие плюшки этого формата. Например, этот сайт - это .Rmd, собранный в HTML. Я могу вставлять сюда любой HTML код. Например, видео с YouTube!
 
+```
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
+
+<iframe width="966" height="543" src="https://www.youtube.com/embed/hHW1oY26kxQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
