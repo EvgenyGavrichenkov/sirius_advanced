@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
+  <title>2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя</title>
   <meta name="description" content="Конспекты для курса по анализу данных в R для Сириус">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta property="og:title" content="2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
+  <meta name="twitter:title" content="2 Неделя 2, День 1 | Анализ данных в социальных науках с помощью языка R. Вторая неделя" />
   
   <meta name="twitter:description" content="Конспекты для курса по анализу данных в R для Сириус" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-21">
+<meta name="date" content="2020-01-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,25 +48,6 @@
 
 
 
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.6/datatables.js"></script>
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
-<script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
-<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
-<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
-<script src="libs/d3-4.5.0/d3.min.js"></script>
-<link href="libs/edgebundleR-0.0.2/styles.css" rel="stylesheet" />
-<script src="libs/edgebundleR-0.0.2/packages.js"></script>
-<script src="libs/edgebundleR-binding-0.1.4/edgebundleR.js"></script>
-<script src="libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
 
 
 <style type="text/css">
@@ -120,18 +101,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Анализ данных в социальных науках с помощью языка R. Вторая неделя </a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Начало работы</a></li>
 <li class="chapter" data-level="2" data-path="d1.html"><a href="d1.html"><i class="fa fa-check"></i><b>2</b> Неделя 2, День 1</a><ul>
 <li class="chapter" data-level="2.1" data-path="d1.html"><a href="d1.html#warm"><i class="fa fa-check"></i><b>2.1</b> Warmup exercise</a></li>
 <li class="chapter" data-level="2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2</b> Простая линейная регрессия</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#formula"><i class="fa fa-check"></i><b>2.2.1</b> Формула</a></li>
-<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.2</b> Функция lm()</a></li>
-<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.3</b> Интерпретация вывода линейной регрессии</a></li>
-<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.4</b> Допущения линейной регрессии</a></li>
-<li class="chapter" data-level="2.2.5" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.5</b> Влияние выбросов на линейную модель</a></li>
+<li class="chapter" data-level="2.2.1" data-path="d1.html"><a href="d1.html#lm"><i class="fa fa-check"></i><b>2.2.1</b> Функция lm()</a></li>
+<li class="chapter" data-level="2.2.2" data-path="d1.html"><a href="d1.html#interpret"><i class="fa fa-check"></i><b>2.2.2</b> Интерпретация вывода линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.3" data-path="d1.html"><a href="d1.html#lm_a"><i class="fa fa-check"></i><b>2.2.3</b> Допущения линейной регрессии</a></li>
+<li class="chapter" data-level="2.2.4" data-path="d1.html"><a href="d1.html#outliers"><i class="fa fa-check"></i><b>2.2.4</b> Влияние выбросов на линейную модель</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="d1.html"><a href="d1.html#lm_mult"><i class="fa fa-check"></i><b>2.3</b> Множественная линейная регрессия</a></li>
 </ul></li>
@@ -150,16 +130,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="d2-rmd.html"><a href="d2-rmd.html"><i class="fa fa-check"></i><b>4</b> Неделя 2, День 2, продолжение</a><ul>
-<li class="chapter" data-level="4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>4.1.1</b> Настройки чанка</a></li>
-<li class="chapter" data-level="4.1.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>4.1.2</b> Настройка нескольких чанков</a></li>
-<li class="chapter" data-level="4.1.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>4.1.3</b> Чанки с Python!</a></li>
-<li class="chapter" data-level="4.1.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>4.1.4</b> Код вне чанков (inline code)</a></li>
-<li class="chapter" data-level="4.1.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>4.1.5</b> Синтаксис Markdown (без R)</a></li>
-<li class="chapter" data-level="4.1.6" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>4.1.6</b> Таблицы</a></li>
-<li class="chapter" data-level="4.1.7" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>4.1.7</b> Визуализации</a></li>
-<li class="chapter" data-level="4.1.8" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>4.1.8</b> Динамические визуализации в plotly</a></li>
-<li class="chapter" data-level="4.1.9" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>4.1.9</b> Вставлять HTML</a></li>
+<li class="chapter" data-level="4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd"><i class="fa fa-check"></i><b>4.1</b> RMarkdown</a></li>
+<li class="chapter" data-level="4.2" data-path="d2-rmd.html"><a href="d2-rmd.html#--rmarkdown"><i class="fa fa-check"></i><b>4.2</b> Что такое RMarkdown</a></li>
+<li class="chapter" data-level="4.3" data-path="d2-rmd.html"><a href="d2-rmd.html#--"><i class="fa fa-check"></i><b>4.3</b> Чанки с кодом</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="d2-rmd.html"><a href="d2-rmd.html#chunk"><i class="fa fa-check"></i><b>4.3.1</b> Настройки чанка</a></li>
+<li class="chapter" data-level="4.3.2" data-path="d2-rmd.html"><a href="d2-rmd.html#chunks"><i class="fa fa-check"></i><b>4.3.2</b> Настройка нескольких чанков</a></li>
+<li class="chapter" data-level="4.3.3" data-path="d2-rmd.html"><a href="d2-rmd.html#python"><i class="fa fa-check"></i><b>4.3.3</b> Чанки с Python!</a></li>
+<li class="chapter" data-level="4.3.4" data-path="d2-rmd.html"><a href="d2-rmd.html#inline"><i class="fa fa-check"></i><b>4.3.4</b> Код вне чанков (inline code)</a></li>
+<li class="chapter" data-level="4.3.5" data-path="d2-rmd.html"><a href="d2-rmd.html#md"><i class="fa fa-check"></i><b>4.3.5</b> Синтаксис Markdown (без R)</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="d2-rmd.html"><a href="d2-rmd.html#--"><i class="fa fa-check"></i><b>4.4</b> Заголовки разных уровней</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="d2-rmd.html"><a href="d2-rmd.html#-"><i class="fa fa-check"></i><b>4.4.1</b> Мне заголовок</a></li>
+<li class="chapter" data-level="4.4.2" data-path="d2-rmd.html"><a href="d2-rmd.html#rmd_tables"><i class="fa fa-check"></i><b>4.4.2</b> Таблицы</a></li>
+<li class="chapter" data-level="4.4.3" data-path="d2-rmd.html"><a href="d2-rmd.html#vis"><i class="fa fa-check"></i><b>4.4.3</b> Визуализации</a></li>
+<li class="chapter" data-level="4.4.4" data-path="d2-rmd.html"><a href="d2-rmd.html#din_vis"><i class="fa fa-check"></i><b>4.4.4</b> Динамические визуализации в plotly</a></li>
+<li class="chapter" data-level="4.4.5" data-path="d2-rmd.html"><a href="d2-rmd.html#html"><i class="fa fa-check"></i><b>4.4.5</b> Вставлять HTML</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="d3.html"><a href="d3.html"><i class="fa fa-check"></i><b>5</b> Неделя 2, День 3</a><ul>
@@ -218,7 +203,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="d1" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Неделя 2, День 1</h1>
+<h1><span class="header-section-number">2</span> Неделя 2, День 1</h1>
 <div id="warm" class="section level2">
 <h2><span class="header-section-number">2.1</span> Warmup exercise</h2>
 <p>Итак, давайте загрузим датасет про студентов и вес их рюкзаков и сконвертируем его в data.table:</p>
@@ -229,7 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)</code></pre></div>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
-<li>Исследуйте колонки BackpackWeight и BodyWeight. В чем измеряются эти переменные? Переводите их в килограммы, создав колонки BackpackWeightKG, BodyWeightKG</li>
+<li>Исследуйте колонки BackpackWeight и BodyWeight. В чем измеряются эти переменные? Переведите их в килограммы, создав колонки BackpackWeightKG, BodyWeightKG.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[, <span class="kw">summary</span>(BackpackWeight)]</code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -240,11 +225,11 @@ back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpac
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[,BackpackWeightKG<span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="fl">0.45359237</span><span class="op">*</span>BackpackWeight]
 back[,BodyWeightKG<span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="fl">0.45359237</span><span class="op">*</span>BodyWeight]</code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li>Присвойтен id каждому испытуемому</li>
+<li>Присвойте id каждому испытуемому.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[,id<span class="op">:</span><span class="er">=</span><span class="dv">1</span><span class="op">:</span>.N]</code></pre></div>
 <ol start="3" style="list-style-type: decimal">
-<li>Как различается вес рюкзака в зависимости от пола? Кто весит больше? Если допустить, что выборка репрезентативна, то можно ли сделать вывод о различии в генеральной совокупности?</li>
+<li>Как различается вес рюкзака в зависимости от пола? Кто весит больше? Если допустить, что выборка репрезентативна, то можно ли сделать вывод о различии по среднему весу в генеральной совокупности?</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[,<span class="kw">mean</span>(BackpackWeightKG), by =<span class="st"> </span>Sex]</code></pre></div>
 <pre><code>##       Sex       V1
@@ -319,7 +304,7 @@ back[,BodyWeightKG<span class="op">:</span><span class="er">=</span><span class=
 ##       rho 
 ## 0.2108001</code></pre>
 <ol start="7" style="list-style-type: decimal">
-<li>Постройте диаграмму рассеяния с помощью ggplot2. Цветом закодирйте пол респондента</li>
+<li>Постройте диаграмму рассеяния с помощью ggplot2. Цветом закодируйте пол респондента.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(back, <span class="kw">aes</span>(<span class="dt">x =</span> BodyWeightKG, <span class="dt">y =</span> BackpackWeightKG))<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">colour =</span> Sex), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">2</span>)</code></pre></div>
@@ -343,14 +328,12 @@ back[,BodyWeightKG<span class="op">:</span><span class="er">=</span><span class=
 <p>Простая линейная регрессия - это примерно то же самое. В синтаксисе линейной регрессии уже не обойтись без формул, это такой специальный тип данных в R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(y <span class="op">~</span><span class="st"> </span>x)</code></pre></div>
 <pre><code>## [1] &quot;formula&quot;</code></pre>
-<div id="formula" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Формула</h3>
-<p>Если видите эту волнистую линию - тильду, то значит перед Вами формула.</p>
-<p>Давайте исследуем зависимость размера рюкзака от массы тела. В простой лингейной регрессии, в отличие от корреляции, есть направленность: одна переменная является как бы независимой переменной (предиктором), другая - как бы объясняемой переменной (outcome). Это может немного запутать: если одна переменная предиктор, а другая объясняется этим предиктором, то кажется, что они должны быть обязательно связаны причинно-следственной связью. Это не так: обозначения условны, более того, Вы можете поменять переменные местами и практически ничего не изменится! Короче говоря, “линейная регрессия” не дает никакой магической каузальной силы переменным.</p>
-</div>
+<p>Если видите эту волнистую линию - тильду, это, что значит перед Вами формула.</p>
+<p>Давайте исследуем зависимость размера рюкзака от массы тела. В простой лингейной регрессии, в отличие от корреляции, есть направленность: одна переменная является как бы независимой переменной (предиктором), другая - как бы объясняемой переменной (outcome). В формуле предикторы находятся справа от тильды, а объясняемая переменная - слева.</p>
+<p>Терминология линейной регрессии может немного запутать: если одна переменная предиктор, а другая объясняется этим предиктором, то кажется, что они должны быть обязательно связаны причинно-следственной связью. Это не так: обозначения условны, более того, Вы можете поменять переменные местами и ничего не изменится! Короче говоря, “линейная регрессия” не дает никакой магической каузальной силы переменным.</p>
 <div id="lm" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Функция lm()</h3>
-<p>Давайте посчитаем линейную регрессию функцией lm().</p>
+<h3><span class="header-section-number">2.2.1</span> Функция lm()</h3>
+<p>Давайте посчитаем линейную регрессию функцией <code>lm()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG <span class="op">~</span><span class="st"> </span>BodyWeightKG, <span class="dt">data =</span> back)
 model</code></pre></div>
 <pre><code>## 
@@ -403,8 +386,8 @@ back[, bp <span class="op">:</span><span class="er">=</span><span class="st"> </
 <p>Здесь бессмысленность происходящего еще очевиднее. Конечно, вес студента не может быть равен нулю, иначе это не студент вовсе. Однако это позволяет понять, что такое intercept модели - это значение зависимой переменой в случае, если предиктор равен нулю. А коэффициент предиктора означает, насколько килограммов увеличивается вес рюкзака при увеличении веса студента на 1 кг: на 0.0371297. Не очень много!</p>
 </div>
 <div id="interpret" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Интерпретация вывода линейной регрессии</h3>
-<p>Давайте еще раз посмотрим на summary(model):</p>
+<h3><span class="header-section-number">2.2.2</span> Интерпретация вывода линейной регрессии</h3>
+<p>Давайте еще раз посмотрим на <code>summary(model)</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model)</code></pre></div>
 <pre><code>## 
 ## Call:
@@ -519,18 +502,18 @@ tss</code></pre></div>
 ## 0.03584628</code></pre>
 </div>
 <div id="lm_a" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> Допущения линейной регрессии</h3>
+<h3><span class="header-section-number">2.2.3</span> Допущения линейной регрессии</h3>
 <p>Как и в случае с другими параметрическими методами, линейная регрессия имеет определенные допущения относительно используемых данных. Если они не соблюдаются, то все наши расчеты уровня значимости могут некорректными.</p>
 <blockquote>
 <p>Очень важно ставить вопрос о том, насколько результаты будут некорректными. Как сильно нарушения допущений будет влиять на модель? Ответ на этот вопрос может быть контринтуитивен. Например, достаточно большие отклонения от нормальности нам обычно не стражны при условии того, что выборка достаточно большая.</p>
 </blockquote>
 <p>Допущения линейной регрессии связаны с ошибками: они должны быть нормально распределены, а разброс ошибок должен не уменьшаться и не увеличиваться в зависимости от предсказанных значений. Это то, что называется гомоскедастичностью или гомогенностью (когда все хорошо) и гетероскедастичностью или гетерогенностью (когда все плохо).</p>
-<p>Если мы применим функцию plot(), то получим 4 скаттерплота:</p>
+<p>Если мы применим функцию <code>plot()</code>, то получим 4 скаттерплота:</p>
 <ol style="list-style-type: decimal">
 <li><p><em>Зависимость ошибок от предсказанных значений.</em> На что здесь смотреть? На симметричность относительно нижней и верхней части графика, на то, что разброс примерно одинаковый слева и справа.</p></li>
 <li><p><em>Q-Q plot.</em> Здесь все довольно просто: если ошибки являются выборкой из нормального распределения, то они выстраиваются в прямую линию. Если это мало похоже на прямую линию, то имеет место отклонение от нормальности.</p></li>
-<li><p><em>Scale-Location plot.</em> Этот график очень похож на график 1, только по оси у используются квадратные корни модуля ошибки. Еще один способ исследовать гетеро(гомо)скедастичность и находить выбросы.</p></li>
-<li><p><em>Residuals-Leverage plot.</em> Здесь по оси х - расстояние Кука, а по оси у - стандартизированный размер выбросов. Расстояние Кука показывает high-leverage points - точки, которые имеют экстремальные предсказанные значения, то есть очень большие или очень маленькие значения по предикторам. Для линейной регрессии такие значения имеют большее значение, чем экстремальные точки по предсказываемой переменной. Особенно сильное влияние имеют точки, которые имеют экстремальные значения и по предикторам, и по предсказываемой переменной. Одна такая точка может поменять направление регрессионной прямой! Расстояние Кука отражает уровень leverage, а стандартизированные ошибки отражают экстремальные значения по у (вернее, экстремальные отклонения от предсказанных значений). В этом графике нужно смотреть на точки с правой стороны графика, особенно если они находятся высоко или низко по оси у.</p></li>
+<li><p><em>Scale-Location plot.</em> Этот график очень похож на график 1, только по оси <em>у</em> используются квадратные корни модуля ошибки. Еще один способ исследовать гетеро(гомо)скедастичность и находить выбросы.</p></li>
+<li><p><em>Residuals-Leverage plot.</em> Здесь по оси <em>х</em> - расстояние Кука, а по оси <em>у</em> - стандартизированный размер выбросов. Расстояние Кука показывает <em>high-leverage points</em> - точки, которые имеют экстремальные предсказанные значения, то есть очень большие или очень маленькие значения по предикторам. Для линейной регрессии такие значения имеют большее значение, чем экстремальные точки по предсказываемой переменной. Особенно сильное влияние имеют точки, которые имеют экстремальные значения и по предикторам, и по предсказываемой переменной. Одна такая точка может поменять направление регрессионной прямой! Расстояние Кука отражает уровень <em>leverage</em>, а стандартизированные ошибки отражают экстремальные значения по <em>у</em> (вернее, экстремальные отклонения от предсказанных значений). В этом графике нужно смотреть на точки с правой стороны графика, особенно если они находятся высоко или низко по оси <em>у</em>.</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(model)</code></pre></div>
 <p><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-1.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-2.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-3.png" width="672" /><img src="sirius_advanced_files/figure-html/unnamed-chunk-23-4.png" width="672" /></p>
@@ -541,17 +524,17 @@ tss</code></pre></div>
 <p><img src="sirius_advanced_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>На практике как экстремальные точки часто выбирают среднее плюс минус два (или три стандартных отклонения). Напишите функцию <code>is_outlier()</code>, которая возвращает <code>TRUE</code>, если значение выходит за 2 стандартных отклонения от среднего.</p></li>
-<li><p>Затем измените функцию <code>is_outlier()</code> так, чтобы можно было бы самостоятельно вводить количество стандартных отклонений с помощью параметра <code>n =</code>. Пусть по умолчанию это будет 3. Но проверьте, ято все работает и на 2!</p></li>
-<li><p>Теперь измените функцию <code>is_outlier()</code> так, чтобы можно было выбирать функцию для меры центральности (<code>centr =</code>, по умолчанию - среднее) и функцию для меры разброса (<code>vary =</code>, по умолчанию - стандартное отклонение). Проверьте, что это работает на медиане и 3 median absolute deviation. Как Вы думаете, какой из вариантов подходит больше? Почему?</p></li>
+<li><p>На практике порогом для экстремальных точек часто выбирают среднее ±2 или ±3 стандартных отклонения. Напишите функцию <code>is_outlier()</code>, которая возвращает <code>TRUE</code>, если значение выходит за 2 стандартных отклонения от среднего.</p></li>
+<li><p>Затем измените функцию <code>is_outlier()</code> так, чтобы можно было бы самостоятельно вводить количество стандартных отклонений с помощью параметра <code>n =</code>. Пусть по умолчанию это будет 3. Но проверьте, что все работает и на 2!</p></li>
+<li><p>Теперь измените функцию <code>is_outlier()</code> так, чтобы можно было выбирать функцию для меры центральности (<code>centr =</code>, по умолчанию - среднее) и функцию для меры разброса (<code>vary =</code>, по умолчанию - стандартное отклонение). Проверьте, что это работает на медиане и 3 <em>median absolute deviation</em>. Как Вы думаете, какой из вариантов подходит больше? Почему?</p></li>
 </ol>
 <blockquote>
 <p>О, да, в R функция тоже может быть использована в качестве аргумента функции. Впрочем, это не первый случай, когда мы с этим сталкиваемся. Другой пример - функции семейства <code>*apply()</code>. Заметьте - там тоже в качестве аргумента выступала функция (как объект), а не просто название функции как строковая переменная. В этом задании нужно сделать так же.</p>
 </blockquote>
 </div>
 <div id="outliers" class="section level3">
-<h3><span class="header-section-number">2.2.5</span> Влияние выбросов на линейную модель</h3>
-<p>Давайте теперь попробуем посмотреть, как изменится модель, если выкинуть high leverage points (экстремальные значения по предиктору - body) и что будет, если выкинуть экстремальные значения по у. Обычная линия - регрессионная прямая для модели со всеми точками, штрихованная линия - регрессионная прямая для модели без экстремальных значений по предиктору, пунктирная линия - регрессионная прямая для модели без экстремальных значений по предсказываемой переменной.</p>
+<h3><span class="header-section-number">2.2.4</span> Влияние выбросов на линейную модель</h3>
+<p>Давайте теперь попробуем посмотреть, как изменится модель, если выкинуть <em>high leverage points</em> (экстремальные значения по предиктору - body) и что будет, если выкинуть экстремальные значения по у. Обычная линия - регрессионная прямая для модели со всеми точками, штрихованная линия - регрессионная прямая для модели без экстремальных значений по предиктору, пунктирная линия - регрессионная прямая для модели без экстремальных значений по предсказываемой переменной.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">back[, body_outlier <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">is_outlier</span>(body)]
 back[, bp_outlier <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">is_outlier</span>(bp)]
 model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG <span class="op">~</span><span class="st"> </span>BodyWeightKG, <span class="dt">data =</span> back[<span class="op">!</span><span class="kw">is_outlier</span>(body),])
@@ -609,7 +592,7 @@ model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG
 </div>
 <div id="lm_mult" class="section level2">
 <h2><span class="header-section-number">2.3</span> Множественная линейная регрессия</h2>
-<p>В множественной линейной регрессионной регрессии у нас появляется несколько предикторов. Какая модель лучше: где есть много предикторов или где мало предикторов? С одной стороны, чем больше предикторов, тем лучше: каждый новый предиктор может объяснить чуть больше необъясненной дисперсиии. С другой стороны, если эта прибавка маленькая (а она всегда будет не меньше нуля), то, возможно, новый предиктор просто объясняет “случайный шум”. В действительности, если у нас будет достаточно много предикторов, то мы сможем объяснить любые данные! Парадоксальным образом такая модель будет давать очень плохие данные на новой выборке - это то, что в машинном обучении называют переобучением (overfitting). Идеальная модель будет включать минимум предикторов, которые лучше всего объясненяют исследуемую переменную. Это что-то вроде <a href="https://ru.wikipedia.org/wiki/Бритва_Оккама">бритвы Оккама</a> в статистике.</p>
+<p>В множественной линейной регрессионной регрессии у нас появляется несколько предикторов. Какая модель лучше: где есть много предикторов или где мало предикторов? С одной стороны, чем больше предикторов, тем лучше: каждый новый предиктор может объяснить чуть больше необъясненной дисперсиии. С другой стороны, если эта прибавка маленькая (а она всегда будет не меньше нуля), то, возможно, новый предиктор просто объясняет “случайный шум”. В действительности, если у нас будет достаточно много предикторов, то мы сможем объяснить любые данные! Парадоксальным образом такая модель будет давать очень хорошие результаты на той выборке, по которой мы считаем коэффициенты, но делать очень плохие предсказания на новой выборке - это то, что в машинном обучении называют переобучением (<em>overfitting</em>). Идеальная модель будет включать минимум предикторов, которые лучше всего объясненяют исследуемую переменную. Это что-то вроде <a href="https://ru.wikipedia.org/wiki/Бритва_Оккама">бритвы Оккама</a> в статистике.</p>
 <p>Поэтому часто используются показатели качества модели, которые “наказывают” модель за большое количество предикторов. Например, adjusted R<sup>2</sup>:</p>
 <p><span class="math display">\[R_{adj} = 1 - (1 - R^2) \frac{n -1}{n - p - 1}\]</span></p>
 <p>Здесь <em>n</em> - это количество наблюдений, <em>p</em> - количество параметров.</p>
@@ -636,21 +619,21 @@ model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BackpackWeightKG
 ## Multiple R-squared:  0.05628,    Adjusted R-squared:  0.03682 
 ## F-statistic: 2.892 on 2 and 97 DF,  p-value: 0.06025</code></pre>
 <p>Множественная линейная регрессия имеет еще одно допущение: отстутсвие мультиколлинеарности. Это значит, что предикторы не должны коррелировать друг с другом.</p>
-<p>Для измерения мультколлинеарности существует variance inflation factor (VIF-фактор). Считается он просто: для предиктора <span class="math inline">\(i\)</span> считается линейная регрессия, где все остальные предикторы предсказывают предиктор <span class="math inline">\(i\)</span>.</p>
+<p>Для измерения мультколлинеарности существует <em>variance inflation factor</em> (<em>VIF-фактор</em>). Считается он просто: для предиктора <span class="math inline">\(i\)</span> считается линейная регрессия, где все остальные предикторы предсказывают предиктор <span class="math inline">\(i\)</span>.</p>
 <p>Сам VIF-фактор считается на основе полученного R<sup>2</sup> регрессии:</p>
 <p><span class="math display">\[VIF_i = \frac{1}{1 - R_i^2}\]</span></p>
 <p>Если R<sub>i</sub><sup>2</sup> большой, то и VIF<sub>i</sub> выходит большим. Это означает, что предиктор сам по себе хорошо объясняется другими предикторами. Какой VIF считать большим? Здесь нет единого мнения, но если он выше 3 и особенно если он выше 10, то с этим нужно что-то делать.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">car<span class="op">::</span><span class="kw">vif</span>(model3)</code></pre></div>
 <pre><code>##    body   Units 
 ## 1.05858 1.05858</code></pre>
-<p>В нашем случае это не так. Но если бы VIF был большим для какого-либо предиктора, то можно было бы либо попробовать его выкинуть или же использовать анализ главных компонент, о котором пойдет речь в один из следующих дней.</p>
+<p>В нашем случае это не так. Но если бы VIF был большим для какого-либо предиктора, то можно было бы либо попробовать его выкинуть или же использовать анализ главных компонент (см. <a href="d4.html#pca">6.3</a>), о котором пойдет речь в один из следующих дней.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>ANOVA от ANalysis Of VAriance, по-русски часто читается как “АНОВА”.<a href="d1.html#fnref1">↩</a></p></li>
+<li id="fn1"><p>Кредиты - это что-то вроде часов во многих зарубежных системах образования. Более “тяжелые” курсы дают больше кредитов. Студентам необходимо набрать определенное количество кредитов, чтобы закончить вуз.<a href="d1.html#fnref1">↩</a></p></li>
 </ol>
 </div>
             </section>
