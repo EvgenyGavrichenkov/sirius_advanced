@@ -36,7 +36,7 @@ frac_na <- function(x) mean(is.na(x))
 Потом применим эту фунцкию, чтобы выделить названия колонок, в которых `NA` меньше половины: 
 
 ```{r}
-not_na_op <- sapply(opinion, frac_na) < 0.5 
+not_na_op <- sapply(opinion, frac_na) < 0.5
 opinion <- opinion[, ..not_na_op]
 ```
 
@@ -285,27 +285,27 @@ install.packages("igraph")
 ```{r}
 opinion_cor_abs <- abs(opinion_cor)
 diag(opinion_cor_abs) <- 0
-rownames(opinion_cor_abs) <- colnames(opinion_cor_abs) <- gsub("\\.", "", colnames(opinion_cor_abs))
+rownames(opinion_cor_abs) <-
+colnames(opinion_cor_abs) <-
+gsub("\\.", "", colnames(opinion_cor_abs))
 
 
 library(igraph)
-opinion_ig <- graph.adjacency(opinion_cor_abs, weighted = TRUE, mode = "lower")
+opinion_ig <-
+graph.adjacency(opinion_cor_abs, weighted = TRUE, mode = "lower")
 opinion_ig <- delete.edges(opinion_ig, E(opinion_ig)[weight < 0.2])
-plot(opinion_ig, vertex.colour = "grey", vertex.frame.color = NA,
-     vertex.size = strength(opinion_ig)*3+2, vertex.label.dist = 1,
-     edge.curved = 0, vertex.label.color = "black")
+plot(
+opinion_ig,
+vertex.colour = "grey",
+vertex.frame.color = NA,
+vertex.size = strength(opinion_ig) * 3 + 2,
+vertex.label.dist = 1,
+edge.curved = 0,
+vertex.label.color = "black"
+)
 ```
 
 В R есть множество пакетов для интерактивных визуализаций графов.
-
-```{r, eval = FALSE}
-install.packages("edgebundleR")
-```
-
-```{r}
-library(edgebundleR)
-edgebundle(opinion_ig)
-```
 
 ```{r, eval = FALSE}
 install.packages("networkD3")
@@ -314,8 +314,16 @@ install.packages("networkD3")
 ```{r}
 library(networkD3)
 opinion_nd3 <- igraph_to_networkD3(opinion_ig)
-forceNetwork(Links = opinion_nd3$links, Nodes = opinion_nd3$nodes,
-             Source = 'source', Target = 'target', 
-             NodeID = 'name', Group = 1, opacity = 1)
+opinion_nd3$links$source <- opinion_nd3$links$source - 1
+opinion_nd3$links$target <- opinion_nd3$links$target - 1
+forceNetwork(
+Links = opinion_nd3$links,
+Nodes = opinion_nd3$nodes,
+Source = 'source',
+Target = 'target',
+NodeID = 'name',
+Group = 1,
+opacity = 1
+)
 ```
 
