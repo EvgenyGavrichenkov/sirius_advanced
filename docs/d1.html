@@ -25,7 +25,7 @@
 <meta name="author" content="Иван Поздняков">
 
 
-<meta name="date" content="2020-01-23">
+<meta name="date" content="2020-01-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -183,12 +183,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.5" data-path="d4.html"><a href="d4.html#cfa"><i class="fa fa-check"></i><b>5.5</b> Конфирматорный факторный анализ</a></li>
 <li class="chapter" data-level="5.6" data-path="d4.html"><a href="d4.html#other_multi"><i class="fa fa-check"></i><b>5.6</b> Другие многомерные методы</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="d6.html"><a href="d6.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 6</a><ul>
-<li class="chapter" data-level="6.1" data-path="d6.html"><a href="d6.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
-<li class="chapter" data-level="6.2" data-path="d6.html"><a href="d6.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="d6.html"><a href="d6.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
-<li class="chapter" data-level="6.2.2" data-path="d6.html"><a href="d6.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
-<li class="chapter" data-level="6.2.3" data-path="d6.html"><a href="d6.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
+<li class="chapter" data-level="6" data-path="d5.html"><a href="d5.html"><i class="fa fa-check"></i><b>6</b> Неделя 2, День 5</a><ul>
+<li class="chapter" data-level="6.1" data-path="d5.html"><a href="d5.html#style"><i class="fa fa-check"></i><b>6.1</b> Стиль кода</a></li>
+<li class="chapter" data-level="6.2" data-path="d5.html"><a href="d5.html#repr"><i class="fa fa-check"></i><b>6.2</b> Вопроизводимость исследований</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="d5.html"><a href="d5.html#quest"><i class="fa fa-check"></i><b>6.2.1</b> Спорные исследовательские практики</a></li>
+<li class="chapter" data-level="6.2.2" data-path="d5.html"><a href="d5.html#repr_r"><i class="fa fa-check"></i><b>6.2.2</b> Вопроизводимые исследования в R</a></li>
+<li class="chapter" data-level="6.2.3" data-path="d5.html"><a href="d5.html#power"><i class="fa fa-check"></i><b>6.2.3</b> Статистическая мощность</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -217,8 +217,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Итак, давайте загрузим датасет про студентов и вес их рюкзаков и сконвертируем его в data.table:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;Stat2Data&quot;</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(Stat2Data)
-<span class="kw">library</span>(data.table)
-<span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
+<span class="kw">library</span>(data.table)</code></pre></div>
+<pre><code>## data.table 1.12.8 using 2 threads (see ?getDTthreads).  Latest news: r-datatable.com</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;Backpack&quot;</span>)
 back &lt;-<span class="st"> </span><span class="kw">as.data.table</span>(Backpack)</code></pre></div>
 <p><strong>Самостоятельное задание:</strong></p>
 <ol style="list-style-type: decimal">
